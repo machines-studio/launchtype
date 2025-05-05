@@ -1,0 +1,25 @@
+@import '@tooooools/ui/style';
+@import '/style/reset';
+@import '/style/animations';
+@import '/style/fonts';
+@import '/style/base';
+
+:root {
+  --color-text: #222;
+  --color-background: #EFEFEF;
+
+  --font-family-sans: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', menlo, consolas, 'DejaVu Sans Mono', monospace;
+  --font-size: 1.3rem;
+  --line-height: 1.3;
+}
+
+.speed-range {
+  --ui-border-radius: 0;
+  --ui-color-text: var(--color-text);
+  --ui-color-background: var(--color-background);
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
