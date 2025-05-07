@@ -1,0 +1,85 @@
+.app {
+  position: fixed;
+  inset: 0;
+
+  display: grid;
+  grid-template-columns: calc((100vh - var(--space-gutter) * 2) * (50 / 70)) 1fr;
+  gap: var(--space-gutter);
+  padding: var(--space-gutter);
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-gap);
+
+    [class^='ui-'] {
+      --ui-border: 1px solid;
+
+      &:hover, &.is-active {
+        border-color:var(--ui-color-accent);
+      }
+    }
+  }
+
+  &__words {
+    flex: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    gap: var(--ui-gap);
+    margin-bottom: auto;
+
+    .button--add-word {
+      order: 9999;
+    }
+  }
+
+  .word {
+    @include no-select;
+    cursor: grab;
+    white-space: nowrap;
+  }
+
+  &__words .word,
+  .word.draggable-mirror {
+    height: var(--ui-height);
+    padding: var(--ui-padding-container);
+
+    font-size: var(--ui-icon-size);
+    line-height: 90% !important;
+    color: black;
+
+    background: white;
+    border-radius: var(--rounded);
+
+    &.draggable-mirror {
+      height: var(--ui-height);
+      cursor: grabbing;
+      background: var(--ui-color-accent);
+    }
+
+    &.draggable-source--is-dragging {
+      cursor: grabbing;
+      opacity: 0.2;
+    }
+  }
+
+  &__toolbar {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  // Style when dropping a word to be removed
+  .button--remove-word:has(.word) {
+    svg {
+      @include easing(transform);
+      transform: scale(1.2) rotate(2deg);
+    }
+
+    .word {
+      display: none;
+    }
+  }
+}

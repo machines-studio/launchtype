@@ -1,0 +1,6 @@
+export { default as add } from 'iconoir/icons/solid/plus-circle.svg?raw'
+export { default as shuffle } from 'iconoir/icons/shuffle.svg?raw'
+export { default as close } from 'iconoir/icons/xmark.svg?raw'
+export { default as ok } from 'iconoir/icons/check.svg?raw'
+export { default as plus } from 'iconoir/icons/plus.svg?raw'
+export { default as trash } from 'iconoir/icons/solid/trash.svg?raw'

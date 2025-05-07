@@ -1,0 +1,37 @@
+.poster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+  overflow: hidden;
+
+  color: black;
+
+  background: white;
+  border-radius: var(--rounded);
+  box-shadow: 0 0 10px rgba(0 0 0 / 10%);
+
+  .cell {
+    display: flex;
+    align-items: center;
+    font-family: epilogue;
+
+    .word:not(.draggable-mirror) {
+      padding: 0;
+      font-size: inherit;
+      background: none;
+
+      .word__char {
+        display: inline-block;
+        font-variation-settings: "wght" var(--wght);
+      }
+    }
+
+    &:has(.word:not(.draggable-source--is-dragging, .draggable-mirror, .draggable--original)):has(.draggable-source--is-dragging) .word:not(.draggable-source--is-dragging, .draggable-mirror, .draggable--original) {
+      display: none;
+    }
+  }
+
+  &:has(.draggable-source--is-dragging) .cell {
+    outline: 1px dashed;
+  }
+}
