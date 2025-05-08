@@ -14,7 +14,9 @@ import { animate, utils } from 'animejs'
 // Map some defaults value that are not correctly interpolated by animejs
 const DEFAULTS = {
   // property: { defaultValue: defaultNumericValue }
-  letterSpacing: { normal: 0 }
+  letterSpacing: { normal: 0 },
+  x: { '0px': 0 },
+  y: { '0px': 0 }
 }
 
 export default function ({
@@ -35,15 +37,25 @@ export default function ({
       element.adsr.destroy()
     },
 
+    // Prepare an element to use a ADSR envelope
+    prepare: async (element, targets = [element], { force = false } = {}) => {
+      // Attach if not already attached
+      if (!element.adsr) attach(element)
+      if (typeof targets === 'string') targets = element.querySelectorAll(targets)
+
+      if (!targets || !targets.length) return
+      element.adsr.prepare(targets, { force })
+    },
+
     // Start the ADSR envelope
-    start: async (element, targets = [element], { refresh = false } = {}) => {
+    start: async (element, targets = [element]) => {
       // Attach if not already attached
       if (!element.adsr) attach(element)
       if (typeof targets === 'string') targets = element.querySelectorAll(targets)
 
       element.adsr.cancel()
-      element.adsr.prepare(targets, { force: refresh })
 
+      if (!targets || !targets.length) return
       await element.adsr.attack(targets)
       await element.adsr.decay(targets)
       await element.adsr.sustain(targets)
@@ -55,6 +67,8 @@ export default function ({
       if (typeof targets === 'string') targets = element.querySelectorAll(targets)
 
       element.adsr.cancel()
+
+      if (!targets || !targets.length) return
       await element.adsr.release(targets)
     }
   }
@@ -125,12 +139,13 @@ export default function ({
         for (const name of animations) element.adsr.animations[name]?.cancel()
       },
 
-      // Destroy all animation, free-up memory and revert to initial state
-      destroy: ({ cleanInlineStyles = true } = {}) => {
-        if (!element.adsr) return
-
+      // Cancel and revert all animations, or by specifying their registration name
+      revert: (animations = Object.keys(element.adsr.animations), { cleanInlineStyles = true } = {}) => {
         // Cancel all registered animations
-        for (const animation of Object.values(element.adsr.animations)) {
+        for (const name of animations) {
+          const animation = element.adsr.animations[name]
+          if (!animation) continue
+
           animation.cancel()
           // Cleanup all targets
           for (const element of animation.targets) {
@@ -143,6 +158,14 @@ export default function ({
             delete element.__adsr_initial
           }
         }
+      },
+
+      // Destroy all animation, free-up memory and revert to initial state
+      destroy: ({ cleanInlineStyles = true } = {}) => {
+        if (!element.adsr) return
+
+        // Cancel and revert all animations
+        element.adsr.revert(undefined, { cleanInlineStyles })
 
         // Detach ADSR instance
         delete element.adsr

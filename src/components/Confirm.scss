@@ -3,6 +3,7 @@
 
   &__content:not(:empty) {
     margin-bottom: var(--space-gutter);
+    color: black;
   }
 
   &__toolbar {

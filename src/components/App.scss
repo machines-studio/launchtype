@@ -1,27 +1,90 @@
 .app {
+  --ui-outline: 1px solid var(--ui-color-text);
+  --ui-toolbar-hr: 1px dashed var(--ui-color-text);
+
   position: fixed;
   inset: 0;
 
-  display: grid;
-  grid-template-columns: calc((100vh - var(--space-gutter) * 2) * (50 / 70)) 1fr;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-gutter);
   padding: var(--space-gutter);
 
-  &__sidebar {
+  @include portrait {
+    position: relative;
+  }
+
+  &__artboard {
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    gap: var(--ui-gap);
+    gap: var(--space-gutter);
 
-    [class^='ui-'] {
-      --ui-border: 1px solid;
+    @include portrait {
+      flex-direction: column;
+    }
+  }
 
-      &:hover, &.is-active {
-        border-color:var(--ui-color-accent);
+  &__toolbar {
+    justify-content: space-between;
+    overflow: visible;
+
+    @include portrait {
+      width: 100%;
+
+      .button--prev-blueprint svg,
+      .button--next-blueprint svg {
+        transform: rotate(-90deg);
+      }
+    }
+
+    @include landscape {
+      &, [class^='ui-toolbar-'] {
+        flex-direction: column;
+
+        hr {
+          border: 0;
+          border-top: var(--ui-toolbar-hr);
+        }
+
+        &:not(.is-compact) > hr + * {
+          margin-top: var(--ui-gap);
+          margin-left: 0;
+        }
+
+        &.is-compact > *:not(:first-child) {
+          border: 0;
+          border-top: var(--ui-outline);
+        }
       }
     }
   }
 
+  &__poster-container {
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
+    height: 100%;
+    max-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
+    min-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
+    overflow: visible;
+
+    @include portrait {
+      width: 100%;
+      height: calc((100vw - var(--space-gutter) * 2) / (50 / 70));
+      max-width: unset;
+      min-width: unset;
+    }
+  }
+
   &__words {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-gutter);
+  }
+
+  &__words-container {
     flex: 1;
 
     display: flex;
@@ -29,10 +92,21 @@
     align-content: flex-start;
     align-items: flex-start;
     gap: var(--ui-gap);
+    min-height: calc(var(--ui-height) * 3 + var(--ui-gap) * 2);
     margin-bottom: auto;
 
-    .button--add-word {
-      order: 9999;
+    &:empty {
+      border-radius: var(--ui-border-radius);
+      outline: 1px solid;
+    }
+  }
+
+  &__words-toolbar {
+    justify-content: flex-end;
+    width: 100%;
+
+    @include portrait {
+      justify-content: space-between;
     }
   }
 
@@ -42,22 +116,26 @@
     white-space: nowrap;
   }
 
-  &__words .word,
-  .word.draggable-mirror {
-    height: var(--ui-height);
-    padding: var(--ui-padding-container);
+  &__words-container .word,
+  & > .word.draggable-mirror {
+    height: var(--ui-height) !important;
+    padding: var(--ui-padding-container) !important;
 
-    font-size: var(--ui-icon-size);
+    font-family: var(--ui-font-family) !important;
+    font-size: var(--ui-icon-size) !important;
     line-height: 90% !important;
-    color: black;
+    color: black !important;
 
     background: white;
     border-radius: var(--rounded);
 
+    &.draggable-source--is-dragging,
     &.draggable-mirror {
-      height: var(--ui-height);
+      z-index: 9;
       cursor: grabbing;
       background: var(--ui-color-accent);
+      transform: translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0) !important;
+      box-shadow: 0 0 10px rgba(0 0 0 / 10%);
     }
 
     &.draggable-source--is-dragging {
@@ -66,13 +144,11 @@
     }
   }
 
-  &__toolbar {
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  // Style when dropping a word to be removed
+  // Style when dropping a word to an actionable button
+  .button--add-word:has(.word),
   .button--remove-word:has(.word) {
+    @include easing(transform, var(--easing), true);
+
     svg {
       @include easing(transform);
       transform: scale(1.2) rotate(2deg);

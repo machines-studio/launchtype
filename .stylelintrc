@@ -5,6 +5,10 @@
     "stylelint-order"
   ],
   "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["global", "local"] }
+    ],
     "selector-class-pattern": false,
     "no-descending-specificity": false,
     "no-extra-semicolons": true,

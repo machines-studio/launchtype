@@ -1,0 +1,14 @@
+.poster:local(.poster) {
+  color: #fe6766;
+  background: #7f6ddf;
+
+  .row[data-size='auto'] {
+    overflow: hidden;
+
+    .cell {
+      padding-bottom: 0;
+      color: #7f6ddf;
+      background: #fe6766;
+    }
+  }
+}

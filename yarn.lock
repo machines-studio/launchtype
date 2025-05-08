@@ -423,10 +423,10 @@
     estraverse "^5.3.0"
     picomatch "^4.0.2"
 
-"@tooooools/ui@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@tooooools/ui/-/ui-1.7.0.tgz#f9aba355457b8935241925f0733ca86a948f5b2d"
-  integrity sha512-zuXTnaFfluYuoSBDdsLZKP4iqafA/KM7XRIytFro4FrvTgGOcXgRdeu1wxLueSZqAUVWD0PCe9lQh993CjLfdQ==
+"@tooooools/ui@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@tooooools/ui/-/ui-1.8.0.tgz#02247068c5e693dd8c298b5007922ee982f90a2e"
+  integrity sha512-rWBIzCrsf6i2sxxcsYt6j+5qhPGfVpVwi99cgh80p7YrhZjTrk3Y5Q1qEwXcn5s4Jv2rtyMRaUMUIJuLdhLZxA==
   dependencies:
     debounce "^1.2.1"
 

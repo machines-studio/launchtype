@@ -1,7 +1,18 @@
 .poster {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+  --poster-base-font-size: 5rem;
+  --poster-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
+  --poster-height: calc((100vh - var(--space-gutter) * 2) * (70 / 50));
+  --poster-base-row-height: calc(var(--poster-height) / 24);
+  --poster-gutter: calc(0.005 * var(--poster-height));
+  --poster-padding: calc(0.005 * var(--poster-height));
+  --poster-font-scale: 1;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
   color: black;
@@ -10,28 +21,113 @@
   border-radius: var(--rounded);
   box-shadow: 0 0 10px rgba(0 0 0 / 10%);
 
-  .cell {
+  &[data-name]::before {
+    content: attr(data-name);
+
+    position: absolute;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+
+    padding: var(--ui-padding-container);
+
+    font-family: var(--ui-font-family);
+    font-size: var(--ui-font-size);
+    line-height: var(--ui-line-height);
+    color: black;
+
+    background: var(--ui-color-accent);
+    border-radius: var(--ui-border-radius);
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 0 10px rgba(0 0 0 / 10%);
+    animation: fade-out 1s 500ms both ease;
+  }
+
+  .row {
     display: flex;
+    height: calc(var(--row-factor) * var(--poster-base-row-height));
+    font-size: calc(var(--poster-base-font-size) * var(--row-factor));
+    line-height: 100%;
+
+    &[data-size='auto'] { flex: 1; }
+    &[data-size='small'] { --row-factor: 1; }
+    &[data-size='medium'] { --row-factor: 1.618; }
+    &[data-size='large'] { --row-factor: 1.618 * 2; }
+  }
+
+  .cell {
+    flex: 1 1 0px;
+
+    position: relative;
+
+    display: flex;
+    justify-content: var(--cell-text-align);
     align-items: center;
-    font-family: epilogue;
+    width: 0; // Used with `flex: 1 1 0px` to fix cell width
+    padding:
+      var(--padding-top, 0)
+      var(--padding-right, 0)
+      var(--padding-bottom, 0)
+      var(--padding-left, 0);
 
-    .word:not(.draggable-mirror) {
-      padding: 0;
-      font-size: inherit;
-      background: none;
+    white-space: nowrap;
 
-      .word__char {
-        display: inline-block;
-        font-variation-settings: "wght" var(--wght);
-      }
+    // Visual aid
+    &::after {
+      @include easing(opacity);
+      content: '';
+
+      position: absolute;
+      inset:
+        var(--padding-top, 0)
+        var(--padding-right, 0)
+        var(--padding-bottom, 0)
+        var(--padding-left, 0);
+
+      pointer-events: none;
+
+      background: rgba(0 0 0 / 10%);
+      border-radius: var(--rounded-inside);
+      opacity: 0;
+      animation: fade-out 1s both;
     }
 
-    &:has(.word:not(.draggable-source--is-dragging, .draggable-mirror, .draggable--original)):has(.draggable-source--is-dragging) .word:not(.draggable-source--is-dragging, .draggable-mirror, .draggable--original) {
-      display: none;
+    &[data-align='left'] { --cell-text-align: flex-start; }
+    &[data-align='right'] { --cell-text-align: flex-end; }
+    &[data-align='center'] { --cell-text-align: center; }
+  }
+
+  .row:first-child .cell { --padding-top: var(--poster-padding); }
+  .row:last-child .cell { --padding-bottom: var(--poster-padding); }
+  .cell:first-child { --padding-left: var(--poster-padding); }
+  .cell:last-child { --padding-right: var(--poster-padding); }
+
+  .row:not(:first-child) { --padding-top: calc(var(--poster-gutter) / 2); }
+  .row:not(:last-child) { --padding-bottom: calc(var(--poster-gutter) / 2); }
+  .cell:not(:first-child) { --padding-left: calc(var(--poster-gutter) / 2); }
+  .cell:not(:last-child) { --padding-right: calc(var(--poster-gutter) / 2); }
+
+  .word {
+    &__char {
+      // TODO
+      display: inline-block;
+      font-variation-settings: "wght" var(--wght);
     }
   }
 
-  &:has(.draggable-source--is-dragging) .cell {
-    outline: 1px dashed;
+  // Hide previous word when dropping a new one in a cell
+  .word:first-child:not(:last-child) {
+    display: none;
+  }
+
+  // Avoid hitting overflowing dropzones when dragging a word
+  .cell.draggable-dropzone--active .word {
+    pointer-events: none;
+  }
+
+  .app.has-visible-grid & .cell::after,
+  body.draggable--is-dragging & .cell::after {
+    opacity: 1;
+    animation: none;
   }
 }

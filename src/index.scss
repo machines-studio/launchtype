@@ -10,6 +10,7 @@
 
   --space-gutter: 1.5rem;
   --rounded: 1.0rem;
+  --rounded-inside: 0.3rem;
   --easing: 200ms;
 
   --font-family-sans: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
@@ -22,8 +23,10 @@
   --ui-padding-content: var(--space-gutter);
   --ui-icon-size: 3rem;
   --ui-border-radius: var(--rounded);
+  --ui-outline-offset: -1px;
   --ui-color-background: var(--color-background);
   --ui-color-text: var(--color-text);
   --ui-color-accent: #968ae9;
   --ui-modal-height: 80vh;
+  --ui-button-animation: button 120ms ease-out;
 }

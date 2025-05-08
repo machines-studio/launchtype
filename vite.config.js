@@ -38,6 +38,9 @@ export default defineConfig(({ mode }) => {
 
     css: {
       devSourcemap: true,
+      modules: {
+        scopeBehaviour: 'global',
+      },
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler',
