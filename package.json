@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate",
+  "name": "launchtype",
   "version": "0.0.0",
-  "description": "Opinionated Vite boilerplate to build reactive webapps",
+  "description": "launchpad + type case",
   "scripts": {
     "start": "vite",
     "build": "vite build",
