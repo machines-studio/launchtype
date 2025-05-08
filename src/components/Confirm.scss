@@ -8,6 +8,10 @@
 
   &__toolbar {
     width: 100%;
-    & > * { flex: 1; }
+
+    & > * {
+      flex: 1;
+      justify-content: center;
+    }
   }
 }

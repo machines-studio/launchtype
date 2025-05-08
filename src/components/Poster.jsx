@@ -61,6 +61,9 @@ export default class Poster extends Component {
     for (const auto of this.base.querySelectorAll('.row[data-size="auto"]')) {
       auto.style.setProperty('--row-factor', auto.clientHeight / unit)
     }
+
+    // Prepare all cells
+    for (const cell of this.refs.cells) this.refresh(cell)
   }
 
   refresh = cell => {

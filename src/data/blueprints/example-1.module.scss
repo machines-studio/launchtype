@@ -1,8 +1,12 @@
 .poster:local(.poster) {
+  --wght: 400;
+  letter-spacing: 0;
+
+  font-family: epilogue;
   color: #fe6766;
   background: #7f6ddf;
 
-  .row[data-size='auto'] {
+  .banner {
     overflow: hidden;
 
     .cell {

@@ -106,7 +106,11 @@ export default function ({
       }), {})
 
     // Return the current value for a given property for a given target
-    const current = property => target => utils.get(target, property)
+    const current = property => target => {
+      const value = utils.get(target, property)
+      return DEFAULTS[property]?.[value] ?? value
+    }
+
     // Return the initial value for a given property for a given target
     const initial = property => target => target.__adsr_initial?.[property] ?? 0
 
@@ -125,6 +129,8 @@ export default function ({
             const value = utils.get(element, property)
             element.__adsr_initial[property] = DEFAULTS[property]?.[value] ?? value
           }
+
+          utils.set(element, element.__adsr_initial)
         }
       },
 

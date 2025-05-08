@@ -30,6 +30,7 @@
     left: 50%;
 
     padding: var(--ui-padding-container);
+    pointer-events: none;
 
     font-family: var(--ui-font-family);
     font-size: var(--ui-font-size);
@@ -111,6 +112,7 @@
     &__char {
       // TODO
       display: inline-block;
+      white-space: pre;
       font-variation-settings: "wght" var(--wght);
     }
   }

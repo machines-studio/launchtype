@@ -95,9 +95,10 @@
     min-height: calc(var(--ui-height) * 3 + var(--ui-gap) * 2);
     margin-bottom: auto;
 
+    border-radius: var(--ui-border-radius);
+
     &:empty {
-      border-radius: var(--ui-border-radius);
-      outline: 1px solid;
+      outline: 1px dashed;
     }
   }
 
@@ -108,12 +109,6 @@
     @include portrait {
       justify-content: space-between;
     }
-  }
-
-  .word {
-    @include no-select;
-    cursor: grab;
-    white-space: nowrap;
   }
 
   &__words-container .word,
