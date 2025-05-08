@@ -32,6 +32,8 @@
     "@shopify/draggable": "^1.1.4",
     "@tooooools/ui": "^1.8.0",
     "animejs": "^4.0.2",
+    "chalk": "^5.4.1",
+    "express": "^5.1.0",
     "iconoir": "^7.11.0"
   }
 }
