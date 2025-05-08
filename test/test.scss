@@ -1,6 +1,31 @@
 @import '/index';
 
-:root {
-  --color-text: white;
-  --color-background: blue;
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  height: 100%;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+h1 {
+  @include no-select;
+
+  padding: 0.2em 0.4em;
+  overflow: hidden;
+  cursor: pointer;
+
+  font-size: 10rem;
+  color: black;
+
+  background: white;
+  border-radius: var(--ui-border-radius);
+}
+
+span {
+  display: inline-block;
 }

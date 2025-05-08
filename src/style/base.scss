@@ -1,12 +1,27 @@
+html {
+  @include no-select;
+  -webkit-touch-callout: none;
+  -webkit-user-callout: none;
+  -webkit-user-modify: none;
+  -webkit-highlight: none;
+  touch-action: pan-x pan-y;
+}
+
 body {
   font-family: var(--font-family-sans);
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--color-text);
-
   background: var(--color-background);
 }
 
 main {
   isolation: isolate;
+}
+
+.word {
+  @include no-select;
+  cursor: grab;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: rgba(255 255 255 / 0%);
 }

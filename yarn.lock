@@ -407,6 +407,11 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
+"@shopify/draggable@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@shopify/draggable/-/draggable-1.1.4.tgz#e3a4f1dae67681ac516d00a8f94987fac39c77e3"
+  integrity sha512-EkXxBtQH119pGpLWhhhIPEdaeirGcVwkh6Nft1nqbMdM4N6b4r4v9wCmR1/r2gjTwu888I6qGI0VSlhoYivbYw==
+
 "@stylistic/eslint-plugin@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@stylistic/eslint-plugin/-/eslint-plugin-2.11.0.tgz#50d0289f36f7201055b7fa1729fdc1d8c46e93fa"
@@ -418,10 +423,10 @@
     estraverse "^5.3.0"
     picomatch "^4.0.2"
 
-"@tooooools/ui@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@tooooools/ui/-/ui-1.7.0.tgz#f9aba355457b8935241925f0733ca86a948f5b2d"
-  integrity sha512-zuXTnaFfluYuoSBDdsLZKP4iqafA/KM7XRIytFro4FrvTgGOcXgRdeu1wxLueSZqAUVWD0PCe9lQh993CjLfdQ==
+"@tooooools/ui@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@tooooools/ui/-/ui-1.8.0.tgz#02247068c5e693dd8c298b5007922ee982f90a2e"
+  integrity sha512-rWBIzCrsf6i2sxxcsYt6j+5qhPGfVpVwi99cgh80p7YrhZjTrk3Y5Q1qEwXcn5s4Jv2rtyMRaUMUIJuLdhLZxA==
   dependencies:
     debounce "^1.2.1"
 
@@ -658,6 +663,11 @@ ajv@^8.0.1:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
 
+animejs@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-4.0.2.tgz#85656cfb5cec63c2f8aabb6e6a1b7eecb9ee13ba"
+  integrity sha512-f0L/kSya2RF23iMSF/VO01pMmLwlAFoiQeNAvBXhEyLzIPd2/QTBRatwGUqkVCC6seaAJYzAkGir55N4SL+h3A==
+
 ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
@@ -883,6 +893,11 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chalk@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.4.1.tgz#1b48bf0963ec158dce2aacf69c093ae2dd2092d8"
+  integrity sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==
 
 chokidar@^4.0.0:
   version "4.0.3"
@@ -1511,7 +1526,7 @@ express-rate-limit@^7.5.0:
   resolved "https://registry.yarnpkg.com/express-rate-limit/-/express-rate-limit-7.5.0.tgz#6a67990a724b4fbbc69119419feef50c51e8b28f"
   integrity sha512-eB5zbQh5h+VenMPM3fh+nw1YExi5nMr6HUCR62ELSP11huvxm/Uir1H1QEyTkk5QX6A58pX6NmaTMceKZ0Eodg==
 
-express@^5.0.1:
+express@^5.0.1, express@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/express/-/express-5.1.0.tgz#d31beaf715a0016f0d53f47d3b4d7acf28c75cc9"
   integrity sha512-DT9ck5YIRU+8GYzzU5kT3eHGA5iL+1Zd0EutOmTE9Dtk+Tvuzd23VBU+ec7HPNSTxXYO55gPV/hq4pSBJDjFpA==
@@ -1931,6 +1946,11 @@ http-errors@2.0.0, http-errors@^2.0.0:
     setprototypeof "1.2.0"
     statuses "2.0.1"
     toidentifier "1.0.1"
+
+iconoir@^7.11.0:
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-7.11.0.tgz#798c1913f29d5941274d2bd46c38188b63295800"
+  integrity sha512-F9T/E08aJBaQ+VOBjn+ChWKn3hFwsaK5VZ024OFMxdDaxKjLGDpU/OsU7MO9wXM+mDs4ZImypdXIn0fFZAXKmA==
 
 iconv-lite@0.6.3, iconv-lite@^0.6.3:
   version "0.6.3"
