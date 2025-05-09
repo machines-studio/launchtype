@@ -5,19 +5,27 @@ html, body {
   -webkit-user-modify: none;
   touch-action: manipulation;
   overscroll-behavior: none;
+
+  // Support for overscroll-behavior on Safari iOS < 16
+  /* stylelint-disable order/properties-order, at-rule-empty-line-before */
+  position: fixed;
+  overflow: hidden;
+  @supports (overscroll-behavior: none) {
+    position: static;
+    overflow: auto;
+  }
+  /* stylelint-enable order/properties-order, at-rule-empty-line-before */
 }
 
 body {
+  overflow: scroll;
+
   font-family: var(--font-family-sans);
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--color-text);
-  background: var(--color-background);
 
-  @include landscape {
-    // Support for overscroll-behavior on Safari iOS < 16
-    overflow: hidden;
-  }
+  background: var(--color-background);
 }
 
 main {
