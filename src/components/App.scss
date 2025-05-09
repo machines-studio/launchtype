@@ -122,6 +122,14 @@
     background: white;
     border-radius: var(--rounded);
 
+    .app.is-recording & {
+      pointer-events: none;
+      color: var(--ui-color-text) !important;
+      background: var(--ui-color-background);
+      outline: var(--ui-outline);
+      opacity: var(--ui-disabled-opacity);
+    }
+
     &.draggable-source--is-dragging,
     &.draggable-mirror {
       z-index: 9;
@@ -150,5 +158,14 @@
     .word {
       display: none;
     }
+  }
+
+  .button--record svg path {
+    fill: #fe6766;
+    stroke: #fe6766;
+  }
+
+  &.is-recording .button--record svg {
+    animation: fade-out 600ms ease-in-out alternate infinite;
   }
 }

@@ -1,6 +1,8 @@
 import './Poster.scss'
 import { Component } from '@tooooools/ui'
 
+import * as Timeline from '/controllers/Timeline'
+
 const row = size => (children = [], props = {}) => (
   <div
     {...props}
@@ -42,6 +44,7 @@ export default class Poster extends Component {
             if (!child.props.class.includes('cell')) continue
             child.props.ref = this.refArray('cells')
             child.props['event-mousedown'] = this.#handleDown
+            // child.props['event-touchenter'] = this.#handleDown
             child.props['event-touchstart'] = this.#handleDown
             child.props['event-mouseup'] = this.#handleUp
             child.props['event-touchend'] = this.#handleUp
@@ -50,6 +53,10 @@ export default class Poster extends Component {
         })}
       </section>
     )
+  }
+
+  afterRender () {
+    Timeline.data.set('blueprint', this.props.name)
   }
 
   afterMount () {
@@ -89,6 +96,7 @@ export default class Poster extends Component {
     const adsr = this.props.effects[cell.dataset.adsr]
     if (!adsr) return
 
+    Timeline.dispatch('down', this.refs.cells.indexOf(cell))
     adsr.prepare(cell, cell.dataset.adsrSelector ?? cell, { force: false })
     adsr.start(cell, cell.dataset.adsrSelector ?? cell)
   }
@@ -99,6 +107,8 @@ export default class Poster extends Component {
 
     const adsr = this.props.effects[cell.dataset.adsr]
     if (!adsr) return
+
+    Timeline.dispatch('up', this.refs.cells.indexOf(cell))
     adsr.stop(cell, cell.dataset.adsrSelector ?? cell)
   }
 

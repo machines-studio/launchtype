@@ -5,7 +5,10 @@ import { Button, Toolbar } from '@tooooools/ui/components'
 import { $, persist } from '@tooooools/ui/state'
 
 import * as Icons from '/data/icons'
-import confirm from '/controllers/Confirm'
+
+import confirm from '/controllers/confirm'
+import * as Timeline from '/controllers/Timeline'
+
 import Poster from '/components/Poster'
 
 const BLUEPRINTS = Object.values(import.meta.glob('/data/blueprints/*.jsx', { eager: true }))
@@ -28,7 +31,8 @@ export default class App extends Component {
         id='app'
         class={['app', {
           'is-fullscreen': state.isFullscreen,
-          'has-visible-grid': state.hasVisibleGrid
+          'has-visible-grid': state.hasVisibleGrid,
+          'is-recording': Timeline.isRecording
         }]}
       >
         <section class='app__artboard'>
@@ -73,22 +77,31 @@ export default class App extends Component {
             <div class='app__words-container' ref={this.ref('wordsContainer')} />
             <Toolbar class='app__words-toolbar'>
               <Button
-                icon={Icons.plus}
-                class='button--add-word'
-                ref={this.ref('addWord')}
-                event-click={this.#handleInsertWord}
+                icon={Icons.record}
+                class='button--record'
+                event-click={this.#handleRecord}
+                label='REC'
               />
 
-              <Button
-                icon={Icons.trash}
-                class='button--remove-word'
-                ref={this.ref('removeWords')}
-                event-click={e => confirm(this.#handleRemoveWords, {
-                  title: 'Supprimer tous les mots ?',
-                  message: 'Les mots déjà placés seront également supprimés.',
-                  confirm: { label: 'supprimer', icon: Icons.trash }
-                })}
-              />
+              <Toolbar disabled={Timeline.isRecording}>
+                <Button
+                  icon={Icons.plus}
+                  class='button--add-word'
+                  ref={this.ref('addWord')}
+                  event-click={this.#handleInsertWord}
+                />
+
+                <Button
+                  icon={Icons.trash}
+                  class='button--remove-word'
+                  ref={this.ref('removeWords')}
+                  event-click={e => confirm(this.#handleRemoveWords, {
+                    title: 'Supprimer tous les mots ?',
+                    message: 'Les mots déjà placés seront également supprimés.',
+                    confirm: { label: 'supprimer', icon: Icons.trash }
+                  })}
+                />
+              </Toolbar>
             </Toolbar>
           </section>
         </section>
@@ -179,6 +192,7 @@ export default class App extends Component {
     }
 
     // Cleanup
+    Timeline.reset()
     this.refs.poster?.destroy()
     this.refs.droppable?.destroy()
 
@@ -211,6 +225,12 @@ export default class App extends Component {
 
     // Prevent ADSR animation during drag
     this.refs.droppable.on('drag:start', e => {
+      // Disable draggablejs when recording
+      if (Timeline.isRecording.get()) {
+        e.cancel()
+        return
+      }
+
       e.data.source.removeAttribute('style')
       for (const child of e.data.source.children) child.removeAttribute('style')
       this.refs.poster.abort(e.data.sourceContainer)
@@ -252,13 +272,24 @@ export default class App extends Component {
   #handlePreviousBlueprint = e => {
     e.preventDefault() // Prevent double-click zoom on touch devices
     const index = BLUEPRINTS.indexOf(this.state.blueprint.get())
-    this.state.blueprint.set(BLUEPRINTS[(index + BLUEPRINTS.length + 2) % BLUEPRINTS.length])
+    this.state.blueprint.set(BLUEPRINTS[(index + BLUEPRINTS.length - 1) % BLUEPRINTS.length])
   }
 
   #handleNextBlueprint = e => {
     e.preventDefault() // Prevent double-click zoom on touch devices
     const index = BLUEPRINTS.indexOf(this.state.blueprint.get())
     this.state.blueprint.set(BLUEPRINTS[(index + 1) % BLUEPRINTS.length])
+  }
+
+  #handleRecord = async e => {
+    if (Timeline.isRecording.get()) {
+      Timeline.stop()
+      // TODO send
+      await new Promise(resolve => window.setTimeout(resolve, 3000))
+      return
+    }
+
+    Timeline.start()
   }
 
   beforeDestroy () {
