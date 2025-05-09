@@ -1,54 +1,26 @@
-/* global __VERSION__ */
-
+/* global __VERSION__, localStorage */
 import '/test/test.scss'
 
 import { render } from '@tooooools/ui'
-import ADSR from '/controllers/ADSR'
-import { stagger } from 'animejs'
+import App from '/components/App'
 
-console.log('Hello from test.jsx')
-console.log(`${__VERSION__}-${import.meta.env.MODE}`)
+const BLUEPRINTS = Object.values(import.meta.glob('/data/blueprints/*.jsx', { eager: true }))
 
-render(
-  <main>
-    {
-      [
-        'hello',
-        'world'
-      ].map(string => (
-        <h1
-          event-mousedown={start}
-          event-touchstart={start}
-          event-mouseup={release}
-          event-touchend={release}
-          event-mouseleave={destroy}
-        >
-          {string.split('').map(c => <span innerText={c} />)}
-        </h1>
-      ))
-    }
-  </main>
-)
+// Disable localStorage
+localStorage.setItem(window.location.pathname + '__app.words', '')
 
-const adsr = ADSR({
-  color: [0, 'rgb(255, 0, 0)'],
-  y: [-50, 0],
-  letterSpacing: [0, '20px'],
+// Render app and a special #test marker
+window.app = render(<App />).components[0]
+render(<div id='test' innerText={`${__VERSION__}-${import.meta.env.MODE}`}/>)
 
-  attack: { duration: 100, ease: 'outExpo' },
-  decay: { duration: 300, delay: 100, ease: 'inSine' },
-  release: { duration: 800, ease: 'outBounce', delay: stagger(20, { ease: 'inOut(3)' }) }
-})
+// Set your blueprint here
+window.app.state.blueprint.set(BLUEPRINTS[0])
 
-function start (e) {
-  e.preventDefault()
-  adsr.start(e.currentTarget, 'span')
-}
-
-function release (e) {
-  adsr.stop(e.currentTarget, 'span')
-}
-
-function destroy (e) {
-  e.currentTarget.adsr?.destroy()
+// Define [word, cellIndex] couples
+for (const [word, cellIndex] of [
+  ['hello', 1],
+  ['world', 2]
+]) {
+  window.app.addWord(word)
+  window.app.refs.poster.refs.cells[cellIndex].appendChild(window.app.refs.words[window.app.refs.words.length - 1])
 }
