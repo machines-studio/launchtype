@@ -43,15 +43,16 @@
   }
 
   .row {
+    position: relative;
     display: flex;
     height: calc(var(--row-factor) * var(--poster-base-row-height));
     font-size: calc(var(--poster-base-font-size) * var(--row-factor));
     line-height: 100%;
 
-    &[data-size='auto'] { flex: 1; }
-    &[data-size='small'] { --row-factor: 1; }
-    &[data-size='medium'] { --row-factor: 1.618; }
-    &[data-size='large'] { --row-factor: 1.618 * 2; }
+    &[data-size='small'] { --row-factor: 1; z-index: 4; }
+    &[data-size='medium'] { --row-factor: 1.618; z-index: 3; }
+    &[data-size='large'] { --row-factor: 1.618 * 2; z-index: 2; }
+    &[data-size='auto'] { flex: 1; z-index: 1; }
   }
 
   .cell {
