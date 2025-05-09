@@ -2,8 +2,9 @@ import '/index.scss'
 
 import { render } from '@tooooools/ui'
 import App from '/components/App'
+import preventDoubleTap from '/utils/prevent-double-tap'
 
-window.app = render(<App />).components[0]
+render(<App />)
 
-// let i = 0
-// for (const c of [0, 7, 3, 4]) window.app.refs.poster.refs.cells[c].appendChild(window.app.refs.words[i++])
+// Prevent magnifying glass on double tap on iOS
+document.body.addEventListener('touchstart', preventDoubleTap(200), { passive: false })

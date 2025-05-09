@@ -13,20 +13,27 @@
   --rounded-inside: 0.3rem;
   --easing: 200ms;
 
+  --poster-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
+  --poster-height: calc(100vh - var(--space-gutter) * 2);
+
   --font-family-sans: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', menlo, consolas, 'DejaVu Sans Mono', monospace;
 
   --ui-height: 5.3rem;
   --ui-font-size: 2rem;
-  --ui-line-height: 1.4;
+  --ui-line-height: 1.5;
   --ui-padding-container: 1.1rem 1.2rem 0.9rem;
   --ui-padding-content: var(--space-gutter);
   --ui-icon-size: 3rem;
   --ui-border-radius: var(--rounded);
-  --ui-outline-offset: -1px;
   --ui-color-background: var(--color-background);
   --ui-color-text: var(--color-text);
   --ui-color-accent: #968ae9;
   --ui-modal-height: 80vh;
   --ui-button-animation: button 120ms ease-out;
+
+  @include portrait {
+    --poster-width: calc(100vw - var(--space-gutter) * 2);
+    --poster-height: calc((100vw - var(--space-gutter) * 2) / (50 / 70));
+  }
 }

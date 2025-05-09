@@ -1,5 +1,5 @@
 .app {
-  --ui-outline: 1px solid var(--ui-color-text);
+  --ui-border: 1px solid var(--ui-color-text);
   --ui-toolbar-hr: 1px dashed var(--ui-color-text);
 
   position: fixed;
@@ -53,7 +53,7 @@
 
         &.is-compact > *:not(:first-child) {
           border: 0;
-          border-top: var(--ui-outline);
+          border-top: var(--ui-border);
         }
       }
     }
@@ -63,10 +63,12 @@
     flex-grow: 1;
     flex-shrink: 0;
 
-    width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
-    height: 100%;
-    max-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
-    min-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
+    width: var(--poster-width);
+    height: var(--poster-height);
+    max-width: var(--poster-width);
+    max-height: var(--poster-height);
+    min-width: var(--poster-width);
+    min-height: var(--poster-height);
     overflow: visible;
 
     @include portrait {
@@ -98,17 +100,13 @@
     border-radius: var(--ui-border-radius);
 
     &:empty {
-      outline: 1px dashed;
+      border: 1px dashed;
     }
   }
 
   &__words-toolbar {
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
-
-    @include portrait {
-      justify-content: space-between;
-    }
   }
 
   &__words-container .word,

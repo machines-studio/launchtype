@@ -1,10 +1,10 @@
-html {
+html, body {
   @include no-select;
   -webkit-touch-callout: none;
   -webkit-user-callout: none;
   -webkit-user-modify: none;
-  -webkit-highlight: none;
-  touch-action: pan-x pan-y;
+  touch-action: manipulation;
+  overscroll-behavior: none;
 }
 
 body {
@@ -13,10 +13,19 @@ body {
   line-height: var(--line-height);
   color: var(--color-text);
   background: var(--color-background);
+
+  @include landscape {
+    // Support for overscroll-behavior on Safari iOS < 16
+    overflow: hidden;
+  }
 }
 
 main {
   isolation: isolate;
+}
+
+.cell, .word {
+  -webkit-tap-highlight-color: rgba(255 255 255 / 0%);
 }
 
 .word {
