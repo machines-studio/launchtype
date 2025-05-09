@@ -32,6 +32,11 @@
   --ui-modal-height: 80vh;
   --ui-button-animation: button 120ms ease-out;
 
+  @supports (max-height: 100svh) {
+    --poster-width: calc((100svh - var(--space-gutter) * 2) * (50 / 70));
+    --poster-height: calc(100svh - var(--space-gutter) * 2);
+  }
+
   @include portrait {
     --poster-width: calc(100vw - var(--space-gutter) * 2);
     --poster-height: calc((100vw - var(--space-gutter) * 2) / (50 / 70));
