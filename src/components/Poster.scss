@@ -108,10 +108,16 @@
 
   .word {
     &__char {
-      // TODO
       display: inline-block;
       white-space: pre;
-      font-variation-settings: "wght" var(--wght);
+      // Standard axes
+      font-variation-settings:
+        "wght" var(--wght, 0),
+        "wdth" var(--wdth, 0),
+        "slnt" var(--slnt, 0),
+        "ital" var(--ital, 0),
+        "opsz" var(--opsz, 0)
+      ;
     }
   }
 
