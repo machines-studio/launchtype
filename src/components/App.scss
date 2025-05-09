@@ -165,6 +165,10 @@
     stroke: #fe6766;
   }
 
+  .button--record.is-waiting svg {
+    visibility: hidden;
+  }
+
   &.is-recording .button--record svg {
     animation: fade-out 600ms ease-in-out alternate infinite;
   }

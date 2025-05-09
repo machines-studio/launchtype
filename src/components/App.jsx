@@ -284,9 +284,14 @@ export default class App extends Component {
   #handleRecord = async e => {
     if (Timeline.isRecording.get()) {
       Timeline.stop()
-      // TODO send
-      await new Promise(resolve => window.setTimeout(resolve, 3000))
-      return
+      return fetch(window.location.origin + '/save', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: Timeline.toJSON()
+      })
     }
 
     Timeline.start()

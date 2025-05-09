@@ -3,10 +3,13 @@
 process.env.HTTP_PORT = process.env.HTTP_PORT ?? 8080
 process.env.NODE_ENV = process.env.NODE_ENV ?? 'production'
 
+const fs = require('fs-extra')
 const path = require('path')
 const http = require('http')
 const express = require('express')
 const logger = require('./utils/logger')
+
+const timelines = path.join(__dirname, '.timelines')
 
 // Instanciate express server
 const app = express()
@@ -23,6 +26,12 @@ app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(express.static(path.join(__dirname, '..', 'build')))
 
 // TODO endpoint POST json save
+app.use(express.json())
+app.post('/save', (req, res, next) => {
+  fs.ensureDirSync(timelines)
+  fs.writeJsonSync(path.join(timelines, Date.now() + '.json'), req.body)
+  res.status(201).json({ status: 'ok' })
+})
 
 // Log errors
 app.use((error, req, res, next) => {
