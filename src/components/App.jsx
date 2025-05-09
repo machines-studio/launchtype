@@ -16,7 +16,7 @@ export default class App extends Component {
     // To simplify word insertion/deletion and its draggable interface, single
     // source of truth will be the DOM (via <App>.refs.words). This internal
     // state will be updated each time the DOM is modified
-    words: persist(['hello', 'world', 'lorem', 'ipsum'], 'app.words'),
+    words: persist([], 'app.words'),
 
     isFullscreen: $(!!document.fullscreenElement),
     hasVisibleGrid: persist(false, 'app.hasVisibleGrid')
@@ -32,7 +32,10 @@ export default class App extends Component {
         }]}
       >
         <section class='app__artboard'>
-          <Toolbar class='app__toolbar' layout='vertical'>
+          <Toolbar
+            class='app__toolbar'
+            disabled={Timeline.isRecording}
+          >
             <Toolbar compact>
               <Button
                 icon={Icons.up}

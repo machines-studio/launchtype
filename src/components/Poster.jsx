@@ -45,7 +45,6 @@ export default class Poster extends Component {
             child.props['event-touchstart'] = this.#handleDown
             child.props['event-mouseup'] = this.#handleUp
             child.props['event-touchend'] = this.#handleUp
-            child.props['event-mouseleave'] = this.#handleUp
           }
           return row
         })}
