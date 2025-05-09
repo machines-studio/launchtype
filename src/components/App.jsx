@@ -131,10 +131,23 @@ export default class App extends Component {
   addWord = string => {
     if (!string || !string.length) return
     this.render((
-      <div class='word' ref={this.refArray('words')} tabIndex='-1'>
+      <div
+        class='word'
+        ref={this.refArray('words')}
+        tabIndex='-1'
+        style={{
+          '--word-length': string.length
+        }}
+      >
         {
           // Wrap each character in a <span>
-          string.split('').map(c => <span class='word__char' innerText={c} />)
+          string.split('').map(c => (
+            <span
+              class='word__char'
+              innerText={c}
+              data-char={c}
+            />
+          ))
         }
       </div>
     ), this.refs.wordsContainer)
