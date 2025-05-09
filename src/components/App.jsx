@@ -143,7 +143,7 @@ export default class App extends Component {
           // Wrap each character in a <span>
           string.split('').map(c => (
             <span
-              class='word__char'
+              class='char'
               innerText={c}
               data-char={c}
             />

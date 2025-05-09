@@ -107,9 +107,10 @@
   .cell:not(:last-child) { --padding-right: calc(var(--poster-gutter) / 2); }
 
   .word {
-    &__char {
+    .char {
       display: inline-block;
       white-space: pre;
+
       // Standard axes
       font-variation-settings:
         "wght" var(--wght, 0),
