@@ -1,13 +1,13 @@
 import ADSR from '/controllers/ADSR'
 import { S, M, L, AUTO, left, right, center } from '/components/Poster'
 
-export { default as style } from './20-comp-fraunces-S.module.scss'
+export { default as style } from './30-comp-tilt-S.module.scss'
 
-export const name = '20-comp-fraunces-S'
+export const name = '30-comp-tilt-S'
 
 export const effects = {
   fat: ADSR({
-    '--wght': [1000],
+    '--yrot': [-30],
     attack: { duration: 1000, ease: 'outExpo' },
     decay: { duration: 3000, ease: 'inSine' },
     release: { duration: 800, ease: 'outBounce' }
