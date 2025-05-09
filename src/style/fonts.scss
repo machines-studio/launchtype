@@ -11,5 +11,16 @@
   font-display: auto;
   font-style: normal;
   font-weight: normal;
-  src: url('/fonts/TINY5x3-140.woff2') format('woff2');
+  src: url('/fonts/TINY5x3GX.ttf') format('TrueType');
 }
+
+@font-face {
+  font-family: fraunces;
+  font-display: auto;
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Fraunces--latin_basic.woff2') format('woff2');
+}
+
+
+
