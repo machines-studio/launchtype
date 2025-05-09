@@ -1,14 +1,13 @@
 import ADSR from '/controllers/ADSR'
 import { S, M, L, AUTO, left, right, center } from '/components/Poster'
 
-export { default as style } from './10-comp-tiny-S-1.module.scss'
+export { default as style } from './20-comp-fraunces-S.module.scss'
 
 export const name = '10-comp-tiny-S-1'
 
 export const effects = {
   fat: ADSR({
-    '--wght': [100],
-    letterSpacing: ['0.1em'],
+    '--wght': [1000],
     attack: { duration: 1000, ease: 'outExpo' },
     decay: { duration: 3000, ease: 'inSine' },
     release: { duration: 800, ease: 'outBounce' }
