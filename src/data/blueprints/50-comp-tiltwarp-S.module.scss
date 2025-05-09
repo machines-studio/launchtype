@@ -1,0 +1,12 @@
+.poster:local(.poster) {
+  --xrot: 0;
+  --yrot: 45;
+
+  font-family: tiltwarp;
+
+  .char {
+    font-variation-settings:
+      "XROT" var(--xrot),
+      "YROT" var(--yrot);
+  }
+}
