@@ -123,6 +123,7 @@
 
     background: white;
     border-radius: var(--rounded);
+    transform: none !important;
 
     .app.is-recording & {
       pointer-events: none;
