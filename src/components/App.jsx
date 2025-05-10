@@ -262,7 +262,10 @@ export default class App extends Component {
         this.refs.poster.refresh(e.data.dropzone)
 
         const existing = e.data.dropzone.querySelector('.word:not(.draggable-source--is-dragging, .draggable-mirror, .draggable--original)')
-        if (existing) e.data.dragEvent.data.sourceContainer.appendChild(existing)
+        if (existing) {
+          e.data.dragEvent.data.sourceContainer.appendChild(existing)
+          window.requestAnimationFrame(() => this.refs.poster.refresh(e.data.dragEvent.data.sourceContainer))
+        }
       }
 
       // Add drop behavior : clone element
