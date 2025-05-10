@@ -12,6 +12,7 @@
   --rounded: 1.0rem;
   --rounded-inside: 0.3rem;
   --easing: 200ms;
+  --easing-slow: 1000ms;
 
   --poster-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
   --poster-height: calc(100vh - var(--space-gutter) * 2);

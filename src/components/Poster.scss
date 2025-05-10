@@ -39,7 +39,7 @@
     border-radius: var(--ui-border-radius);
     transform: translateX(-50%) translateY(-50%);
     box-shadow: 0 0 10px rgba(0 0 0 / 10%);
-    animation: fade-out 1s 500ms both ease;
+    animation: fade-out var(--easing-slow) 500ms both ease;
   }
 
   .row {
@@ -89,7 +89,7 @@
       background: rgba(0 0 0 / 10%);
       border-radius: var(--rounded-inside);
       opacity: 0;
-      animation: fade-out 1s both;
+      animation: fade-out var(--easing-slow) both;
     }
 
     &[data-align='left'] { --cell-text-align: flex-start; }

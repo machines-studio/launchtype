@@ -1,5 +1,14 @@
 @import '/index';
 
+:root {
+  --easing: 0;
+  --easing-slow: 1ms;
+}
+
+.poster[data-name]::before {
+  display: none;
+}
+
 #test {
   content: 'env#test';
 
@@ -18,3 +27,4 @@
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0 0 0 / 10%);
 }
+
