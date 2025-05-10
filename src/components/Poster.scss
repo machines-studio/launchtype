@@ -87,6 +87,7 @@
       pointer-events: none;
 
       background: rgba(0 0 0 / 10%);
+      border: 1px solid var(--ui-color-accent);
       border-radius: var(--rounded-inside);
       opacity: 0;
       animation: fade-out var(--easing-slow) both;
