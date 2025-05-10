@@ -14,7 +14,7 @@ window.app = render(<App />).components[0]
 render(<div id='test' innerText={`${__VERSION__}-${import.meta.env.MODE}`}/>)
 
 // Set your blueprint here
-window.app.state.blueprint.set(BLUEPRINTS[2])
+window.app.state.blueprint.set(BLUEPRINTS[4])
 
 // Define [word, cellIndex] couples
 for (const [word, cellIndex] of [
