@@ -14,12 +14,14 @@ window.app = render(<App />).components[0]
 render(<div id='test' innerText={`${__VERSION__}-${import.meta.env.MODE}`}/>)
 
 // Set your blueprint here
-window.app.state.blueprint.set(BLUEPRINTS[4])
+window.app.state.blueprint.set(BLUEPRINTS[5])
 
 // Define [word, cellIndex] couples
 for (const [word, cellIndex] of [
-  ['hello', 1],
-  ['world', 2]
+  ['il', 1],
+  ['rencontre', 2],
+  ['un autre', 3],
+  ['chien', 4]
 ]) {
   window.app.addWord(word)
   window.app.refs.poster.refs.cells[cellIndex].appendChild(window.app.refs.words[window.app.refs.words.length - 1])
