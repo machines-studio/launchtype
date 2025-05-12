@@ -310,6 +310,10 @@ export default class App extends Component {
       })
     }
 
+    Timeline.data.set(
+      'words',
+      this.refs.poster.refs.cells.map((cell, index) => [index, cell.querySelector('.word')?.textContent])
+    )
     Timeline.start()
   }
 
