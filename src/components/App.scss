@@ -149,6 +149,12 @@
     }
   }
 
+  // Disable word dragging during recording, which also allows setting very large
+  // font size while maintaining adsr trigger possible on containing cell
+  .app.is-recording .poster .word {
+    pointer-events: none;
+  }
+
   // Style when dropping a word to an actionable button
   .button--add-word:has(.word),
   .button--remove-word:has(.word) {
