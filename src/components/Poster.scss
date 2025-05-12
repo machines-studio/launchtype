@@ -13,9 +13,9 @@
   height: var(--poster-height);
   overflow: hidden;
 
-  color: black;
+  color: var(--poster-color-foreground);
 
-  background: white;
+  background: var(--poster-color-background);
   border-radius: var(--rounded);
   box-shadow: 0 0 10px rgba(0 0 0 / 10%);
 
@@ -46,7 +46,7 @@
     position: relative;
     display: flex;
     height: calc(var(--row-factor) * var(--poster-base-row-height));
-    font-size: calc(var(--poster-base-font-size) * var(--row-factor));
+    font-size: calc(var(--user-font-scale, 1) * var(--poster-base-font-size) * var(--row-factor));
     line-height: 100%;
 
     &[data-size='small'] { --row-factor: 1; z-index: 4; }

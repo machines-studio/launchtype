@@ -1,5 +1,6 @@
 import './Poster.scss'
 import { Component } from '@tooooools/ui'
+import { $ } from '@tooooools/ui/state'
 
 import * as Timeline from '/controllers/Timeline'
 
@@ -32,11 +33,18 @@ export const right = cell('right')
 export const center = cell('center')
 
 export default class Poster extends Component {
+  state = {
+    fontScale: $(1)
+  }
+
   template (props, state) {
     return (
       <section
         class={['poster', props.style?.poster]}
         data-name={props.name}
+        style={{
+          '--user-font-scale': state.fontScale
+        }}
       >
         <div class='row js-auto-unit' data-size='small' ref={this.ref('autoUnitRow')} />
         {props.layout.map(row => {

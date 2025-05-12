@@ -22,7 +22,11 @@ export default class App extends Component {
     words: persist([], 'app.words'),
 
     isFullscreen: $(!!document.fullscreenElement),
-    hasVisibleGrid: persist(false, 'app.hasVisibleGrid')
+    hasVisibleGrid: persist(false, 'app.hasVisibleGrid'),
+
+    // XXX TODO refactor
+    foreground: persist('#000000', 'app.foreground'),
+    background: persist('#FFFFFF', 'app.background')
   }
 
   template (props, state) {
@@ -34,6 +38,10 @@ export default class App extends Component {
           'has-visible-grid': state.hasVisibleGrid,
           'is-recording': Timeline.isRecording
         }]}
+        style={{
+          '--poster-color-foreground': state.foreground,
+          '--poster-color-background': state.background
+        }}
       >
         <section class='app__artboard'>
           <Toolbar
@@ -51,6 +59,35 @@ export default class App extends Component {
                 class='button--next-blueprint'
                 event-click={this.#handleNextBlueprint}
               />
+            </Toolbar>
+
+            <Toolbar>
+              <Toolbar compact>
+                <Button
+                  icon={Icons.plus}
+                  class='button--prev-blueprint'
+                  event-click={e => this.refs.poster.state.fontScale.update(scale => scale * 1.1)}
+                />
+                <Button
+                  icon={Icons.minus}
+                  class='button--next-blueprint'
+                  event-click={e => this.refs.poster.state.fontScale.update(scale => scale * 0.9)}
+                />
+              </Toolbar>
+
+              <Toolbar>
+                <input
+                  type='color'
+                  value={state.foreground}
+                  event-input={e => state.foreground.set(e.target.value)}
+                />
+
+                <input
+                  type='color'
+                  value={state.background}
+                  event-input={e => state.background.set(e.target.value)}
+                />
+              </Toolbar>
             </Toolbar>
 
             <Toolbar>
