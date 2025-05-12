@@ -75,23 +75,30 @@
     // Visual aid
     &::after {
       @include easing(opacity);
+      --grid-launchpad-mode: 0;
+
       content: '';
 
       position: absolute;
-      inset:
-        var(--padding-top, 0)
-        var(--padding-right, 0)
-        var(--padding-bottom, 0)
-        var(--padding-left, 0);
-
+      /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+      top: calc(var(--grid-launchpad-mode) * var(--padding-top, 0));
+      right: calc(var(--grid-launchpad-mode) * var(--padding-right, 0));
+      bottom: calc(var(--grid-launchpad-mode) * var(--padding-bottom, 0));
+      left: calc(var(--grid-launchpad-mode) * var(--padding-left, 0));
+      /* stylelint-enable declaration-block-no-redundant-longhand-properties */
       pointer-events: none;
 
       background: rgba(0 0 0 / 10%);
-      border: 1px solid var(--ui-color-accent);
-      border-radius: var(--rounded-inside);
+      border: 1px dotted var(--ui-color-accent);
+      border-radius: calc(var(--rounded-inside) * var(--grid-launchpad-mode));
       opacity: 0;
       animation: fade-out var(--easing-slow) both;
     }
+
+    // ???
+    // &:not(:has(.word))::after {
+    //   opacity: 0.4 !important;
+    // }
 
     &[data-align='left'] { --cell-text-align: flex-start; }
     &[data-align='right'] { --cell-text-align: flex-end; }
@@ -132,6 +139,11 @@
   // Avoid hitting overflowing dropzones when dragging a word
   .cell.draggable-dropzone--active .word {
     pointer-events: none;
+  }
+
+  .app.is-recording & .cell::after {
+    --grid-launchpad-mode: 1;
+    border-style: solid;
   }
 
   .app.has-visible-grid & .cell::after,

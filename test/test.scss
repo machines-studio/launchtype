@@ -26,5 +26,9 @@
   background: #597fff;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0 0 0 / 10%);
+
+  body:has(.app__words:hover) & {
+    display: none;
+  }
 }
 
