@@ -60,6 +60,8 @@ export default class Poster extends Component {
             child.props['event-touchstart'] = this.#handleDown
             child.props['event-mouseup'] = this.#handleUp
             child.props['event-touchend'] = this.#handleUp
+
+            // BUG mouseleave should exist to cancel animation
           }
           return row
         })}
