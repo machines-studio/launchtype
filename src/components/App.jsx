@@ -161,7 +161,7 @@ export default class App extends Component {
   }
 
   afterMount () {
-    this.state.blueprint.set(BLUEPRINTS[1])
+    this.state.blueprint.set(BLUEPRINTS[0])
   }
 
   // Insert a word by its string
