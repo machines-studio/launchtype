@@ -38,6 +38,10 @@ export default class Poster extends Component {
   }
 
   template (props, state) {
+    const layout = new Array(14).fill(true).map(() =>
+      AUTO(new Array(10).fill(true).map(() => left(props.adsr)))
+    )
+
     return (
       <section
         class={['poster', props.style?.poster]}
@@ -47,7 +51,7 @@ export default class Poster extends Component {
         }}
       >
         <div class='row js-auto-unit' data-size='small' ref={this.ref('autoUnitRow')} />
-        {props.layout.map(row => {
+        {layout.map(row => {
           for (const child of row.children) {
             if (!child.props.class.includes('cell')) continue
             child.props.ref = this.refArray('cells')
@@ -82,7 +86,7 @@ export default class Poster extends Component {
 
   refresh = cell => {
     if (!cell) return
-    const adsr = this.props.effects[cell.dataset.adsr]
+    const adsr = this.props.adsr
     if (!adsr) return
 
     adsr.prepare(cell, cell, { force: true })
@@ -91,7 +95,7 @@ export default class Poster extends Component {
 
   abort = cell => {
     if (!this.refs.cells.includes(cell)) return
-    const adsr = this.props.effects[cell.dataset.adsr]
+    const adsr = this.props.adsr
     if (!adsr) return
 
     cell?.adsr.destroy()
@@ -101,7 +105,7 @@ export default class Poster extends Component {
     const cell = e.currentTarget
     if (!cell.children.length) return
 
-    const adsr = this.props.effects[cell.dataset.adsr]
+    const adsr = this.props.adsr
     if (!adsr) return
 
     Timeline.dispatch('down', this.refs.cells.indexOf(cell))
@@ -113,7 +117,7 @@ export default class Poster extends Component {
     const cell = e.currentTarget
     if (!cell.children.length) return
 
-    const adsr = this.props.effects[cell.dataset.adsr]
+    const adsr = this.props.adsr
     if (!adsr) return
 
     Timeline.dispatch('up', this.refs.cells.indexOf(cell))
