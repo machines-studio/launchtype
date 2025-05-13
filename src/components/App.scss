@@ -170,7 +170,7 @@
     }
   }
 
-  .button--record svg path {
+  .button--record:not(.has-recorded) svg path {
     fill: #fe6766;
     stroke: #fe6766;
   }

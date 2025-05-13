@@ -11,6 +11,7 @@ import * as Timeline from '/controllers/Timeline'
 
 import Poster from '/components/Poster'
 
+let hasRecordedTimer
 const BLUEPRINTS = Object.values(import.meta.glob('/data/blueprints/*.jsx', { eager: true }))
 
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
 
     isFullscreen: $(!!document.fullscreenElement),
     hasVisibleGrid: persist(false, 'app.hasVisibleGrid'),
+    hasRecorded: $(false),
 
     // XXX TODO refactor
     foreground: persist('#000000', 'app.foreground'),
@@ -114,8 +116,9 @@ export default class App extends Component {
             <div class='app__words-container' ref={this.ref('wordsContainer')} />
             <Toolbar class='app__words-toolbar'>
               <Button
-                icon={Icons.record}
-                class='button--record'
+                icon={$(state.hasRecorded, r => r ? Icons.ok : Icons.record)}
+                disabled={state.hasRecorded}
+                class={['button--record', { 'has-recorded': state.hasRecorded }]}
                 event-click={this.#handleRecord}
                 label='REC'
               />
@@ -337,7 +340,8 @@ export default class App extends Component {
   #handleRecord = async e => {
     if (Timeline.isRecording.get()) {
       Timeline.stop()
-      return fetch(window.location.origin + '/save', {
+
+      await fetch(window.location.origin + '/save', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -345,6 +349,12 @@ export default class App extends Component {
         },
         body: Timeline.toJSON()
       })
+
+      this.state.hasRecorded.set(true)
+      window.clearTimeout(hasRecordedTimer)
+      hasRecordedTimer = window.setTimeout(() => this.state.hasRecorded.set(false), 3000)
+
+      return
     }
 
     Timeline.data.set(
