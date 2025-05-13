@@ -95,10 +95,6 @@
       animation: fade-out var(--easing-slow) both;
     }
 
-    &:not(:has(.word))::after {
-      opacity: 0.2 !important;
-    }
-
     &[data-align='left'] { --cell-text-align: flex-start; }
     &[data-align='right'] { --cell-text-align: flex-end; }
     &[data-align='center'] { --cell-text-align: center; }
@@ -143,6 +139,10 @@
   .app.is-recording & .cell::after {
     --grid-launchpad-mode: 1;
     border-style: solid;
+  }
+
+  .app.is-recording & .cell:not(:has(.word))::after {
+    opacity: 0.2 !important;
   }
 
   .app.has-visible-grid & .cell::after,
