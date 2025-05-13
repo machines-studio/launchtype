@@ -39,7 +39,7 @@ export default class Poster extends Component {
 
   template (props, state) {
     const layout = new Array(14).fill(true).map(() =>
-      AUTO(new Array(10).fill(true).map(() => left(props.adsr)))
+      AUTO(new Array(10).fill(true).map(() => left(props.adsr, props.selector)))
     )
 
     return (
