@@ -136,6 +136,10 @@
     pointer-events: none;
   }
 
+  .app.is-recording & .cell .word {
+    pointer-events: none;
+  }
+
   .app.is-recording & .cell::after {
     --grid-launchpad-mode: 1;
     border-style: solid;
