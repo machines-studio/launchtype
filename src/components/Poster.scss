@@ -95,10 +95,9 @@
       animation: fade-out var(--easing-slow) both;
     }
 
-    // ???
-    // &:not(:has(.word))::after {
-    //   opacity: 0.4 !important;
-    // }
+    &:not(:has(.word))::after {
+      opacity: 0.2 !important;
+    }
 
     &[data-align='left'] { --cell-text-align: flex-start; }
     &[data-align='right'] { --cell-text-align: flex-end; }
