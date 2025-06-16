@@ -1,7 +1,7 @@
 import './App.scss'
 import { Droppable } from '@shopify/draggable'
 import { Component } from '@tooooools/ui'
-import { Button, Toolbar } from '@tooooools/ui/components'
+import { Button, Toolbar, FileDropper, Range } from '@tooooools/ui/components'
 import { $, persist } from '@tooooools/ui/state'
 
 import * as Icons from '/data/icons'
@@ -11,12 +11,17 @@ import * as Timeline from '/controllers/Timeline'
 
 import Poster from '/components/Poster'
 
+import readFile from '/utils/read-file'
+
 let hasRecordedTimer
 const BLUEPRINTS = Object.values(import.meta.glob('/data/blueprints/*.jsx', { eager: true }))
 
 export default class App extends Component {
   state = {
     blueprint: $(null),
+    playbacks: $(null),
+    playbackIndex: $(0),
+
     // To simplify word insertion/deletion and its draggable interface, single
     // source of truth will be the DOM (via <App>.refs.words). This internal
     // state will be updated each time the DOM is modified
@@ -38,19 +43,22 @@ export default class App extends Component {
         class={['app', {
           'is-fullscreen': state.isFullscreen,
           'has-visible-grid': state.hasVisibleGrid,
-          'is-recording': Timeline.isRecording
+          'is-recording': Timeline.isRecording,
+          'has-playback': state.playbacks
         }]}
         style={{
           '--poster-color-foreground': state.foreground,
           '--poster-color-background': state.background
         }}
       >
+        <FileDropper event-drop={this.#handleDrop} />
+
         <section class='app__artboard'>
           <Toolbar
             class='app__toolbar'
             disabled={Timeline.isRecording}
           >
-            <Toolbar compact>
+            <Toolbar compact hidden={state.playbacks}>
               <Button
                 icon={Icons.up}
                 class='button--prev-blueprint'
@@ -144,6 +152,11 @@ export default class App extends Component {
               </Toolbar>
             </Toolbar>
           </section>
+
+          <section
+            class='app__playbacks'
+            ref={this.ref('playbacks')}
+          />
         </section>
       </main>
     )
@@ -170,7 +183,7 @@ export default class App extends Component {
   // Insert a word by its string
   addWord = string => {
     if (!string || !string.length) return
-    this.render((
+    const word = this.render((
       <div
         class='word'
         ref={this.refArray('words')}
@@ -193,6 +206,7 @@ export default class App extends Component {
     ), this.refs.wordsContainer)
 
     this.#updateInternalWords()
+    return word
   }
 
   // Remove a word by its element
@@ -226,6 +240,8 @@ export default class App extends Component {
 
   // Remove all words
   #handleRemoveWords = async () => {
+    if (!this.refs.words) return
+
     // Delete each word reference in the DOM
     for (let index = this.refs.words.length - 1; index >= 0; index--) {
       this.removeWord(this.refs.words[index], { dispatch: false })
@@ -362,6 +378,93 @@ export default class App extends Component {
       this.refs.poster.refs.cells.map((cell, index) => [index, cell.querySelector('.word')?.textContent])
     )
     Timeline.start()
+  }
+
+  #handleDrop = async (e, t) => {
+    const files = Array.from(t.state.files.get() ?? [])
+    const playbacks = await Promise.all(
+      files.map(async file => {
+        const timeline = Timeline.load(await readFile(file))
+        return {
+          file,
+          timeline,
+          state: {
+            active: $(false),
+            index: $(0),
+            corrupted: $(!timeline.data || !timeline.data.has('duration') || !timeline.data.has('words'))
+          }
+        }
+      })
+    )
+
+    this.refs.playbacks.innerHTML = ''
+    this.render(playbacks.map(playback => (
+      <div
+        class='playback'
+        data-filename={`[${playback.file.name}] ${Array.from(new Set(playback.timeline.data.get('words')?.values().map(([, w]) => w))).filter(Boolean)}`}
+        data-duration={
+          playback.timeline.data.has('duration')
+            ? (playback.timeline.data.get('duration') / 1000).toFixed(0)
+            : null
+        }
+      >
+        <Toolbar compact disabled={playback.state.corrupted}>
+          <Button
+            icon={Icons.play}
+            active={playback.state.active}
+            event-click={this.#handlePlayback(playback)}
+          />
+          <Range
+            min={0}
+            class={[{ 'is-active': playback.state.active }]}
+            value={playback.state.index}
+            max={playback.timeline?.events.length}
+          />
+        </Toolbar>
+      </div>
+    )), this.refs.playbacks)
+
+    this.state.playbacks.set(playbacks)
+  }
+
+  #handlePlayback = playback => async () => {
+    // Cleanup
+    this.#handleRemoveWords()
+    playback.state.index.set(0)
+
+    // Set blueprint
+    const blueprint = BLUEPRINTS.find(m => m.name === playback.timeline.data.get('blueprint'))
+    this.state.blueprint.set(blueprint)
+
+    // Add and place words
+    for (const [cellIndex, word] of playback.timeline.data.get('words')) {
+      if (!word) continue
+      const cell = this.refs.poster.refs.cells[cellIndex]
+      if (!cell) continue
+      cell.appendChild(this.addWord(word).nodes[0])
+    }
+
+    // Play timeline sequence
+    let ellapsed
+    const events = [...playback.timeline.events]
+    const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms))
+    playback.state.active.set(true)
+    while (events.length) {
+      const [timestamp, actions] = events.shift()
+      ellapsed ??= timestamp
+
+      await wait(timestamp - ellapsed)
+      playback.state.index.update(i => ++i)
+      for (const action of actions) {
+        for (const event in action) {
+          const cellIndex = action[event]
+          this.refs.poster.simulate(event, this.refs.poster.refs.cells[cellIndex])
+        }
+      }
+      ellapsed = timestamp
+    }
+
+    playback.state.active.set(false)
   }
 
   beforeDestroy () {

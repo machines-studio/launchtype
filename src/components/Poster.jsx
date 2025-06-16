@@ -126,6 +126,14 @@ export default class Poster extends Component {
     adsr.stop(cell, cell.dataset.adsrSelector ?? cell)
   }
 
+  simulate (event, cell) {
+    switch (event) {
+      case 'up': return this.#handleUp({ currentTarget: cell })
+      case 'down': return this.#handleDown({ currentTarget: cell })
+      default: this.warn(`Unkwown event '${event}'`)
+    }
+  }
+
   beforeDestroy () {
     for (const cell of this.refs.cells) cell.adsr?.destroy()
   }

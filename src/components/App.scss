@@ -19,6 +19,7 @@
     flex: 1;
     display: flex;
     gap: var(--space-gutter);
+    overflow: hidden;
 
     @include portrait {
       flex-direction: column;
@@ -80,11 +81,19 @@
     }
   }
 
+  &.has-playback &__poster-container {
+    pointer-events: none;
+  }
+
   &__words {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: var(--space-gutter);
+  }
+
+  &.has-playback &__words {
+    display: none;
   }
 
   &__words-container {
@@ -181,5 +190,52 @@
 
   &.is-recording .button--record svg {
     animation: fade-out 600ms ease-in-out alternate infinite;
+  }
+
+  &__playbacks {
+    @include invisible-scroll(y);
+    --ui-color-background: white;
+    --ui-color-text: black;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-gutter);
+    width: 100%;
+
+    [class^='ui-toolbar-'] {
+      width: 100%;
+    }
+
+    [data-filename], [data-duration] {
+      position: relative;
+      padding-top: calc(var(--space-gutter) + 1em);
+    }
+
+    [data-filename]::before,
+    [data-duration]::after {
+      position: absolute;
+      top: 0;
+      display: block;
+      margin-bottom: var(--space-gutter);
+    }
+
+    [data-filename]::before {
+      content: attr(data-filename);
+    }
+
+    [data-duration]::after {
+      content: attr(data-duration)'\202Fs';
+      right: 0;
+    }
+
+    [class^='ui-range-'] {
+      pointer-events: none;
+      flex: 1;
+    }
+
+    .is-active {
+      --ui-color-background: var(--ui-color-accent);
+    }
   }
 }
