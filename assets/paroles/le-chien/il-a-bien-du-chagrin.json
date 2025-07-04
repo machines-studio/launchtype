@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-chien/il-a-bien-du-chagrin.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_2f04f97aef6",
+      "text": "Il",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_f04f97aef68",
+      "text": "avait",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.630",
+      "endMs": 630
+    },
+    {
+      "uuid": "segment_04f97aef68b",
+      "text": "du",
+      "start": "00:00:00.630",
+      "startMs": 630,
+      "end": "00:00:00.810",
+      "endMs": 810
+    },
+    {
+      "uuid": "segment_4f97aef68bd",
+      "text": "chagrin",
+      "start": "00:00:00.810",
+      "startMs": 810,
+      "end": "00:00:01.460",
+      "endMs": 1460
+    }
+  ],
+  "transcript": "Il avait du chagrin"
+}

@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/le-chien/il-s-av-ere-s-ev-ere.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_7aaf6751280",
+      "text": "Il",
+      "start": "00:00:00.000",
+      "startMs": 0,
+      "end": "00:00:00.110",
+      "endMs": 110
+    },
+    {
+      "uuid": "segment_aaf6751280b",
+      "text": "s'avère",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.650",
+      "endMs": 650
+    },
+    {
+      "uuid": "segment_af6751280b0",
+      "text": "sévère",
+      "start": "00:00:00.650",
+      "startMs": 650,
+      "end": "00:00:00.940",
+      "endMs": 940
+    }
+  ],
+  "transcript": "Il s'avère sévère"
+}

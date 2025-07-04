@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/l-abeille/elle-ne-s-arr-eta-pas.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_421546b5068",
+      "text": "Elle",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_21546b50688",
+      "text": "ne",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.310",
+      "endMs": 310
+    },
+    {
+      "uuid": "segment_1546b50688c",
+      "text": "s'arrêta",
+      "start": "00:00:00.310",
+      "startMs": 310,
+      "end": "00:00:00.660",
+      "endMs": 660
+    },
+    {
+      "uuid": "segment_546b50688c3",
+      "text": "pas",
+      "start": "00:00:00.660",
+      "startMs": 660,
+      "end": "00:00:00.960",
+      "endMs": 960
+    }
+  ],
+  "transcript": "Elle ne s'arrêta pas"
+}

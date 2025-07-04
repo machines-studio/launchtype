@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/l-abeille/elle-d-eploie-ses-ailes.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_990df5ad9ba",
+      "text": "Elle",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_90df5ad9ba4",
+      "text": "déploie",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.640",
+      "endMs": 640
+    },
+    {
+      "uuid": "segment_0df5ad9ba42",
+      "text": "ses",
+      "start": "00:00:00.640",
+      "startMs": 640,
+      "end": "00:00:00.700",
+      "endMs": 700
+    },
+    {
+      "uuid": "segment_df5ad9ba421",
+      "text": "ailes",
+      "start": "00:00:00.700",
+      "startMs": 700,
+      "end": "00:00:01.100",
+      "endMs": 1100
+    }
+  ],
+  "transcript": "Elle déploie ses ailes"
+}

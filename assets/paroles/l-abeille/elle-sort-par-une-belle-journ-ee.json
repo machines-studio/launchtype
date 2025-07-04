@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/l-abeille/elle-sort-par-une-belle-journ-ee.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_04188861e44",
+      "text": "Elle",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_4188861e446",
+      "text": "sort",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.380",
+      "endMs": 380
+    },
+    {
+      "uuid": "segment_188861e4465",
+      "text": "par",
+      "start": "00:00:00.380",
+      "startMs": 380,
+      "end": "00:00:00.540",
+      "endMs": 540
+    },
+    {
+      "uuid": "segment_88861e44654",
+      "text": "une",
+      "start": "00:00:00.540",
+      "startMs": 540,
+      "end": "00:00:00.660",
+      "endMs": 660
+    },
+    {
+      "uuid": "segment_8861e446544",
+      "text": "belle",
+      "start": "00:00:00.660",
+      "startMs": 660,
+      "end": "00:00:00.900",
+      "endMs": 900
+    },
+    {
+      "uuid": "segment_861e4465446",
+      "text": "journée",
+      "start": "00:00:00.900",
+      "startMs": 900,
+      "end": "00:00:01.300",
+      "endMs": 1300
+    }
+  ],
+  "transcript": "Elle sort par une belle journée"
+}

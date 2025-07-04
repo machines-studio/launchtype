@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/l-abeille/elle-pr-epare-le-miel.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_0688c35330b",
+      "text": "Elle",
+      "start": "00:00:00.020",
+      "startMs": 20,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_688c35330bc",
+      "text": "prépare",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.530",
+      "endMs": 530
+    },
+    {
+      "uuid": "segment_88c35330bc0",
+      "text": "le",
+      "start": "00:00:00.530",
+      "startMs": 530,
+      "end": "00:00:00.620",
+      "endMs": 620
+    },
+    {
+      "uuid": "segment_8c35330bc08",
+      "text": "miel",
+      "start": "00:00:00.620",
+      "startMs": 620,
+      "end": "00:00:00.960",
+      "endMs": 960
+    }
+  ],
+  "transcript": "Elle prépare le miel"
+}

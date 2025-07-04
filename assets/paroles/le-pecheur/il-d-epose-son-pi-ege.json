@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-pecheur/il-d-epose-son-pi-ege.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_a7ca460ab22",
+      "text": "Il",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_7ca460ab22c",
+      "text": "dépose",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.760",
+      "endMs": 760
+    },
+    {
+      "uuid": "segment_ca460ab22c5",
+      "text": "son",
+      "start": "00:00:00.760",
+      "startMs": 760,
+      "end": "00:00:01.010",
+      "endMs": 1010
+    },
+    {
+      "uuid": "segment_a460ab22c58",
+      "text": "piège",
+      "start": "00:00:01.010",
+      "startMs": 1010,
+      "end": "00:00:01.540",
+      "endMs": 1540
+    }
+  ],
+  "transcript": "Il dépose son piège"
+}

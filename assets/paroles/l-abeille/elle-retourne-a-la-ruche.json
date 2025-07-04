@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/l-abeille/elle-retourne-a-la-ruche.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_f26572d5911",
+      "text": "Elle",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.240",
+      "endMs": 240
+    },
+    {
+      "uuid": "segment_26572d59113",
+      "text": "retourne",
+      "start": "00:00:00.240",
+      "startMs": 240,
+      "end": "00:00:00.720",
+      "endMs": 720
+    },
+    {
+      "uuid": "segment_6572d591133",
+      "text": "à",
+      "start": "00:00:00.720",
+      "startMs": 720,
+      "end": "00:00:00.840",
+      "endMs": 840
+    },
+    {
+      "uuid": "segment_572d5911335",
+      "text": "la",
+      "start": "00:00:00.840",
+      "startMs": 840,
+      "end": "00:00:00.960",
+      "endMs": 960
+    },
+    {
+      "uuid": "segment_72d5911335f",
+      "text": "rue",
+      "start": "00:00:00.960",
+      "startMs": 960,
+      "end": "00:00:01.160",
+      "endMs": 1160
+    }
+  ],
+  "transcript": "Elle retourne à la rue"
+}

@@ -1,0 +1,105 @@
+:root {
+  --pad-size: 50rem;
+  --pad-color-background: var(--ui-color-background);
+  --pad-cursor-size: 2rem;
+  --pad-dots: 12;
+  --pad-dots-size: 2px;
+  --pad-dots-color: rgba(255 255 255 / 10%);
+}
+
+.pad {
+  --padding: calc((var(--pad-size) / (var(--pad-dots) + 1)));
+  position: relative;
+
+  width: var(--pad-size);
+  height: var(--pad-size);
+  cursor: crosshair;
+
+  background: var(--pad-color-background);
+  border: var(--ui-border);
+  border-radius: var(--ui-border-radius);
+  box-shadow: 0 0 10px black; // WIP
+
+  &::before {
+    @include dot-grid(transparent, var(--pad-dots-color), var(--pad-dots-size), calc(var(--pad-size) / (var(--pad-dots) + 1)));
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: calc(var(--padding) / 2);
+    pointer-events: none;
+  }
+
+  &.is-loading {
+    pointer-events: none;
+    cursor: wait;
+    opacity: 0.1;
+  }
+
+  .pad-map {
+    position: absolute;
+    inset: var(--padding);
+    width: calc(100% - var(--padding) * 2);
+    height: calc(100% - var(--padding) * 2);
+    pointer-events: none;
+
+    &:not(.debug) {
+      visibility: hidden;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    z-index: 1;
+    padding-left: calc(var(--padding) / 2);
+    background: var(--pad-color-background);
+
+    &::after {
+      content: '→';
+      margin-left: calc(var(--padding) / 2);
+    }
+
+    &--x {
+      bottom: calc(var(--padding) - 0.5lh);
+      left: calc(var(--padding) - var(--pad-dots-size));
+    }
+
+    &--y {
+      bottom: calc(var(--padding) - 0.5lh);
+      left: calc(var(--padding) - var(--pad-dots-size));
+      transform: rotate(-90deg);
+      transform-origin: left center;
+    }
+  }
+
+  &__cursor {
+    @include easing((background, opacity));
+
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    width: var(--pad-cursor-size);
+    height: var(--pad-cursor-size);
+
+    background: var(--ui-color-text);
+    border-radius: 100%;
+    opacity: 0.7;
+    transform:
+      translateX(calc(var(--drag-x, 1px) - 50%))
+      translateY(calc(var(--drag-y, 1px) - 50%))
+      scale(var(--pad-cursor-scale, 1));
+    transform-origin: center;
+
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.is-dragging {
+      --pad-cursor-scale: 2;
+      background: var(--ui-color-accent);
+      opacity: 0.7;
+    }
+  }
+}

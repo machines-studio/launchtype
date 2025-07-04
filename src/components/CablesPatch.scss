@@ -1,0 +1,12 @@
+.cables-patch {
+  position: relative;
+
+  canvas {
+    position: absolute;
+    inset: 0;
+  }
+
+  #performance:not(:hover) {
+    opacity: 0.3 !important;
+  }
+}

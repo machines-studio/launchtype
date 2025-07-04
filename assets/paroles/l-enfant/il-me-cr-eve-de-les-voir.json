@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/l-enfant/il-me-cr-eve-de-les-voir.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_c780f2db5ec",
+      "text": "Il",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_780f2db5ec9",
+      "text": "me",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.380",
+      "endMs": 380
+    },
+    {
+      "uuid": "segment_80f2db5ec96",
+      "text": "crève",
+      "start": "00:00:00.380",
+      "startMs": 380,
+      "end": "00:00:00.950",
+      "endMs": 950
+    },
+    {
+      "uuid": "segment_0f2db5ec960",
+      "text": "de",
+      "start": "00:00:00.950",
+      "startMs": 950,
+      "end": "00:00:01.140",
+      "endMs": 1140
+    },
+    {
+      "uuid": "segment_f2db5ec960f",
+      "text": "les",
+      "start": "00:00:01.140",
+      "startMs": 1140,
+      "end": "00:00:01.430",
+      "endMs": 1430
+    },
+    {
+      "uuid": "segment_2db5ec960fb",
+      "text": "voir",
+      "start": "00:00:01.430",
+      "startMs": 1430,
+      "end": "00:00:01.840",
+      "endMs": 1840
+    }
+  ],
+  "transcript": "Il me crève de les voir"
+}

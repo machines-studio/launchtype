@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/l-enfant/ils-nont-jamais-ete-separe.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_330d7d773ac",
+      "text": "ils",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_30d7d773ac1",
+      "text": "n'ont",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.500",
+      "endMs": 500
+    },
+    {
+      "uuid": "segment_0d7d773ac16",
+      "text": "jamais",
+      "start": "00:00:00.500",
+      "startMs": 500,
+      "end": "00:00:00.910",
+      "endMs": 910
+    },
+    {
+      "uuid": "segment_d7d773ac16b",
+      "text": "été",
+      "start": "00:00:00.910",
+      "startMs": 910,
+      "end": "00:00:01.200",
+      "endMs": 1200
+    },
+    {
+      "uuid": "segment_7d773ac16bf",
+      "text": "séparés",
+      "start": "00:00:01.200",
+      "startMs": 1200,
+      "end": "00:00:01.820",
+      "endMs": 1820
+    }
+  ],
+  "transcript": "ils n'ont jamais été séparés"
+}

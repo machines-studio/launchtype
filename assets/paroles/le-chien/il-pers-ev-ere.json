@@ -1,0 +1,22 @@
+{
+  "sound": "paroles/le-chien/il-pers-ev-ere.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_e07a00d7aaf",
+      "text": "Il",
+      "start": "00:00:00.010",
+      "startMs": 10,
+      "end": "00:00:00.130",
+      "endMs": 130
+    },
+    {
+      "uuid": "segment_07a00d7aaf6",
+      "text": "persévère",
+      "start": "00:00:00.130",
+      "startMs": 130,
+      "end": "00:00:00.880",
+      "endMs": 880
+    }
+  ],
+  "transcript": "Il persévère"
+}

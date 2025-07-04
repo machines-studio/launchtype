@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/l-enfant/il-me-manque-yann.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4611330d7d7",
+      "text": "Il",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.170",
+      "endMs": 170
+    },
+    {
+      "uuid": "segment_611330d7d77",
+      "text": "me",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.340",
+      "endMs": 340
+    },
+    {
+      "uuid": "segment_11330d7d773",
+      "text": "manque",
+      "start": "00:00:00.340",
+      "startMs": 340,
+      "end": "00:00:00.850",
+      "endMs": 850
+    },
+    {
+      "uuid": "segment_1330d7d773a",
+      "text": "Yann",
+      "start": "00:00:00.850",
+      "startMs": 850,
+      "end": "00:00:01.200",
+      "endMs": 1200
+    }
+  ],
+  "transcript": "Il me manque Yann"
+}

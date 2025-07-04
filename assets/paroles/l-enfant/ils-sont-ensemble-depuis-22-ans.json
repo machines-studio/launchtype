@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/l-enfant/ils-sont-ensemble-depuis-22-ans.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_d773ac16bf0",
+      "text": "Ils",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_773ac16bf06",
+      "text": "sont",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.460",
+      "endMs": 460
+    },
+    {
+      "uuid": "segment_73ac16bf06c",
+      "text": "ensemble",
+      "start": "00:00:00.460",
+      "startMs": 460,
+      "end": "00:00:00.990",
+      "endMs": 990
+    },
+    {
+      "uuid": "segment_3ac16bf06c3",
+      "text": "depuis",
+      "start": "00:00:00.990",
+      "startMs": 990,
+      "end": "00:00:01.380",
+      "endMs": 1380
+    },
+    {
+      "uuid": "segment_ac16bf06c37",
+      "text": "22",
+      "start": "00:00:01.380",
+      "startMs": 1380,
+      "end": "00:00:01.760",
+      "endMs": 1760
+    },
+    {
+      "uuid": "segment_c16bf06c37a",
+      "text": "ans",
+      "start": "00:00:01.760",
+      "startMs": 1760,
+      "end": "00:00:02.000",
+      "endMs": 2000
+    }
+  ],
+  "transcript": "Ils sont ensemble depuis 22 ans"
+}

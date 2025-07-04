@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/l-enfant/il-me-manque-soan.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_960fbe46113",
+      "text": "",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.150",
+      "endMs": 150
+    },
+    {
+      "uuid": "segment_60fbe461133",
+      "text": "Il",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.300",
+      "endMs": 300
+    },
+    {
+      "uuid": "segment_0fbe4611330",
+      "text": "me",
+      "start": "00:00:00.300",
+      "startMs": 300,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_fbe4611330d",
+      "text": "manque",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:00.900",
+      "endMs": 900
+    },
+    {
+      "uuid": "segment_be4611330d7",
+      "text": "soin",
+      "start": "00:00:00.900",
+      "startMs": 900,
+      "end": "00:00:01.410",
+      "endMs": 1410
+    },
+    {
+      "uuid": "segment_e4611330d7d",
+      "text": "",
+      "start": "00:00:01.410",
+      "startMs": 1410,
+      "end": "00:00:01.580",
+      "endMs": 1580
+    }
+  ],
+  "transcript": " Il me manque soin "
+}

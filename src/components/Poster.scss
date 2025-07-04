@@ -1,157 +1,57 @@
 .poster {
-  // --poster-width|height are defined in index.scss
-  --poster-base-font-size: 5rem;
-  --poster-base-row-height: calc(var(--poster-height) / 24);
-  --poster-gutter: calc(0.005 * var(--poster-height));
-  --poster-padding: calc(0.005 * var(--poster-height));
+  --poster-vw: 1%;
 
   position: relative;
-
-  display: flex;
-  flex-direction: column;
   width: var(--poster-width);
   height: var(--poster-height);
   overflow: hidden;
+  border-radius: var(--border-radius);
 
-  color: var(--poster-color-foreground);
-
-  background: var(--poster-color-background);
-  border-radius: var(--rounded);
-  box-shadow: 0 0 10px rgba(0 0 0 / 10%);
-
-  &[data-name]::before {
-    content: attr(data-name);
-
+  .cables-patch,
+  &__words {
     position: absolute;
-    z-index: 9;
-    top: 50%;
-    left: 50%;
-
-    padding: var(--ui-padding-container);
-    pointer-events: none;
-
-    font-family: var(--ui-font-family);
-    font-size: var(--ui-font-size);
-    line-height: var(--ui-line-height);
-    color: black;
-
-    background: var(--ui-color-accent);
-    border-radius: var(--ui-border-radius);
-    transform: translateX(-50%) translateY(-50%);
-    box-shadow: 0 0 10px rgba(0 0 0 / 10%);
-    animation: fade-out var(--easing-slow) 500ms both ease;
+    inset: 0;
   }
 
-  .row {
-    position: relative;
-    display: flex;
-    height: calc(var(--row-factor) * var(--poster-base-row-height));
-    font-size: calc(var(--user-font-scale, 1) * var(--poster-base-font-size) * var(--row-factor));
-    line-height: 100%;
+  &__word {
+    display: inline-block;
+    margin-right: 0.25em; // Simulate a space between words
+    cursor: pointer;
 
-    &[data-size='small'] { --row-factor: 1; z-index: 4; }
-    &[data-size='medium'] { --row-factor: 1.618; z-index: 3; }
-    &[data-size='large'] { --row-factor: 1.618 * 2; z-index: 2; }
-    &[data-size='auto'] { flex: 1; z-index: 1; }
+    font-family: var(--poster-font-family);
+    font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.68);
+    line-height: 0.5;
+    color: transparent;
+
+    // TODO absolute when dragged (to avoid moving when fontsize change)
+    position: absolute;
   }
 
-  .cell {
-    flex: 1 1 0px;
-
-    position: relative;
-
-    display: flex;
-    justify-content: var(--cell-text-align);
-    align-items: center;
-    width: 0; // Used with `flex: 1 1 0px` to fix cell width
-    padding:
-      var(--padding-top, 0)
-      var(--padding-right, 0)
-      var(--padding-bottom, 0)
-      var(--padding-left, 0);
-
-    white-space: nowrap;
-
-    // Visual aid
-    &::after {
-      @include easing(opacity);
-      --grid-launchpad-mode: 0;
-
-      content: '';
-
-      position: absolute;
-      /* stylelint-disable declaration-block-no-redundant-longhand-properties */
-      top: calc(var(--grid-launchpad-mode) * var(--padding-top, 0));
-      right: calc(var(--grid-launchpad-mode) * var(--padding-right, 0));
-      bottom: calc(var(--grid-launchpad-mode) * var(--padding-bottom, 0));
-      left: calc(var(--grid-launchpad-mode) * var(--padding-left, 0));
-      /* stylelint-enable declaration-block-no-redundant-longhand-properties */
-      pointer-events: none;
-
-      background: rgba(0 0 0 / 10%);
-      border: 1px dotted var(--ui-color-accent);
-      border-radius: calc(var(--rounded-inside) * var(--grid-launchpad-mode));
-      opacity: 0;
-      animation: fade-out var(--easing-slow) both;
-    }
-
-    &[data-align='left'] { --cell-text-align: flex-start; }
-    &[data-align='right'] { --cell-text-align: flex-end; }
-    &[data-align='center'] { --cell-text-align: center; }
+  &__words.has-debug &__word {
+    color: rgba(255 0 255);
+    background: rgba(255 0 255 / 10%);
+    outline: 1px solid rgb(255 0 255);
   }
 
-  .row:first-child .cell { --padding-top: var(--poster-padding); }
-  .row:last-child .cell { --padding-bottom: var(--poster-padding); }
-  .cell:first-child { --padding-left: var(--poster-padding); }
-  .cell:last-child { --padding-right: var(--poster-padding); }
-
-  .row:not(:first-child) { --padding-top: calc(var(--poster-gutter) / 2); }
-  .row:not(:last-child) { --padding-bottom: calc(var(--poster-gutter) / 2); }
-  .cell:not(:first-child) { --padding-left: calc(var(--poster-gutter) / 2); }
-  .cell:not(:last-child) { --padding-right: calc(var(--poster-gutter) / 2); }
-
-  .word {
-    .char {
-      display: inline-block;
-      white-space: pre;
-
-      // Standard axes
-      font-variation-settings:
-        "wght" var(--wght, 0),
-        "wdth" var(--wdth, 0),
-        "slnt" var(--slnt, 0),
-        "ital" var(--ital, 0),
-        "opsz" var(--opsz, 0)
-      ;
-    }
-  }
-
-  // Hide previous word when dropping a new one in a cell
-  .word:first-child:not(:last-child) {
-    display: none;
-  }
-
-  // Avoid hitting overflowing dropzones when dragging a word
-  .cell.draggable-dropzone--active .word {
+  &.has-pointer-down &__words,
+  &.is-playing &__words {
     pointer-events: none;
   }
 
-  .app.is-recording & .cell .word {
-    pointer-events: none;
-  }
+  &__pointer--debug {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  .app.is-recording & .cell::after {
-    --grid-launchpad-mode: 1;
-    border-style: solid;
-  }
+    width: calc(var(--pointer-radius) * 2);
+    height: calc(var(--pointer-radius) * 2);
 
-  .app.is-recording & .cell:not(:has(.word))::after {
-    opacity: 0.2 !important;
-  }
-
-  .app.has-visible-grid & .cell::after,
-  body.draggable--is-dragging & .cell::after {
-    opacity: 1;
-    animation: none;
+    background: rgba(255 0 0 / 50%);
+    border-radius: 100%;
+    outline: 2px solid red;
+    outline-offset: 2rem;
+    transform:
+      translateX(calc(var(--pointer-x) - 50%))
+      translateY(calc(var(--pointer-y) - 50%));
   }
 }

@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-pecheur/il-est-a-l-epreuve-de-la-r-esistance.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_460ab22c582",
+      "text": "Il",
+      "start": "00:00:00.080",
+      "startMs": 80,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_60ab22c582b",
+      "text": "est",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.210",
+      "endMs": 210
+    },
+    {
+      "uuid": "segment_0ab22c582b2",
+      "text": "à",
+      "start": "00:00:00.210",
+      "startMs": 210,
+      "end": "00:00:00.330",
+      "endMs": 330
+    },
+    {
+      "uuid": "segment_ab22c582b20",
+      "text": "l'épreuve",
+      "start": "00:00:00.330",
+      "startMs": 330,
+      "end": "00:00:00.710",
+      "endMs": 710
+    },
+    {
+      "uuid": "segment_b22c582b208",
+      "text": "de",
+      "start": "00:00:00.710",
+      "startMs": 710,
+      "end": "00:00:00.790",
+      "endMs": 790
+    },
+    {
+      "uuid": "segment_22c582b2089",
+      "text": "la",
+      "start": "00:00:00.790",
+      "startMs": 790,
+      "end": "00:00:00.870",
+      "endMs": 870
+    },
+    {
+      "uuid": "segment_2c582b20899",
+      "text": "résistance",
+      "start": "00:00:00.870",
+      "startMs": 870,
+      "end": "00:00:01.520",
+      "endMs": 1520
+    }
+  ],
+  "transcript": "Il est à l'épreuve de la résistance"
+}

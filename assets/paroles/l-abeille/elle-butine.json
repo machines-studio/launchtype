@@ -1,0 +1,22 @@
+{
+  "sound": "paroles/l-abeille/elle-butine.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_20990df5ad9",
+      "text": "Elle",
+      "start": "00:00:00.020",
+      "startMs": 20,
+      "end": "00:00:00.210",
+      "endMs": 210
+    },
+    {
+      "uuid": "segment_0990df5ad9b",
+      "text": "butine",
+      "start": "00:00:00.210",
+      "startMs": 210,
+      "end": "00:00:00.700",
+      "endMs": 700
+    }
+  ],
+  "transcript": "Elle butine"
+}

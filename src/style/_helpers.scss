@@ -43,3 +43,9 @@
     background: transparent;
   }
 }
+
+@mixin dot-grid ($background: white, $color: black, $size: 1px, $gap: 40px) {
+  background: $background;
+  background-image: radial-gradient($color $size, transparent 0);
+  background-size: $gap $gap;
+}

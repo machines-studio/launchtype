@@ -1,0 +1,438 @@
+{
+  "sound": "paroles/l-enfant/les-enfants.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_06c37ade5ac",
+      "text": "Il",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.170",
+      "endMs": 170
+    },
+    {
+      "uuid": "segment_6c37ade5acc",
+      "text": "me",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.340",
+      "endMs": 340
+    },
+    {
+      "uuid": "segment_c37ade5acc7",
+      "text": "manque",
+      "start": "00:00:00.340",
+      "startMs": 340,
+      "end": "00:00:00.860",
+      "endMs": 860
+    },
+    {
+      "uuid": "segment_37ade5acc71",
+      "text": "Swan",
+      "start": "00:00:00.860",
+      "startMs": 860,
+      "end": "00:00:01.370",
+      "endMs": 1370
+    },
+    {
+      "uuid": "segment_7ade5acc71f",
+      "text": "il",
+      "start": "00:00:01.370",
+      "startMs": 1370,
+      "end": "00:00:01.740",
+      "endMs": 1740
+    },
+    {
+      "uuid": "segment_ade5acc71fb",
+      "text": "me",
+      "start": "00:00:01.740",
+      "startMs": 1740,
+      "end": "00:00:01.760",
+      "endMs": 1760
+    },
+    {
+      "uuid": "segment_de5acc71fb5",
+      "text": "manque",
+      "start": "00:00:01.760",
+      "startMs": 1760,
+      "end": "00:00:02.280",
+      "endMs": 2280
+    },
+    {
+      "uuid": "segment_e5acc71fb51",
+      "text": "Yann",
+      "start": "00:00:02.280",
+      "startMs": 2280,
+      "end": "00:00:02.840",
+      "endMs": 2840
+    },
+    {
+      "uuid": "segment_5acc71fb515",
+      "text": "il",
+      "start": "00:00:02.840",
+      "startMs": 2840,
+      "end": "00:00:03.180",
+      "endMs": 3180
+    },
+    {
+      "uuid": "segment_acc71fb515b",
+      "text": "me",
+      "start": "00:00:03.180",
+      "startMs": 3180,
+      "end": "00:00:03.230",
+      "endMs": 3230
+    },
+    {
+      "uuid": "segment_cc71fb515b4",
+      "text": "crève",
+      "start": "00:00:03.230",
+      "startMs": 3230,
+      "end": "00:00:03.690",
+      "endMs": 3690
+    },
+    {
+      "uuid": "segment_c71fb515b47",
+      "text": "de",
+      "start": "00:00:03.690",
+      "startMs": 3690,
+      "end": "00:00:03.860",
+      "endMs": 3860
+    },
+    {
+      "uuid": "segment_71fb515b472",
+      "text": "les",
+      "start": "00:00:03.860",
+      "startMs": 3860,
+      "end": "00:00:04.120",
+      "endMs": 4120
+    },
+    {
+      "uuid": "segment_1fb515b4729",
+      "text": "voir",
+      "start": "00:00:04.120",
+      "startMs": 4120,
+      "end": "00:00:04.680",
+      "endMs": 4680
+    },
+    {
+      "uuid": "segment_fb515b47294",
+      "text": "il",
+      "start": "00:00:04.680",
+      "startMs": 4680,
+      "end": "00:00:04.820",
+      "endMs": 4820
+    },
+    {
+      "uuid": "segment_b515b47294e",
+      "text": "me",
+      "start": "00:00:04.820",
+      "startMs": 4820,
+      "end": "00:00:05.050",
+      "endMs": 5050
+    },
+    {
+      "uuid": "segment_515b47294e7",
+      "text": "manque",
+      "start": "00:00:05.050",
+      "startMs": 5050,
+      "end": "00:00:05.440",
+      "endMs": 5440
+    },
+    {
+      "uuid": "segment_15b47294e78",
+      "text": "les",
+      "start": "00:00:05.440",
+      "startMs": 5440,
+      "end": "00:00:05.680",
+      "endMs": 5680
+    },
+    {
+      "uuid": "segment_5b47294e787",
+      "text": "parloirs",
+      "start": "00:00:05.680",
+      "startMs": 5680,
+      "end": "00:00:06.630",
+      "endMs": 6630
+    },
+    {
+      "uuid": "segment_b47294e787b",
+      "text": "il",
+      "start": "00:00:06.630",
+      "startMs": 6630,
+      "end": "00:00:06.630",
+      "endMs": 6630
+    },
+    {
+      "uuid": "segment_47294e787b3",
+      "text": "est",
+      "start": "00:00:06.630",
+      "startMs": 6630,
+      "end": "00:00:07.060",
+      "endMs": 7060
+    },
+    {
+      "uuid": "segment_7294e787b3e",
+      "text": "dur",
+      "start": "00:00:07.060",
+      "startMs": 7060,
+      "end": "00:00:07.070",
+      "endMs": 7070
+    },
+    {
+      "uuid": "segment_294e787b3e0",
+      "text": "d'être",
+      "start": "00:00:07.070",
+      "startMs": 7070,
+      "end": "00:00:07.590",
+      "endMs": 7590
+    },
+    {
+      "uuid": "segment_94e787b3e03",
+      "text": "éloigné",
+      "start": "00:00:07.590",
+      "startMs": 7590,
+      "end": "00:00:08.460",
+      "endMs": 8460
+    },
+    {
+      "uuid": "segment_4e787b3e03d",
+      "text": "ils",
+      "start": "00:00:08.460",
+      "startMs": 8460,
+      "end": "00:00:08.640",
+      "endMs": 8640
+    },
+    {
+      "uuid": "segment_e787b3e03d4",
+      "text": "n'ont",
+      "start": "00:00:08.640",
+      "startMs": 8640,
+      "end": "00:00:08.990",
+      "endMs": 8990
+    },
+    {
+      "uuid": "segment_787b3e03d42",
+      "text": "jamais",
+      "start": "00:00:08.990",
+      "startMs": 8990,
+      "end": "00:00:09.340",
+      "endMs": 9340
+    },
+    {
+      "uuid": "segment_87b3e03d423",
+      "text": "été",
+      "start": "00:00:09.340",
+      "startMs": 9340,
+      "end": "00:00:09.660",
+      "endMs": 9660
+    },
+    {
+      "uuid": "segment_7b3e03d4235",
+      "text": "séparés",
+      "start": "00:00:09.660",
+      "startMs": 9660,
+      "end": "00:00:10.380",
+      "endMs": 10380
+    },
+    {
+      "uuid": "segment_b3e03d4235c",
+      "text": "ils",
+      "start": "00:00:10.380",
+      "startMs": 10380,
+      "end": "00:00:10.810",
+      "endMs": 10810
+    },
+    {
+      "uuid": "segment_3e03d4235cf",
+      "text": "sont",
+      "start": "00:00:10.810",
+      "startMs": 10810,
+      "end": "00:00:10.840",
+      "endMs": 10840
+    },
+    {
+      "uuid": "segment_e03d4235cfb",
+      "text": "ensemble",
+      "start": "00:00:10.840",
+      "startMs": 10840,
+      "end": "00:00:11.310",
+      "endMs": 11310
+    },
+    {
+      "uuid": "segment_03d4235cfbf",
+      "text": "depuis",
+      "start": "00:00:11.310",
+      "startMs": 11310,
+      "end": "00:00:11.680",
+      "endMs": 11680
+    },
+    {
+      "uuid": "segment_3d4235cfbff",
+      "text": "22",
+      "start": "00:00:11.680",
+      "startMs": 11680,
+      "end": "00:00:12.050",
+      "endMs": 12050
+    },
+    {
+      "uuid": "segment_d4235cfbff9",
+      "text": "ans",
+      "start": "00:00:12.050",
+      "startMs": 12050,
+      "end": "00:00:12.400",
+      "endMs": 12400
+    },
+    {
+      "uuid": "segment_4235cfbff9e",
+      "text": "ils",
+      "start": "00:00:12.400",
+      "startMs": 12400,
+      "end": "00:00:12.570",
+      "endMs": 12570
+    },
+    {
+      "uuid": "segment_235cfbff9ed",
+      "text": "sont",
+      "start": "00:00:12.570",
+      "startMs": 12570,
+      "end": "00:00:12.920",
+      "endMs": 12920
+    },
+    {
+      "uuid": "segment_35cfbff9edb",
+      "text": "très",
+      "start": "00:00:12.920",
+      "startMs": 12920,
+      "end": "00:00:13.130",
+      "endMs": 13130
+    },
+    {
+      "uuid": "segment_5cfbff9edb4",
+      "text": "soudés",
+      "start": "00:00:13.130",
+      "startMs": 13130,
+      "end": "00:00:13.670",
+      "endMs": 13670
+    },
+    {
+      "uuid": "segment_cfbff9edb47",
+      "text": "il",
+      "start": "00:00:13.670",
+      "startMs": 13670,
+      "end": "00:00:13.790",
+      "endMs": 13790
+    },
+    {
+      "uuid": "segment_fbff9edb47b",
+      "text": "est",
+      "start": "00:00:13.790",
+      "startMs": 13790,
+      "end": "00:00:14.240",
+      "endMs": 14240
+    },
+    {
+      "uuid": "segment_bff9edb47bc",
+      "text": "temps",
+      "start": "00:00:14.240",
+      "startMs": 14240,
+      "end": "00:00:14.280",
+      "endMs": 14280
+    },
+    {
+      "uuid": "segment_ff9edb47bcb",
+      "text": "pour",
+      "start": "00:00:14.280",
+      "startMs": 14280,
+      "end": "00:00:14.540",
+      "endMs": 14540
+    },
+    {
+      "uuid": "segment_f9edb47bcbb",
+      "text": "moi",
+      "start": "00:00:14.540",
+      "startMs": 14540,
+      "end": "00:00:14.710",
+      "endMs": 14710
+    },
+    {
+      "uuid": "segment_9edb47bcbb2",
+      "text": "de",
+      "start": "00:00:14.710",
+      "startMs": 14710,
+      "end": "00:00:14.820",
+      "endMs": 14820
+    },
+    {
+      "uuid": "segment_edb47bcbb2f",
+      "text": "grandir",
+      "start": "00:00:14.820",
+      "startMs": 14820,
+      "end": "00:00:15.370",
+      "endMs": 15370
+    },
+    {
+      "uuid": "segment_db47bcbb2f0",
+      "text": "il",
+      "start": "00:00:15.370",
+      "startMs": 15370,
+      "end": "00:00:15.490",
+      "endMs": 15490
+    },
+    {
+      "uuid": "segment_b47bcbb2f04",
+      "text": "est",
+      "start": "00:00:15.490",
+      "startMs": 15490,
+      "end": "00:00:15.670",
+      "endMs": 15670
+    },
+    {
+      "uuid": "segment_47bcbb2f04f",
+      "text": "temps",
+      "start": "00:00:15.670",
+      "startMs": 15670,
+      "end": "00:00:15.980",
+      "endMs": 15980
+    },
+    {
+      "uuid": "segment_7bcbb2f04f9",
+      "text": "pour",
+      "start": "00:00:15.980",
+      "startMs": 15980,
+      "end": "00:00:16.220",
+      "endMs": 16220
+    },
+    {
+      "uuid": "segment_bcbb2f04f97",
+      "text": "moi",
+      "start": "00:00:16.220",
+      "startMs": 16220,
+      "end": "00:00:16.400",
+      "endMs": 16400
+    },
+    {
+      "uuid": "segment_cbb2f04f97a",
+      "text": "et",
+      "start": "00:00:16.400",
+      "startMs": 16400,
+      "end": "00:00:16.520",
+      "endMs": 16520
+    },
+    {
+      "uuid": "segment_bb2f04f97ae",
+      "text": "mes",
+      "start": "00:00:16.520",
+      "startMs": 16520,
+      "end": "00:00:16.700",
+      "endMs": 16700
+    },
+    {
+      "uuid": "segment_b2f04f97aef",
+      "text": "enfants",
+      "start": "00:00:16.700",
+      "startMs": 16700,
+      "end": "00:00:17.240",
+      "endMs": 17240
+    }
+  ],
+  "transcript": "Il me manque Swan il me manque Yann il me crève de les voir il me manque les parloirs il est dur d'être éloigné ils n'ont jamais été séparés ils sont ensemble depuis 22 ans ils sont très soudés il est temps pour moi de grandir il est temps pour moi et mes enfants"
+}

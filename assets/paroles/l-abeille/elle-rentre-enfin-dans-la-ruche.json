@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/l-abeille/elle-rentre-enfin-dans-la-ruche.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_bc08fba038f",
+      "text": "Elle",
+      "start": "00:00:00.040",
+      "startMs": 40,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_c08fba038f2",
+      "text": "rentre",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_08fba038f26",
+      "text": "enfin",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_8fba038f265",
+      "text": "dans",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:00.860",
+      "endMs": 860
+    },
+    {
+      "uuid": "segment_fba038f2657",
+      "text": "la",
+      "start": "00:00:00.860",
+      "startMs": 860,
+      "end": "00:00:00.940",
+      "endMs": 940
+    },
+    {
+      "uuid": "segment_ba038f26572",
+      "text": "rue",
+      "start": "00:00:00.940",
+      "startMs": 940,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    }
+  ],
+  "transcript": "Elle rentre enfin dans la rue"
+}

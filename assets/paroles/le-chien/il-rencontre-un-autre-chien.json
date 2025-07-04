@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-chien/il-rencontre-un-autre-chien.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_7a00d7aaf67",
+      "text": "Il",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_a00d7aaf675",
+      "text": "rencontre",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.580",
+      "endMs": 580
+    },
+    {
+      "uuid": "segment_00d7aaf6751",
+      "text": "un",
+      "start": "00:00:00.580",
+      "startMs": 580,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_0d7aaf67512",
+      "text": "autre",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:00.950",
+      "endMs": 950
+    },
+    {
+      "uuid": "segment_d7aaf675128",
+      "text": "chien",
+      "start": "00:00:00.950",
+      "startMs": 950,
+      "end": "00:00:01.420",
+      "endMs": 1420
+    }
+  ],
+  "transcript": "Il rencontre un autre chien"
+}

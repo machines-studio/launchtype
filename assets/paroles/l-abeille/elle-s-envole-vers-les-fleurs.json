@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/l-abeille/elle-s-envole-vers-les-fleurs.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_2d5911335f0",
+      "text": "Elle",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.300",
+      "endMs": 300
+    },
+    {
+      "uuid": "segment_d5911335f04",
+      "text": "s'envole",
+      "start": "00:00:00.300",
+      "startMs": 300,
+      "end": "00:00:00.720",
+      "endMs": 720
+    },
+    {
+      "uuid": "segment_5911335f041",
+      "text": "vers",
+      "start": "00:00:00.720",
+      "startMs": 720,
+      "end": "00:00:00.960",
+      "endMs": 960
+    },
+    {
+      "uuid": "segment_911335f0418",
+      "text": "les",
+      "start": "00:00:00.960",
+      "startMs": 960,
+      "end": "00:00:01.200",
+      "endMs": 1200
+    },
+    {
+      "uuid": "segment_11335f04188",
+      "text": "fleurs",
+      "start": "00:00:01.200",
+      "startMs": 1200,
+      "end": "00:00:01.560",
+      "endMs": 1560
+    }
+  ],
+  "transcript": "Elle s'envole vers les fleurs"
+}

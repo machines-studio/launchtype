@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-pecheur/il-a-de-la-patience.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_865e2b077a7",
+      "text": "Il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_65e2b077a7c",
+      "text": "a",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.270",
+      "endMs": 270
+    },
+    {
+      "uuid": "segment_5e2b077a7ca",
+      "text": "de",
+      "start": "00:00:00.270",
+      "startMs": 270,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_e2b077a7ca4",
+      "text": "la",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:00.630",
+      "endMs": 630
+    },
+    {
+      "uuid": "segment_2b077a7ca46",
+      "text": "patience",
+      "start": "00:00:00.630",
+      "startMs": 630,
+      "end": "00:00:01.420",
+      "endMs": 1420
+    }
+  ],
+  "transcript": "Il a de la patience"
+}

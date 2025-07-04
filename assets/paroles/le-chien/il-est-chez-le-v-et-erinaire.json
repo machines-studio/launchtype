@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-chien/il-est-chez-le-v-et-erinaire.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_ef68bdeae07",
+      "text": "il",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.230",
+      "endMs": 230
+    },
+    {
+      "uuid": "segment_f68bdeae07a",
+      "text": "est",
+      "start": "00:00:00.230",
+      "startMs": 230,
+      "end": "00:00:00.350",
+      "endMs": 350
+    },
+    {
+      "uuid": "segment_68bdeae07a0",
+      "text": "chez",
+      "start": "00:00:00.350",
+      "startMs": 350,
+      "end": "00:00:00.640",
+      "endMs": 640
+    },
+    {
+      "uuid": "segment_8bdeae07a00",
+      "text": "le",
+      "start": "00:00:00.640",
+      "startMs": 640,
+      "end": "00:00:00.780",
+      "endMs": 780
+    },
+    {
+      "uuid": "segment_bdeae07a00d",
+      "text": "vétérinaire",
+      "start": "00:00:00.780",
+      "startMs": 780,
+      "end": "00:00:01.740",
+      "endMs": 1740
+    }
+  ],
+  "transcript": "il est chez le vétérinaire"
+}

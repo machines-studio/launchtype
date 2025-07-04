@@ -30,6 +30,3 @@ for (const [word, cellIndex] of [
   window.app.addWord(word)
   window.app.refs.poster.refs.cells[cellIndex].appendChild(window.app.refs.words[window.app.refs.words.length - 1])
 }
-
-
-

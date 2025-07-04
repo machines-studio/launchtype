@@ -1,0 +1,454 @@
+{
+  "sound": "paroles/le-pecheur/le-pecheur.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_407bffd0e5b",
+      "text": "Il",
+      "start": "00:00:00.000",
+      "startMs": 0,
+      "end": "00:00:00.270",
+      "endMs": 270
+    },
+    {
+      "uuid": "segment_07bffd0e5bd",
+      "text": "est",
+      "start": "00:00:00.270",
+      "startMs": 270,
+      "end": "00:00:00.320",
+      "endMs": 320
+    },
+    {
+      "uuid": "segment_7bffd0e5bd6",
+      "text": "le",
+      "start": "00:00:00.320",
+      "startMs": 320,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_bffd0e5bd63",
+      "text": "pêcheur",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:00.960",
+      "endMs": 960
+    },
+    {
+      "uuid": "segment_ffd0e5bd633",
+      "text": "caché",
+      "start": "00:00:00.960",
+      "startMs": 960,
+      "end": "00:00:01.700",
+      "endMs": 1700
+    },
+    {
+      "uuid": "segment_fd0e5bd6336",
+      "text": "il",
+      "start": "00:00:01.700",
+      "startMs": 1700,
+      "end": "00:00:01.700",
+      "endMs": 1700
+    },
+    {
+      "uuid": "segment_d0e5bd63367",
+      "text": "est",
+      "start": "00:00:01.700",
+      "startMs": 1700,
+      "end": "00:00:02.090",
+      "endMs": 2090
+    },
+    {
+      "uuid": "segment_0e5bd633677",
+      "text": "embusqué",
+      "start": "00:00:02.090",
+      "startMs": 2090,
+      "end": "00:00:03.100",
+      "endMs": 3100
+    },
+    {
+      "uuid": "segment_e5bd633677e",
+      "text": "il",
+      "start": "00:00:03.100",
+      "startMs": 3100,
+      "end": "00:00:03.300",
+      "endMs": 3300
+    },
+    {
+      "uuid": "segment_5bd633677ea",
+      "text": "dépose",
+      "start": "00:00:03.300",
+      "startMs": 3300,
+      "end": "00:00:03.820",
+      "endMs": 3820
+    },
+    {
+      "uuid": "segment_bd633677ea7",
+      "text": "son",
+      "start": "00:00:03.820",
+      "startMs": 3820,
+      "end": "00:00:04.060",
+      "endMs": 4060
+    },
+    {
+      "uuid": "segment_d633677ea76",
+      "text": "piège",
+      "start": "00:00:04.060",
+      "startMs": 4060,
+      "end": "00:00:04.740",
+      "endMs": 4740
+    },
+    {
+      "uuid": "segment_633677ea768",
+      "text": "il",
+      "start": "00:00:04.740",
+      "startMs": 4740,
+      "end": "00:00:05.140",
+      "endMs": 5140
+    },
+    {
+      "uuid": "segment_33677ea768e",
+      "text": "est",
+      "start": "00:00:05.140",
+      "startMs": 5140,
+      "end": "00:00:05.170",
+      "endMs": 5170
+    },
+    {
+      "uuid": "segment_3677ea768e8",
+      "text": "au",
+      "start": "00:00:05.170",
+      "startMs": 5170,
+      "end": "00:00:05.300",
+      "endMs": 5300
+    },
+    {
+      "uuid": "segment_677ea768e8d",
+      "text": "fond",
+      "start": "00:00:05.300",
+      "startMs": 5300,
+      "end": "00:00:05.620",
+      "endMs": 5620
+    },
+    {
+      "uuid": "segment_77ea768e8dc",
+      "text": "de",
+      "start": "00:00:05.620",
+      "startMs": 5620,
+      "end": "00:00:05.780",
+      "endMs": 5780
+    },
+    {
+      "uuid": "segment_7ea768e8dce",
+      "text": "l'eau",
+      "start": "00:00:05.780",
+      "startMs": 5780,
+      "end": "00:00:06.280",
+      "endMs": 6280
+    },
+    {
+      "uuid": "segment_ea768e8dce2",
+      "text": "avec",
+      "start": "00:00:06.280",
+      "startMs": 6280,
+      "end": "00:00:06.560",
+      "endMs": 6560
+    },
+    {
+      "uuid": "segment_a768e8dce23",
+      "text": "son",
+      "start": "00:00:06.560",
+      "startMs": 6560,
+      "end": "00:00:06.760",
+      "endMs": 6760
+    },
+    {
+      "uuid": "segment_768e8dce23e",
+      "text": "bouchon",
+      "start": "00:00:06.760",
+      "startMs": 6760,
+      "end": "00:00:07.050",
+      "endMs": 7050
+    },
+    {
+      "uuid": "segment_68e8dce23ef",
+      "text": "de",
+      "start": "00:00:07.050",
+      "startMs": 7050,
+      "end": "00:00:07.130",
+      "endMs": 7130
+    },
+    {
+      "uuid": "segment_8e8dce23efe",
+      "text": "liège",
+      "start": "00:00:07.130",
+      "startMs": 7130,
+      "end": "00:00:07.560",
+      "endMs": 7560
+    },
+    {
+      "uuid": "segment_e8dce23efec",
+      "text": "Il",
+      "start": "00:00:07.560",
+      "startMs": 7560,
+      "end": "00:00:07.810",
+      "endMs": 7810
+    },
+    {
+      "uuid": "segment_8dce23efecb",
+      "text": "pique",
+      "start": "00:00:07.810",
+      "startMs": 7810,
+      "end": "00:00:08.150",
+      "endMs": 8150
+    },
+    {
+      "uuid": "segment_dce23efecb0",
+      "text": "le",
+      "start": "00:00:08.150",
+      "startMs": 8150,
+      "end": "00:00:08.320",
+      "endMs": 8320
+    },
+    {
+      "uuid": "segment_ce23efecb02",
+      "text": "poisson",
+      "start": "00:00:08.320",
+      "startMs": 8320,
+      "end": "00:00:09.250",
+      "endMs": 9250
+    },
+    {
+      "uuid": "segment_e23efecb029",
+      "text": "il",
+      "start": "00:00:09.250",
+      "startMs": 9250,
+      "end": "00:00:09.250",
+      "endMs": 9250
+    },
+    {
+      "uuid": "segment_23efecb0293",
+      "text": "est",
+      "start": "00:00:09.250",
+      "startMs": 9250,
+      "end": "00:00:09.650",
+      "endMs": 9650
+    },
+    {
+      "uuid": "segment_3efecb02934",
+      "text": "en",
+      "start": "00:00:09.650",
+      "startMs": 9650,
+      "end": "00:00:09.670",
+      "endMs": 9670
+    },
+    {
+      "uuid": "segment_efecb029345",
+      "text": "acier",
+      "start": "00:00:09.670",
+      "startMs": 9670,
+      "end": "00:00:10.260",
+      "endMs": 10260
+    },
+    {
+      "uuid": "segment_fecb029345f",
+      "text": "il",
+      "start": "00:00:10.260",
+      "startMs": 10260,
+      "end": "00:00:10.420",
+      "endMs": 10420
+    },
+    {
+      "uuid": "segment_ecb029345fc",
+      "text": "possède",
+      "start": "00:00:10.420",
+      "startMs": 10420,
+      "end": "00:00:11.220",
+      "endMs": 11220
+    },
+    {
+      "uuid": "segment_cb029345fc4",
+      "text": "un",
+      "start": "00:00:11.220",
+      "startMs": 11220,
+      "end": "00:00:11.280",
+      "endMs": 11280
+    },
+    {
+      "uuid": "segment_b029345fc44",
+      "text": "ardillon",
+      "start": "00:00:11.280",
+      "startMs": 11280,
+      "end": "00:00:12.120",
+      "endMs": 12120
+    },
+    {
+      "uuid": "segment_029345fc441",
+      "text": "il",
+      "start": "00:00:12.120",
+      "startMs": 12120,
+      "end": "00:00:12.290",
+      "endMs": 12290
+    },
+    {
+      "uuid": "segment_29345fc441c",
+      "text": "attend",
+      "start": "00:00:12.290",
+      "startMs": 12290,
+      "end": "00:00:12.800",
+      "endMs": 12800
+    },
+    {
+      "uuid": "segment_9345fc441ca",
+      "text": "sa",
+      "start": "00:00:12.800",
+      "startMs": 12800,
+      "end": "00:00:12.970",
+      "endMs": 12970
+    },
+    {
+      "uuid": "segment_345fc441caa",
+      "text": "proie",
+      "start": "00:00:12.970",
+      "startMs": 12970,
+      "end": "00:00:13.840",
+      "endMs": 13840
+    },
+    {
+      "uuid": "segment_45fc441caaf",
+      "text": "il",
+      "start": "00:00:13.840",
+      "startMs": 13840,
+      "end": "00:00:13.840",
+      "endMs": 13840
+    },
+    {
+      "uuid": "segment_5fc441caafa",
+      "text": "a",
+      "start": "00:00:13.840",
+      "startMs": 13840,
+      "end": "00:00:13.930",
+      "endMs": 13930
+    },
+    {
+      "uuid": "segment_fc441caafa1",
+      "text": "de",
+      "start": "00:00:13.930",
+      "startMs": 13930,
+      "end": "00:00:14.120",
+      "endMs": 14120
+    },
+    {
+      "uuid": "segment_c441caafa10",
+      "text": "la",
+      "start": "00:00:14.120",
+      "startMs": 14120,
+      "end": "00:00:14.290",
+      "endMs": 14290
+    },
+    {
+      "uuid": "segment_441caafa10d",
+      "text": "patience",
+      "start": "00:00:14.290",
+      "startMs": 14290,
+      "end": "00:00:15.200",
+      "endMs": 15200
+    },
+    {
+      "uuid": "segment_41caafa10d5",
+      "text": "il",
+      "start": "00:00:15.200",
+      "startMs": 15200,
+      "end": "00:00:15.330",
+      "endMs": 15330
+    },
+    {
+      "uuid": "segment_1caafa10d50",
+      "text": "n'a",
+      "start": "00:00:15.330",
+      "startMs": 15330,
+      "end": "00:00:15.660",
+      "endMs": 15660
+    },
+    {
+      "uuid": "segment_caafa10d507",
+      "text": "pas",
+      "start": "00:00:15.660",
+      "startMs": 15660,
+      "end": "00:00:15.710",
+      "endMs": 15710
+    },
+    {
+      "uuid": "segment_aafa10d5073",
+      "text": "le",
+      "start": "00:00:15.710",
+      "startMs": 15710,
+      "end": "00:00:15.860",
+      "endMs": 15860
+    },
+    {
+      "uuid": "segment_afa10d5073d",
+      "text": "choix",
+      "start": "00:00:15.860",
+      "startMs": 15860,
+      "end": "00:00:16.490",
+      "endMs": 16490
+    },
+    {
+      "uuid": "segment_fa10d5073d3",
+      "text": "il",
+      "start": "00:00:16.490",
+      "startMs": 16490,
+      "end": "00:00:16.490",
+      "endMs": 16490
+    },
+    {
+      "uuid": "segment_a10d5073d3a",
+      "text": "est",
+      "start": "00:00:16.490",
+      "startMs": 16490,
+      "end": "00:00:16.770",
+      "endMs": 16770
+    },
+    {
+      "uuid": "segment_10d5073d3a0",
+      "text": "à",
+      "start": "00:00:16.770",
+      "startMs": 16770,
+      "end": "00:00:16.770",
+      "endMs": 16770
+    },
+    {
+      "uuid": "segment_0d5073d3a0a",
+      "text": "l'épreuve",
+      "start": "00:00:16.770",
+      "startMs": 16770,
+      "end": "00:00:17.350",
+      "endMs": 17350
+    },
+    {
+      "uuid": "segment_d5073d3a0ac",
+      "text": "de",
+      "start": "00:00:17.350",
+      "startMs": 17350,
+      "end": "00:00:17.430",
+      "endMs": 17430
+    },
+    {
+      "uuid": "segment_5073d3a0acd",
+      "text": "la",
+      "start": "00:00:17.430",
+      "startMs": 17430,
+      "end": "00:00:17.540",
+      "endMs": 17540
+    },
+    {
+      "uuid": "segment_073d3a0acd5",
+      "text": "résistance",
+      "start": "00:00:17.540",
+      "startMs": 17540,
+      "end": "00:00:18.400",
+      "endMs": 18400
+    }
+  ],
+  "transcript": "Il est le pêcheur caché il est embusqué il dépose son piège il est au fond de l'eau avec son bouchon de liège Il pique le poisson il est en acier il possède un ardillon il attend sa proie il a de la patience il n'a pas le choix il est à l'épreuve de la résistance"
+}

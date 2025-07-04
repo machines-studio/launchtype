@@ -20,9 +20,9 @@ html, body {
 body {
   overflow: scroll;
 
-  font-family: var(--font-family-sans);
-  font-size: var(--font-size);
-  line-height: var(--line-height);
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size);
+  line-height: var(--ui-line-height);
   color: var(--color-text);
 
   background: var(--color-background);
@@ -30,19 +30,4 @@ body {
 
 main {
   isolation: isolate;
-}
-
-.cell, .word {
-  -webkit-tap-highlight-color: rgba(255 255 255 / 0%);
-  outline: 0;
-}
-
-.word {
-  @include no-select;
-  cursor: grab;
-  white-space: nowrap;
-
-  .app.is-recording & {
-    cursor: default;
-  }
 }

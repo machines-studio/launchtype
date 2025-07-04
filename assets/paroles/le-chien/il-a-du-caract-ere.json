@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-chien/il-a-du-caract-ere.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_f97aef68bde",
+      "text": "il",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.210",
+      "endMs": 210
+    },
+    {
+      "uuid": "segment_97aef68bdea",
+      "text": "a",
+      "start": "00:00:00.210",
+      "startMs": 210,
+      "end": "00:00:00.310",
+      "endMs": 310
+    },
+    {
+      "uuid": "segment_7aef68bdeae",
+      "text": "du",
+      "start": "00:00:00.310",
+      "startMs": 310,
+      "end": "00:00:00.520",
+      "endMs": 520
+    },
+    {
+      "uuid": "segment_aef68bdeae0",
+      "text": "caractère",
+      "start": "00:00:00.520",
+      "startMs": 520,
+      "end": "00:00:01.600",
+      "endMs": 1600
+    }
+  ],
+  "transcript": "il a du caractère"
+}

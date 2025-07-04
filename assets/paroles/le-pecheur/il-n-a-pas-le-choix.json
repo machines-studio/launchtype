@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-pecheur/il-n-a-pas-le-choix.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_609682be94e",
+      "text": "",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.110",
+      "endMs": 110
+    },
+    {
+      "uuid": "segment_09682be94e8",
+      "text": "Il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.220",
+      "endMs": 220
+    },
+    {
+      "uuid": "segment_9682be94e84",
+      "text": "n'a",
+      "start": "00:00:00.220",
+      "startMs": 220,
+      "end": "00:00:00.370",
+      "endMs": 370
+    },
+    {
+      "uuid": "segment_682be94e84e",
+      "text": "pas",
+      "start": "00:00:00.370",
+      "startMs": 370,
+      "end": "00:00:00.530",
+      "endMs": 530
+    },
+    {
+      "uuid": "segment_82be94e84ef",
+      "text": "le",
+      "start": "00:00:00.530",
+      "startMs": 530,
+      "end": "00:00:00.640",
+      "endMs": 640
+    },
+    {
+      "uuid": "segment_2be94e84ef4",
+      "text": "choix",
+      "start": "00:00:00.640",
+      "startMs": 640,
+      "end": "00:00:01.100",
+      "endMs": 1100
+    },
+    {
+      "uuid": "segment_be94e84ef40",
+      "text": "",
+      "start": "00:00:01.100",
+      "startMs": 1100,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    }
+  ],
+  "transcript": " Il n'a pas le choix "
+}

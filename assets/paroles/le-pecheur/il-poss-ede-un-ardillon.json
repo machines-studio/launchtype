@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-pecheur/il-poss-ede-un-ardillon.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_84ef407bffd",
+      "text": "Il",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_4ef407bffd0",
+      "text": "possède",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.950",
+      "endMs": 950
+    },
+    {
+      "uuid": "segment_ef407bffd0e",
+      "text": "un",
+      "start": "00:00:00.950",
+      "startMs": 950,
+      "end": "00:00:01.080",
+      "endMs": 1080
+    },
+    {
+      "uuid": "segment_f407bffd0e5",
+      "text": "ardillon",
+      "start": "00:00:01.080",
+      "startMs": 1080,
+      "end": "00:00:01.820",
+      "endMs": 1820
+    }
+  ],
+  "transcript": "Il possède un ardillon"
+}

@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     root: path.join(__dirname, 'src'),
-    publicDir: path.join(__dirname, 'public'),
+    publicDir: path.join(__dirname, 'assets'),
     envDir: path.join(__dirname),
     build: { outDir: path.join(__dirname, 'build') },
 
@@ -16,6 +16,13 @@ export default defineConfig(({ mode }) => {
 
     define: {
       __VERSION__: JSON.stringify(process.env.npm_package_version)
+    },
+
+    resolve: {
+      alias: {
+        // Dynamically importable assets using import.meta.glob
+        '@assets': path.resolve(__dirname, 'assets')
+      }
     },
 
     plugins: [

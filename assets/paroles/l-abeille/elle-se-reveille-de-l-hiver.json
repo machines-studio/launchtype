@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/l-abeille/elle-se-reveille-de-l-hiver.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_1335f041888",
+      "text": "Elle",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.270",
+      "endMs": 270
+    },
+    {
+      "uuid": "segment_335f0418886",
+      "text": "se",
+      "start": "00:00:00.270",
+      "startMs": 270,
+      "end": "00:00:00.310",
+      "endMs": 310
+    },
+    {
+      "uuid": "segment_35f04188861",
+      "text": "réveille",
+      "start": "00:00:00.310",
+      "startMs": 310,
+      "end": "00:00:00.780",
+      "endMs": 780
+    },
+    {
+      "uuid": "segment_5f04188861e",
+      "text": "de",
+      "start": "00:00:00.780",
+      "startMs": 780,
+      "end": "00:00:00.880",
+      "endMs": 880
+    },
+    {
+      "uuid": "segment_f04188861e4",
+      "text": "l'hiver",
+      "start": "00:00:00.880",
+      "startMs": 880,
+      "end": "00:00:01.300",
+      "endMs": 1300
+    }
+  ],
+  "transcript": "Elle se réveille de l'hiver"
+}

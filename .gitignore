@@ -3,6 +3,7 @@
 build/*
 *.local
 server/.timelines
+scripts/bin
 
 ####### NODE ########
 .tmp

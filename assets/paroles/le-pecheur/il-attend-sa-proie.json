@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-pecheur/il-attend-sa-proie.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_b077a7ca460",
+      "text": "il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_077a7ca460a",
+      "text": "attend",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.740",
+      "endMs": 740
+    },
+    {
+      "uuid": "segment_77a7ca460ab",
+      "text": "sa",
+      "start": "00:00:00.740",
+      "startMs": 740,
+      "end": "00:00:00.920",
+      "endMs": 920
+    },
+    {
+      "uuid": "segment_7a7ca460ab2",
+      "text": "proie",
+      "start": "00:00:00.920",
+      "startMs": 920,
+      "end": "00:00:01.420",
+      "endMs": 1420
+    }
+  ],
+  "transcript": "il attend sa proie"
+}
