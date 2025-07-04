@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-defi/il-est-sur-son-terrain-de-jeu.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_28a8dd02683",
+      "text": "Il",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.220",
+      "endMs": 220
+    },
+    {
+      "uuid": "segment_8a8dd026835",
+      "text": "est",
+      "start": "00:00:00.220",
+      "startMs": 220,
+      "end": "00:00:00.550",
+      "endMs": 550
+    },
+    {
+      "uuid": "segment_a8dd0268356",
+      "text": "sur",
+      "start": "00:00:00.550",
+      "startMs": 550,
+      "end": "00:00:00.880",
+      "endMs": 880
+    },
+    {
+      "uuid": "segment_8dd02683563",
+      "text": "son",
+      "start": "00:00:00.880",
+      "startMs": 880,
+      "end": "00:00:01.310",
+      "endMs": 1310
+    },
+    {
+      "uuid": "segment_dd026835632",
+      "text": "terrain",
+      "start": "00:00:01.310",
+      "startMs": 1310,
+      "end": "00:00:02.000",
+      "endMs": 2000
+    },
+    {
+      "uuid": "segment_d026835632a",
+      "text": "de",
+      "start": "00:00:02.000",
+      "startMs": 2000,
+      "end": "00:00:02.220",
+      "endMs": 2220
+    },
+    {
+      "uuid": "segment_026835632ab",
+      "text": "jeu",
+      "start": "00:00:02.220",
+      "startMs": 2220,
+      "end": "00:00:02.600",
+      "endMs": 2600
+    }
+  ],
+  "transcript": "Il est sur son terrain de jeu"
+}

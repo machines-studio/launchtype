@@ -1,0 +1,70 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-me-parle-de-sa-corse.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_748aa04befb",
+      "text": "Elle",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.270",
+      "endMs": 270
+    },
+    {
+      "uuid": "segment_48aa04befb0",
+      "text": "me",
+      "start": "00:00:00.270",
+      "startMs": 270,
+      "end": "00:00:00.500",
+      "endMs": 500
+    },
+    {
+      "uuid": "segment_8aa04befb09",
+      "text": "parle",
+      "start": "00:00:00.500",
+      "startMs": 500,
+      "end": "00:00:00.740",
+      "endMs": 740
+    },
+    {
+      "uuid": "segment_aa04befb09a",
+      "text": "de",
+      "start": "00:00:00.740",
+      "startMs": 740,
+      "end": "00:00:00.890",
+      "endMs": 890
+    },
+    {
+      "uuid": "segment_a04befb09a3",
+      "text": "sa",
+      "start": "00:00:00.890",
+      "startMs": 890,
+      "end": "00:00:01.040",
+      "endMs": 1040
+    },
+    {
+      "uuid": "segment_04befb09a3f",
+      "text": "Corse",
+      "start": "00:00:01.040",
+      "startMs": 1040,
+      "end": "00:00:01.330",
+      "endMs": 1330
+    },
+    {
+      "uuid": "segment_4befb09a3fc",
+      "text": "avec",
+      "start": "00:00:01.330",
+      "startMs": 1330,
+      "end": "00:00:01.600",
+      "endMs": 1600
+    },
+    {
+      "uuid": "segment_befb09a3fcb",
+      "text": "passion",
+      "start": "00:00:01.600",
+      "startMs": 1600,
+      "end": "00:00:02.120",
+      "endMs": 2120
+    }
+  ],
+  "transcript": "Elle me parle de sa Corse avec passion"
+}

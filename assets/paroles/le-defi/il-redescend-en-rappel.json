@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-defi/il-redescend-en-rappel.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_759f7bc9fe4",
+      "text": "Il",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_59f7bc9fe45",
+      "text": "redescend",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:01.080",
+      "endMs": 1080
+    },
+    {
+      "uuid": "segment_9f7bc9fe458",
+      "text": "en",
+      "start": "00:00:01.080",
+      "startMs": 1080,
+      "end": "00:00:01.280",
+      "endMs": 1280
+    },
+    {
+      "uuid": "segment_f7bc9fe458a",
+      "text": "rappel",
+      "start": "00:00:01.280",
+      "startMs": 1280,
+      "end": "00:00:01.900",
+      "endMs": 1900
+    }
+  ],
+  "transcript": "Il redescend en rappel"
+}

@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-defi/il-est-6h-du-matin.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_b411062d70a",
+      "text": "Il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.170",
+      "endMs": 170
+    },
+    {
+      "uuid": "segment_411062d70ae",
+      "text": "est",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.520",
+      "endMs": 520
+    },
+    {
+      "uuid": "segment_11062d70ae7",
+      "text": "6",
+      "start": "00:00:00.520",
+      "startMs": 520,
+      "end": "00:00:00.670",
+      "endMs": 670
+    },
+    {
+      "uuid": "segment_1062d70ae7a",
+      "text": "heures",
+      "start": "00:00:00.670",
+      "startMs": 670,
+      "end": "00:00:01.180",
+      "endMs": 1180
+    },
+    {
+      "uuid": "segment_062d70ae7a8",
+      "text": "du",
+      "start": "00:00:01.180",
+      "startMs": 1180,
+      "end": "00:00:01.350",
+      "endMs": 1350
+    },
+    {
+      "uuid": "segment_62d70ae7a81",
+      "text": "matin",
+      "start": "00:00:01.350",
+      "startMs": 1350,
+      "end": "00:00:01.800",
+      "endMs": 1800
+    }
+  ],
+  "transcript": "Il est 6 heures du matin"
+}

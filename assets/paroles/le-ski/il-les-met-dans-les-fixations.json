@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-ski/il-les-met-dans-les-fixations.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_9bd69da24a2",
+      "text": "il",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.150",
+      "endMs": 150
+    },
+    {
+      "uuid": "segment_bd69da24a21",
+      "text": "les",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.380",
+      "endMs": 380
+    },
+    {
+      "uuid": "segment_d69da24a21f",
+      "text": "met",
+      "start": "00:00:00.380",
+      "startMs": 380,
+      "end": "00:00:00.610",
+      "endMs": 610
+    },
+    {
+      "uuid": "segment_69da24a21fc",
+      "text": "dans",
+      "start": "00:00:00.610",
+      "startMs": 610,
+      "end": "00:00:00.950",
+      "endMs": 950
+    },
+    {
+      "uuid": "segment_9da24a21fca",
+      "text": "les",
+      "start": "00:00:00.950",
+      "startMs": 950,
+      "end": "00:00:01.150",
+      "endMs": 1150
+    },
+    {
+      "uuid": "segment_da24a21fca3",
+      "text": "fixations",
+      "start": "00:00:01.150",
+      "startMs": 1150,
+      "end": "00:00:01.880",
+      "endMs": 1880
+    }
+  ],
+  "transcript": "il les met dans les fixations"
+}

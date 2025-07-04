@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-defi/il-franchit-des-obstacles.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_68ef759f7bc",
+      "text": "il",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.160",
+      "endMs": 160
+    },
+    {
+      "uuid": "segment_8ef759f7bc9",
+      "text": "franchit",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.820",
+      "endMs": 820
+    },
+    {
+      "uuid": "segment_ef759f7bc9f",
+      "text": "des",
+      "start": "00:00:00.820",
+      "startMs": 820,
+      "end": "00:00:01.070",
+      "endMs": 1070
+    },
+    {
+      "uuid": "segment_f759f7bc9fe",
+      "text": "obstacles",
+      "start": "00:00:01.070",
+      "startMs": 1070,
+      "end": "00:00:01.840",
+      "endMs": 1840
+    }
+  ],
+  "transcript": "il franchit des obstacles"
+}

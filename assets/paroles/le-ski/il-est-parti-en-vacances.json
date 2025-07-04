@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-ski/il-est-parti-en-vacances.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_5cb6620fff5",
+      "text": "Il",
+      "start": "00:00:00.040",
+      "startMs": 40,
+      "end": "00:00:00.150",
+      "endMs": 150
+    },
+    {
+      "uuid": "segment_cb6620fff54",
+      "text": "est",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.370",
+      "endMs": 370
+    },
+    {
+      "uuid": "segment_b6620fff54d",
+      "text": "parti",
+      "start": "00:00:00.370",
+      "startMs": 370,
+      "end": "00:00:00.740",
+      "endMs": 740
+    },
+    {
+      "uuid": "segment_6620fff54d2",
+      "text": "en",
+      "start": "00:00:00.740",
+      "startMs": 740,
+      "end": "00:00:00.980",
+      "endMs": 980
+    },
+    {
+      "uuid": "segment_620fff54d2e",
+      "text": "vacances",
+      "start": "00:00:00.980",
+      "startMs": 980,
+      "end": "00:00:01.500",
+      "endMs": 1500
+    }
+  ],
+  "transcript": "Il est parti en vacances"
+}

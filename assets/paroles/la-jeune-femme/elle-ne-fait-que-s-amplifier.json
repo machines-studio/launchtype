@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-ne-fait-que-s-amplifier.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_efb09a3fcb8",
+      "text": "Elle",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_fb09a3fcb80",
+      "text": "ne",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.300",
+      "endMs": 300
+    },
+    {
+      "uuid": "segment_b09a3fcb809",
+      "text": "fait",
+      "start": "00:00:00.300",
+      "startMs": 300,
+      "end": "00:00:00.500",
+      "endMs": 500
+    },
+    {
+      "uuid": "segment_09a3fcb809e",
+      "text": "que",
+      "start": "00:00:00.500",
+      "startMs": 500,
+      "end": "00:00:00.650",
+      "endMs": 650
+    },
+    {
+      "uuid": "segment_9a3fcb809eb",
+      "text": "de",
+      "start": "00:00:00.650",
+      "startMs": 650,
+      "end": "00:00:00.750",
+      "endMs": 750
+    },
+    {
+      "uuid": "segment_a3fcb809eb8",
+      "text": "s'amplifier",
+      "start": "00:00:00.750",
+      "startMs": 750,
+      "end": "00:00:01.360",
+      "endMs": 1360
+    }
+  ],
+  "transcript": "Elle ne fait que de s'amplifier"
+}

@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/la-famille/elle-me-connait-par-coeur.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_ba6974fd003",
+      "text": "Elle",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.240",
+      "endMs": 240
+    },
+    {
+      "uuid": "segment_a6974fd0034",
+      "text": "me",
+      "start": "00:00:00.240",
+      "startMs": 240,
+      "end": "00:00:00.390",
+      "endMs": 390
+    },
+    {
+      "uuid": "segment_6974fd0034f",
+      "text": "connaît",
+      "start": "00:00:00.390",
+      "startMs": 390,
+      "end": "00:00:00.920",
+      "endMs": 920
+    },
+    {
+      "uuid": "segment_974fd0034f7",
+      "text": "par",
+      "start": "00:00:00.920",
+      "startMs": 920,
+      "end": "00:00:01.020",
+      "endMs": 1020
+    },
+    {
+      "uuid": "segment_74fd0034f77",
+      "text": "cœur",
+      "start": "00:00:01.020",
+      "startMs": 1020,
+      "end": "00:00:01.360",
+      "endMs": 1360
+    }
+  ],
+  "transcript": "Elle me connaît par cœur"
+}

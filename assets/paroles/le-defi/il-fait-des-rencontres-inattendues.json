@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-defi/il-fait-des-rencontres-inattendues.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_32abc3bfdf6",
+      "text": "Il",
+      "start": "00:00:00.010",
+      "startMs": 10,
+      "end": "00:00:00.210",
+      "endMs": 210
+    },
+    {
+      "uuid": "segment_2abc3bfdf68",
+      "text": "fait",
+      "start": "00:00:00.210",
+      "startMs": 210,
+      "end": "00:00:00.500",
+      "endMs": 500
+    },
+    {
+      "uuid": "segment_abc3bfdf68e",
+      "text": "des",
+      "start": "00:00:00.500",
+      "startMs": 500,
+      "end": "00:00:00.730",
+      "endMs": 730
+    },
+    {
+      "uuid": "segment_bc3bfdf68ef",
+      "text": "rencontres",
+      "start": "00:00:00.730",
+      "startMs": 730,
+      "end": "00:00:01.600",
+      "endMs": 1600
+    },
+    {
+      "uuid": "segment_c3bfdf68ef7",
+      "text": "inattendues",
+      "start": "00:00:01.600",
+      "startMs": 1600,
+      "end": "00:00:02.480",
+      "endMs": 2480
+    }
+  ],
+  "transcript": "Il fait des rencontres inattendues"
+}

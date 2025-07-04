@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-a-une-voix-magnifique.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4f52779a609",
+      "text": "Elle",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.320",
+      "endMs": 320
+    },
+    {
+      "uuid": "segment_f52779a609e",
+      "text": "a",
+      "start": "00:00:00.320",
+      "startMs": 320,
+      "end": "00:00:00.400",
+      "endMs": 400
+    },
+    {
+      "uuid": "segment_52779a609ea",
+      "text": "une",
+      "start": "00:00:00.400",
+      "startMs": 400,
+      "end": "00:00:00.640",
+      "endMs": 640
+    },
+    {
+      "uuid": "segment_2779a609ea2",
+      "text": "voix",
+      "start": "00:00:00.640",
+      "startMs": 640,
+      "end": "00:00:00.960",
+      "endMs": 960
+    },
+    {
+      "uuid": "segment_779a609ea2e",
+      "text": "magnifique",
+      "start": "00:00:00.960",
+      "startMs": 960,
+      "end": "00:00:01.760",
+      "endMs": 1760
+    },
+    {
+      "uuid": "segment_79a609ea2e0",
+      "text": "et",
+      "start": "00:00:01.760",
+      "startMs": 1760,
+      "end": "00:00:01.920",
+      "endMs": 1920
+    },
+    {
+      "uuid": "segment_9a609ea2e0b",
+      "text": "sensuelle",
+      "start": "00:00:01.920",
+      "startMs": 1920,
+      "end": "00:00:02.660",
+      "endMs": 2660
+    }
+  ],
+  "transcript": "Elle a une voix magnifique et sensuelle"
+}

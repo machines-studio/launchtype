@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-defi/il-voit-le-lever-du-soleil.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_866fa4758a7",
+      "text": "ils",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.280",
+      "endMs": 280
+    },
+    {
+      "uuid": "segment_66fa4758a71",
+      "text": "voient",
+      "start": "00:00:00.280",
+      "startMs": 280,
+      "end": "00:00:00.950",
+      "endMs": 950
+    },
+    {
+      "uuid": "segment_6fa4758a713",
+      "text": "le",
+      "start": "00:00:00.950",
+      "startMs": 950,
+      "end": "00:00:01.030",
+      "endMs": 1030
+    },
+    {
+      "uuid": "segment_fa4758a7137",
+      "text": "lever",
+      "start": "00:00:01.030",
+      "startMs": 1030,
+      "end": "00:00:01.560",
+      "endMs": 1560
+    },
+    {
+      "uuid": "segment_a4758a71370",
+      "text": "du",
+      "start": "00:00:01.560",
+      "startMs": 1560,
+      "end": "00:00:01.690",
+      "endMs": 1690
+    },
+    {
+      "uuid": "segment_4758a713701",
+      "text": "soleil",
+      "start": "00:00:01.690",
+      "startMs": 1690,
+      "end": "00:00:02.280",
+      "endMs": 2280
+    }
+  ],
+  "transcript": "ils voient le lever du soleil"
+}

@@ -1,0 +1,70 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-a-réussi-instaurer-une-confiance.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_ea7482a461d",
+      "text": "Elle",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.230",
+      "endMs": 230
+    },
+    {
+      "uuid": "segment_a7482a461da",
+      "text": "a",
+      "start": "00:00:00.230",
+      "startMs": 230,
+      "end": "00:00:00.280",
+      "endMs": 280
+    },
+    {
+      "uuid": "segment_7482a461da4",
+      "text": "réussi",
+      "start": "00:00:00.280",
+      "startMs": 280,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_482a461da4d",
+      "text": "à",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:00.790",
+      "endMs": 790
+    },
+    {
+      "uuid": "segment_82a461da4d4",
+      "text": "instaurer",
+      "start": "00:00:00.790",
+      "startMs": 790,
+      "end": "00:00:01.340",
+      "endMs": 1340
+    },
+    {
+      "uuid": "segment_2a461da4d4f",
+      "text": "une",
+      "start": "00:00:01.340",
+      "startMs": 1340,
+      "end": "00:00:01.570",
+      "endMs": 1570
+    },
+    {
+      "uuid": "segment_a461da4d4f5",
+      "text": "confiance",
+      "start": "00:00:01.570",
+      "startMs": 1570,
+      "end": "00:00:02.140",
+      "endMs": 2140
+    },
+    {
+      "uuid": "segment_461da4d4f52",
+      "text": "énorme",
+      "start": "00:00:02.140",
+      "startMs": 2140,
+      "end": "00:00:02.620",
+      "endMs": 2620
+    }
+  ],
+  "transcript": "Elle a réussi à instaurer une confiance énorme"
+}

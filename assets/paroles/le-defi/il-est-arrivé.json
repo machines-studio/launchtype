@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/le-defi/il-est-arrivé.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_7a81650e6ac",
+      "text": "Il",
+      "start": "00:00:00.080",
+      "startMs": 80,
+      "end": "00:00:00.140",
+      "endMs": 140
+    },
+    {
+      "uuid": "segment_a81650e6ac2",
+      "text": "est",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.350",
+      "endMs": 350
+    },
+    {
+      "uuid": "segment_81650e6ac28",
+      "text": "arrivé",
+      "start": "00:00:00.350",
+      "startMs": 350,
+      "end": "00:00:00.860",
+      "endMs": 860
+    }
+  ],
+  "transcript": "Il est arrivé"
+}

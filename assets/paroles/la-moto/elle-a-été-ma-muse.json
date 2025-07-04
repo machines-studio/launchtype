@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/la-moto/elle-a-été-ma-muse.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_a21c608670e",
+      "text": "Elle",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.370",
+      "endMs": 370
+    },
+    {
+      "uuid": "segment_21c608670e4",
+      "text": "a",
+      "start": "00:00:00.370",
+      "startMs": 370,
+      "end": "00:00:00.480",
+      "endMs": 480
+    },
+    {
+      "uuid": "segment_1c608670e45",
+      "text": "été",
+      "start": "00:00:00.480",
+      "startMs": 480,
+      "end": "00:00:01.050",
+      "endMs": 1050
+    },
+    {
+      "uuid": "segment_c608670e453",
+      "text": "ma",
+      "start": "00:00:01.050",
+      "startMs": 1050,
+      "end": "00:00:01.270",
+      "endMs": 1270
+    },
+    {
+      "uuid": "segment_608670e4535",
+      "text": "muse",
+      "start": "00:00:01.270",
+      "startMs": 1270,
+      "end": "00:00:01.820",
+      "endMs": 1820
+    }
+  ],
+  "transcript": "Elle a été ma muse"
+}

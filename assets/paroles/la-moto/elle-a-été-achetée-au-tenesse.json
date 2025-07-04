@@ -1,0 +1,78 @@
+{
+  "sound": "paroles/la-moto/elle-a-été-achetée-au-tenesse.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_eb8a94c4966",
+      "text": "Elle",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.310",
+      "endMs": 310
+    },
+    {
+      "uuid": "segment_b8a94c4966b",
+      "text": "a",
+      "start": "00:00:00.310",
+      "startMs": 310,
+      "end": "00:00:00.380",
+      "endMs": 380
+    },
+    {
+      "uuid": "segment_8a94c4966b7",
+      "text": "été",
+      "start": "00:00:00.380",
+      "startMs": 380,
+      "end": "00:00:00.770",
+      "endMs": 770
+    },
+    {
+      "uuid": "segment_a94c4966b7e",
+      "text": "achetée",
+      "start": "00:00:00.770",
+      "startMs": 770,
+      "end": "00:00:01.480",
+      "endMs": 1480
+    },
+    {
+      "uuid": "segment_94c4966b7e9",
+      "text": "au",
+      "start": "00:00:01.480",
+      "startMs": 1480,
+      "end": "00:00:01.790",
+      "endMs": 1790
+    },
+    {
+      "uuid": "segment_4c4966b7e99",
+      "text": "Tennessee",
+      "start": "00:00:01.790",
+      "startMs": 1790,
+      "end": "00:00:03.500",
+      "endMs": 3500
+    },
+    {
+      "uuid": "segment_c4966b7e99e",
+      "text": "Made",
+      "start": "00:00:03.500",
+      "startMs": 3500,
+      "end": "00:00:03.500",
+      "endMs": 3500
+    },
+    {
+      "uuid": "segment_4966b7e99ea",
+      "text": "in",
+      "start": "00:00:03.500",
+      "startMs": 3500,
+      "end": "00:00:03.500",
+      "endMs": 3500
+    },
+    {
+      "uuid": "segment_966b7e99ea2",
+      "text": "USA",
+      "start": "00:00:03.500",
+      "startMs": 3500,
+      "end": "00:00:03.500",
+      "endMs": 3500
+    }
+  ],
+  "transcript": "Elle a été achetée au Tennessee Made in USA"
+}

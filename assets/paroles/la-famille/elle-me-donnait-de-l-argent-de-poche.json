@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/la-famille/elle-me-donnait-de-l-argent-de-poche.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4fd0034f77e",
+      "text": "elle",
+      "start": "00:00:00.080",
+      "startMs": 80,
+      "end": "00:00:00.170",
+      "endMs": 170
+    },
+    {
+      "uuid": "segment_fd0034f77e8",
+      "text": "me",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.250",
+      "endMs": 250
+    },
+    {
+      "uuid": "segment_d0034f77e88",
+      "text": "donnait",
+      "start": "00:00:00.250",
+      "startMs": 250,
+      "end": "00:00:00.560",
+      "endMs": 560
+    },
+    {
+      "uuid": "segment_0034f77e882",
+      "text": "de",
+      "start": "00:00:00.560",
+      "startMs": 560,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_034f77e8829",
+      "text": "l'argent",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:01.160",
+      "endMs": 1160
+    },
+    {
+      "uuid": "segment_34f77e88298",
+      "text": "de",
+      "start": "00:00:01.160",
+      "startMs": 1160,
+      "end": "00:00:01.280",
+      "endMs": 1280
+    },
+    {
+      "uuid": "segment_4f77e88298b",
+      "text": "poche",
+      "start": "00:00:01.280",
+      "startMs": 1280,
+      "end": "00:00:01.600",
+      "endMs": 1600
+    }
+  ],
+  "transcript": "elle me donnait de l'argent de poche"
+}

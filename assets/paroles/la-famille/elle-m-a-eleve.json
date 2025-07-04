@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/la-famille/elle-m-a-eleve.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4cfba6974fd",
+      "text": "Elle",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.280",
+      "endMs": 280
+    },
+    {
+      "uuid": "segment_cfba6974fd0",
+      "text": "m'a",
+      "start": "00:00:00.280",
+      "startMs": 280,
+      "end": "00:00:00.490",
+      "endMs": 490
+    },
+    {
+      "uuid": "segment_fba6974fd00",
+      "text": "élevé",
+      "start": "00:00:00.490",
+      "startMs": 490,
+      "end": "00:00:01.000",
+      "endMs": 1000
+    }
+  ],
+  "transcript": "Elle m'a élevé"
+}

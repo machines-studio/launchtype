@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-est-devenue-ma-confidente.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_a609ea2e0be",
+      "text": "Elle",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_609ea2e0be2",
+      "text": "est",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.330",
+      "endMs": 330
+    },
+    {
+      "uuid": "segment_09ea2e0be25",
+      "text": "devenue",
+      "start": "00:00:00.330",
+      "startMs": 330,
+      "end": "00:00:00.720",
+      "endMs": 720
+    },
+    {
+      "uuid": "segment_9ea2e0be25a",
+      "text": "ma",
+      "start": "00:00:00.720",
+      "startMs": 720,
+      "end": "00:00:00.750",
+      "endMs": 750
+    },
+    {
+      "uuid": "segment_ea2e0be25a5",
+      "text": "confidente",
+      "start": "00:00:00.750",
+      "startMs": 750,
+      "end": "00:00:01.420",
+      "endMs": 1420
+    }
+  ],
+  "transcript": "Elle est devenue ma confidente"
+}

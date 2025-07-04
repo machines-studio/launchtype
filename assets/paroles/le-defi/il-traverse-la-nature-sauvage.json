@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-defi/il-traverse-la-nature-sauvage.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_8ae6a866fa4",
+      "text": "ils",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.280",
+      "endMs": 280
+    },
+    {
+      "uuid": "segment_ae6a866fa47",
+      "text": "traversent",
+      "start": "00:00:00.280",
+      "startMs": 280,
+      "end": "00:00:01.210",
+      "endMs": 1210
+    },
+    {
+      "uuid": "segment_e6a866fa475",
+      "text": "la",
+      "start": "00:00:01.210",
+      "startMs": 1210,
+      "end": "00:00:01.390",
+      "endMs": 1390
+    },
+    {
+      "uuid": "segment_6a866fa4758",
+      "text": "nature",
+      "start": "00:00:01.390",
+      "startMs": 1390,
+      "end": "00:00:01.950",
+      "endMs": 1950
+    },
+    {
+      "uuid": "segment_a866fa4758a",
+      "text": "sauvage",
+      "start": "00:00:01.950",
+      "startMs": 1950,
+      "end": "00:00:02.620",
+      "endMs": 2620
+    }
+  ],
+  "transcript": "ils traversent la nature sauvage"
+}

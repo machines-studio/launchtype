@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-defi/il-est-sur-un-plateau.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_26835632abc",
+      "text": "il",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.230",
+      "endMs": 230
+    },
+    {
+      "uuid": "segment_6835632abc3",
+      "text": "est",
+      "start": "00:00:00.230",
+      "startMs": 230,
+      "end": "00:00:00.430",
+      "endMs": 430
+    },
+    {
+      "uuid": "segment_835632abc3b",
+      "text": "sur",
+      "start": "00:00:00.430",
+      "startMs": 430,
+      "end": "00:00:00.700",
+      "endMs": 700
+    },
+    {
+      "uuid": "segment_35632abc3bf",
+      "text": "un",
+      "start": "00:00:00.700",
+      "startMs": 700,
+      "end": "00:00:00.860",
+      "endMs": 860
+    },
+    {
+      "uuid": "segment_5632abc3bfd",
+      "text": "plateau",
+      "start": "00:00:00.860",
+      "startMs": 860,
+      "end": "00:00:01.470",
+      "endMs": 1470
+    },
+    {
+      "uuid": "segment_632abc3bfdf",
+      "text": "d'oranger",
+      "start": "00:00:01.470",
+      "startMs": 1470,
+      "end": "00:00:02.300",
+      "endMs": 2300
+    }
+  ],
+  "transcript": "il est sur un plateau d'oranger"
+}

@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-defi/il-est-quasi-extrème.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_e6ac28a8dd0",
+      "text": "Il",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.220",
+      "endMs": 220
+    },
+    {
+      "uuid": "segment_6ac28a8dd02",
+      "text": "est",
+      "start": "00:00:00.220",
+      "startMs": 220,
+      "end": "00:00:00.630",
+      "endMs": 630
+    },
+    {
+      "uuid": "segment_ac28a8dd026",
+      "text": "quasi",
+      "start": "00:00:00.630",
+      "startMs": 630,
+      "end": "00:00:01.150",
+      "endMs": 1150
+    },
+    {
+      "uuid": "segment_c28a8dd0268",
+      "text": "extrême",
+      "start": "00:00:01.150",
+      "startMs": 1150,
+      "end": "00:00:02.000",
+      "endMs": 2000
+    }
+  ],
+  "transcript": "Il est quasi extrême"
+}

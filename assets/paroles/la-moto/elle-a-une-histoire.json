@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/la-moto/elle-a-une-histoire.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_f5e65544c8b",
+      "text": "elle",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.360",
+      "endMs": 360
+    },
+    {
+      "uuid": "segment_5e65544c8b4",
+      "text": "a",
+      "start": "00:00:00.360",
+      "startMs": 360,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_e65544c8b41",
+      "text": "une",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:00.710",
+      "endMs": 710
+    },
+    {
+      "uuid": "segment_65544c8b411",
+      "text": "histoire",
+      "start": "00:00:00.710",
+      "startMs": 710,
+      "end": "00:00:01.440",
+      "endMs": 1440
+    }
+  ],
+  "transcript": "elle a une histoire"
+}

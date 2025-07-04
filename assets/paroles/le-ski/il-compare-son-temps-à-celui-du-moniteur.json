@@ -1,0 +1,70 @@
+{
+  "sound": "paroles/le-ski/il-compare-son-temps-à-celui-du-moniteur.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_29ebb9d9ee2",
+      "text": "il",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.130",
+      "endMs": 130
+    },
+    {
+      "uuid": "segment_9ebb9d9ee2e",
+      "text": "compare",
+      "start": "00:00:00.130",
+      "startMs": 130,
+      "end": "00:00:00.620",
+      "endMs": 620
+    },
+    {
+      "uuid": "segment_ebb9d9ee2e7",
+      "text": "son",
+      "start": "00:00:00.620",
+      "startMs": 620,
+      "end": "00:00:00.800",
+      "endMs": 800
+    },
+    {
+      "uuid": "segment_bb9d9ee2e7d",
+      "text": "temps",
+      "start": "00:00:00.800",
+      "startMs": 800,
+      "end": "00:00:01.130",
+      "endMs": 1130
+    },
+    {
+      "uuid": "segment_b9d9ee2e7d6",
+      "text": "à",
+      "start": "00:00:01.130",
+      "startMs": 1130,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    },
+    {
+      "uuid": "segment_9d9ee2e7d63",
+      "text": "celui",
+      "start": "00:00:01.260",
+      "startMs": 1260,
+      "end": "00:00:01.590",
+      "endMs": 1590
+    },
+    {
+      "uuid": "segment_d9ee2e7d639",
+      "text": "du",
+      "start": "00:00:01.590",
+      "startMs": 1590,
+      "end": "00:00:01.720",
+      "endMs": 1720
+    },
+    {
+      "uuid": "segment_9ee2e7d6397",
+      "text": "moniteur",
+      "start": "00:00:01.720",
+      "startMs": 1720,
+      "end": "00:00:02.300",
+      "endMs": 2300
+    }
+  ],
+  "transcript": "il compare son temps à celui du moniteur"
+}

@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/la-famille/elle-me-gatait-quand-je-partais.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_f77e88298b0",
+      "text": "Elle",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.240",
+      "endMs": 240
+    },
+    {
+      "uuid": "segment_77e88298b0f",
+      "text": "me",
+      "start": "00:00:00.240",
+      "startMs": 240,
+      "end": "00:00:00.360",
+      "endMs": 360
+    },
+    {
+      "uuid": "segment_7e88298b0f5",
+      "text": "gâtait",
+      "start": "00:00:00.360",
+      "startMs": 360,
+      "end": "00:00:00.780",
+      "endMs": 780
+    },
+    {
+      "uuid": "segment_e88298b0f5d",
+      "text": "quand",
+      "start": "00:00:00.780",
+      "startMs": 780,
+      "end": "00:00:01.090",
+      "endMs": 1090
+    },
+    {
+      "uuid": "segment_88298b0f5da",
+      "text": "je",
+      "start": "00:00:01.090",
+      "startMs": 1090,
+      "end": "00:00:01.250",
+      "endMs": 1250
+    },
+    {
+      "uuid": "segment_8298b0f5da5",
+      "text": "partais",
+      "start": "00:00:01.250",
+      "startMs": 1250,
+      "end": "00:00:01.680",
+      "endMs": 1680
+    }
+  ],
+  "transcript": "Elle me gâtait quand je partais"
+}

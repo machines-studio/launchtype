@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-defi/il-est-à-flanc-de-montagne.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_2d70ae7a816",
+      "text": "Il",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_d70ae7a8165",
+      "text": "est",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.480",
+      "endMs": 480
+    },
+    {
+      "uuid": "segment_70ae7a81650",
+      "text": "à",
+      "start": "00:00:00.480",
+      "startMs": 480,
+      "end": "00:00:00.670",
+      "endMs": 670
+    },
+    {
+      "uuid": "segment_0ae7a81650e",
+      "text": "flanc",
+      "start": "00:00:00.670",
+      "startMs": 670,
+      "end": "00:00:01.150",
+      "endMs": 1150
+    },
+    {
+      "uuid": "segment_ae7a81650e6",
+      "text": "de",
+      "start": "00:00:01.150",
+      "startMs": 1150,
+      "end": "00:00:01.340",
+      "endMs": 1340
+    },
+    {
+      "uuid": "segment_e7a81650e6a",
+      "text": "montagne",
+      "start": "00:00:01.340",
+      "startMs": 1340,
+      "end": "00:00:02.140",
+      "endMs": 2140
+    }
+  ],
+  "transcript": "Il est à flanc de montagne"
+}

@@ -1,0 +1,70 @@
+{
+  "sound": "paroles/le-ski/il-fait-froler-ses-spatules-dans-la-poudreuse.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_20fff54d2e2",
+      "text": "il",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.120",
+      "endMs": 120
+    },
+    {
+      "uuid": "segment_0fff54d2e25",
+      "text": "fait",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.480",
+      "endMs": 480
+    },
+    {
+      "uuid": "segment_fff54d2e25f",
+      "text": "frôler",
+      "start": "00:00:00.480",
+      "startMs": 480,
+      "end": "00:00:00.770",
+      "endMs": 770
+    },
+    {
+      "uuid": "segment_ff54d2e25fa",
+      "text": "ses",
+      "start": "00:00:00.770",
+      "startMs": 770,
+      "end": "00:00:01.000",
+      "endMs": 1000
+    },
+    {
+      "uuid": "segment_f54d2e25fa2",
+      "text": "spatules",
+      "start": "00:00:01.000",
+      "startMs": 1000,
+      "end": "00:00:01.440",
+      "endMs": 1440
+    },
+    {
+      "uuid": "segment_54d2e25fa29",
+      "text": "dans",
+      "start": "00:00:01.440",
+      "startMs": 1440,
+      "end": "00:00:01.700",
+      "endMs": 1700
+    },
+    {
+      "uuid": "segment_4d2e25fa29b",
+      "text": "la",
+      "start": "00:00:01.700",
+      "startMs": 1700,
+      "end": "00:00:01.800",
+      "endMs": 1800
+    },
+    {
+      "uuid": "segment_d2e25fa29bd",
+      "text": "poudreuse",
+      "start": "00:00:01.800",
+      "startMs": 1800,
+      "end": "00:00:02.360",
+      "endMs": 2360
+    }
+  ],
+  "transcript": "il fait frôler ses spatules dans la poudreuse"
+}

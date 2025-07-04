@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-ski/il-chausse-ses-bottes.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_370129ebb9d",
+      "text": "Il",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.160",
+      "endMs": 160
+    },
+    {
+      "uuid": "segment_70129ebb9d9",
+      "text": "chausse",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.720",
+      "endMs": 720
+    },
+    {
+      "uuid": "segment_0129ebb9d9e",
+      "text": "ses",
+      "start": "00:00:00.720",
+      "startMs": 720,
+      "end": "00:00:00.960",
+      "endMs": 960
+    },
+    {
+      "uuid": "segment_129ebb9d9ee",
+      "text": "bottes",
+      "start": "00:00:00.960",
+      "startMs": 960,
+      "end": "00:00:01.460",
+      "endMs": 1460
+    }
+  ],
+  "transcript": "Il chausse ses bottes"
+}

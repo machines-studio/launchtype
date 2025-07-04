@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-a-un-fou-rire.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_61da4d4f527",
+      "text": "Elle",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.280",
+      "endMs": 280
+    },
+    {
+      "uuid": "segment_1da4d4f5277",
+      "text": "a",
+      "start": "00:00:00.280",
+      "startMs": 280,
+      "end": "00:00:00.350",
+      "endMs": 350
+    },
+    {
+      "uuid": "segment_da4d4f52779",
+      "text": "un",
+      "start": "00:00:00.350",
+      "startMs": 350,
+      "end": "00:00:00.490",
+      "endMs": 490
+    },
+    {
+      "uuid": "segment_a4d4f52779a",
+      "text": "fou",
+      "start": "00:00:00.490",
+      "startMs": 490,
+      "end": "00:00:00.700",
+      "endMs": 700
+    },
+    {
+      "uuid": "segment_4d4f52779a6",
+      "text": "rire",
+      "start": "00:00:00.700",
+      "startMs": 700,
+      "end": "00:00:00.980",
+      "endMs": 980
+    },
+    {
+      "uuid": "segment_d4f52779a60",
+      "text": "interminable",
+      "start": "00:00:00.980",
+      "startMs": 980,
+      "end": "00:00:01.840",
+      "endMs": 1840
+    }
+  ],
+  "transcript": "Elle a un fou rire interminable"
+}

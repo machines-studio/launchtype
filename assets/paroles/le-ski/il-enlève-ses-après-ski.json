@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-ski/il-enlève-ses-après-ski.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4eb10f2ee25",
+      "text": "Il",
+      "start": "00:00:00.050",
+      "startMs": 50,
+      "end": "00:00:00.150",
+      "endMs": 150
+    },
+    {
+      "uuid": "segment_eb10f2ee25c",
+      "text": "enlève",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.670",
+      "endMs": 670
+    },
+    {
+      "uuid": "segment_b10f2ee25cb",
+      "text": "ses",
+      "start": "00:00:00.670",
+      "startMs": 670,
+      "end": "00:00:00.910",
+      "endMs": 910
+    },
+    {
+      "uuid": "segment_10f2ee25cb6",
+      "text": "après-skis",
+      "start": "00:00:00.910",
+      "startMs": 910,
+      "end": "00:00:01.740",
+      "endMs": 1740
+    }
+  ],
+  "transcript": "Il enlève ses après-skis"
+}

@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/la-jeune-femme/elle-est-toujours-a-mon-ecoute.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_25a5d748aa0",
+      "text": "Aidez",
+      "start": "00:00:00.040",
+      "startMs": 40,
+      "end": "00:00:00.220",
+      "endMs": 220
+    },
+    {
+      "uuid": "segment_5a5d748aa04",
+      "text": "toujours",
+      "start": "00:00:00.220",
+      "startMs": 220,
+      "end": "00:00:00.590",
+      "endMs": 590
+    },
+    {
+      "uuid": "segment_a5d748aa04b",
+      "text": "à",
+      "start": "00:00:00.590",
+      "startMs": 590,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_5d748aa04be",
+      "text": "mon",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:00.820",
+      "endMs": 820
+    },
+    {
+      "uuid": "segment_d748aa04bef",
+      "text": "écoute",
+      "start": "00:00:00.820",
+      "startMs": 820,
+      "end": "00:00:01.320",
+      "endMs": 1320
+    }
+  ],
+  "transcript": "Aidez toujours à mon écoute"
+}

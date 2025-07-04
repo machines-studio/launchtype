@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/la-moto/elle-a-concrétise-mon-reve.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_3fcb809eb8a",
+      "text": "Elle",
+      "start": "00:00:00.040",
+      "startMs": 40,
+      "end": "00:00:00.270",
+      "endMs": 270
+    },
+    {
+      "uuid": "segment_fcb809eb8a9",
+      "text": "a",
+      "start": "00:00:00.270",
+      "startMs": 270,
+      "end": "00:00:00.390",
+      "endMs": 390
+    },
+    {
+      "uuid": "segment_cb809eb8a94",
+      "text": "concrétisé",
+      "start": "00:00:00.390",
+      "startMs": 390,
+      "end": "00:00:01.160",
+      "endMs": 1160
+    },
+    {
+      "uuid": "segment_b809eb8a94c",
+      "text": "mon",
+      "start": "00:00:01.160",
+      "startMs": 1160,
+      "end": "00:00:01.340",
+      "endMs": 1340
+    },
+    {
+      "uuid": "segment_809eb8a94c4",
+      "text": "rêve",
+      "start": "00:00:01.340",
+      "startMs": 1340,
+      "end": "00:00:01.640",
+      "endMs": 1640
+    },
+    {
+      "uuid": "segment_09eb8a94c49",
+      "text": "de",
+      "start": "00:00:01.640",
+      "startMs": 1640,
+      "end": "00:00:01.760",
+      "endMs": 1760
+    },
+    {
+      "uuid": "segment_9eb8a94c496",
+      "text": "gosse",
+      "start": "00:00:01.760",
+      "startMs": 1760,
+      "end": "00:00:02.280",
+      "endMs": 2280
+    }
+  ],
+  "transcript": "Elle a concrétisé mon rêve de gosse"
+}

@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/la-famille/elle-m-a-acceuillie-etant-bebe.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_541664cfba6",
+      "text": "Elle",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.250",
+      "endMs": 250
+    },
+    {
+      "uuid": "segment_41664cfba69",
+      "text": "m'a",
+      "start": "00:00:00.250",
+      "startMs": 250,
+      "end": "00:00:00.430",
+      "endMs": 430
+    },
+    {
+      "uuid": "segment_1664cfba697",
+      "text": "accueilli",
+      "start": "00:00:00.430",
+      "startMs": 430,
+      "end": "00:00:01.040",
+      "endMs": 1040
+    },
+    {
+      "uuid": "segment_664cfba6974",
+      "text": "étant",
+      "start": "00:00:01.040",
+      "startMs": 1040,
+      "end": "00:00:01.350",
+      "endMs": 1350
+    },
+    {
+      "uuid": "segment_64cfba6974f",
+      "text": "bébé",
+      "start": "00:00:01.350",
+      "startMs": 1350,
+      "end": "00:00:01.760",
+      "endMs": 1760
+    }
+  ],
+  "transcript": "Elle m'a accueilli étant bébé"
+}

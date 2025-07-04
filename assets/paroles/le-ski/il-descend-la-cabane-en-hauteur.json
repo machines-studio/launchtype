@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-ski/il-descend-la-cabane-en-hauteur.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_e7d6397e474",
+      "text": "il",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.160",
+      "endMs": 160
+    },
+    {
+      "uuid": "segment_7d6397e474e",
+      "text": "descend",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.710",
+      "endMs": 710
+    },
+    {
+      "uuid": "segment_d6397e474eb",
+      "text": "la",
+      "start": "00:00:00.710",
+      "startMs": 710,
+      "end": "00:00:00.870",
+      "endMs": 870
+    },
+    {
+      "uuid": "segment_6397e474eb1",
+      "text": "cabane",
+      "start": "00:00:00.870",
+      "startMs": 870,
+      "end": "00:00:01.340",
+      "endMs": 1340
+    },
+    {
+      "uuid": "segment_397e474eb10",
+      "text": "en",
+      "start": "00:00:01.340",
+      "startMs": 1340,
+      "end": "00:00:01.500",
+      "endMs": 1500
+    },
+    {
+      "uuid": "segment_97e474eb10f",
+      "text": "hauteur",
+      "start": "00:00:01.500",
+      "startMs": 1500,
+      "end": "00:00:02.080",
+      "endMs": 2080
+    }
+  ],
+  "transcript": "il descend la cabane en hauteur"
+}
