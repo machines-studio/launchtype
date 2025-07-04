@@ -52,9 +52,11 @@ export default class Pad extends Component {
   afterRender () {
     const loading = $(this.refs.maps.map(map => map.state.loaded), loadeds => !(loadeds.find(l => !l) ?? true))
     this.state.loading.fill(loading, true)
-    this.state.loading.subscribe(this.#handleLoaded)
+    this.state.loading.subscribe(this.#handleResize)
 
     this.store.value.subscribe(this.#handleValue)
+
+    window.addEventListener('resize', this.#handleResize)
   }
 
   afterMount () {
@@ -112,15 +114,6 @@ export default class Pad extends Component {
     }
   }
 
-  #handleLoaded = () => {
-    const { width, height } = this.base.getBoundingClientRect()
-    const padding = this.store.padding.get()
-
-    // Initialize cursor position based on stored value
-    const [nx, ny] = this.store.value.get() ?? [0.5, 0.5]
-    this.moveCursor(padding + nx * (width - padding * 2), padding + ny * (height - padding * 2))
-  }
-
   #handleDown = e => {
     this.base.setPointerCapture(e.pointerId)
     this.state.dragging.set(true)
@@ -136,6 +129,19 @@ export default class Pad extends Component {
 
   #handleUp = e => {
     this.state.dragging.set(false)
+  }
+
+  #handleResize = () => {
+    const { width, height } = this.base.getBoundingClientRect()
+    const padding = this.store.padding.get()
+
+    // Initialize cursor position based on stored value
+    const [nx, ny] = this.store.value.get() ?? [0.5, 0.5]
+    this.moveCursor(padding + nx * (width - padding * 2), padding + ny * (height - padding * 2))
+  }
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.#handleResize)
   }
 }
 
