@@ -1,6 +1,3 @@
-// WIP
-// BUG audio context not allowed to start because no user gesture
-
 /* global __REPOSITORY_URL__, __VERSION__ */
 
 import './App.scss'
@@ -28,8 +25,11 @@ const PAROLES = Object.entries(import.meta.glob('@assets/paroles/**/*.json', { e
 export default class App extends Component {
   // UI state
   state = {
-    parole: persist(null, 'app.state.parole'),
-    playing: $(false)
+    parole: import.meta.env.DEV
+      ? persist(null, 'app.state.parole')
+      : $(null), // Avoid Howler "HTML5 audio pool exhausted error" on Safari
+    playing: $(false),
+    loading: $(false),
   }
 
   // Internal data store
@@ -37,14 +37,19 @@ export default class App extends Component {
     sound: $(this.state.parole, async parole => {
       if (!parole || !parole.sound) return
       return new Promise(resolve => {
+        this.state.loading.set(true)
         const sound = new Howl({
           src: parole.sound,
-          prealod: true,
+          preload: true,
+          html5: true,
           rate: Constants.PLAYBACK_RATE,
           onplay: () => this.state.playing.set(true),
           onstop: () => this.state.playing.set(false),
           onend: () => this.state.playing.set(false),
-          onload: () => resolve(sound)
+          onload: () => {
+            this.state.loading.set(false)
+            resolve(sound)
+          }
         })
       })
     }),
@@ -87,6 +92,7 @@ export default class App extends Component {
         <Toolbar class='app__toolbar'>
           <Button
             icon={$(state.playing, p => p ? Icons.stop : Icons.play)}
+            waiting={this.state.loading}
             disabled={not(this.store.sound)}
             event-click={this.#handlePlay}
           />
