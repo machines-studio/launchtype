@@ -94,7 +94,7 @@ export default class App extends Component {
               { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
             ].map(data => ({
               ...data,
-              debug: data.src.includes(Constants.DEBUG_PAD_MAP)
+              debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
             }))}
           />
 
@@ -112,7 +112,7 @@ export default class App extends Component {
               }))
             ].map(data => ({
               ...data,
-              debug: data.src.includes(Constants.DEBUG_PAD_MAP)
+              debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
             }))}
           />
         </div>

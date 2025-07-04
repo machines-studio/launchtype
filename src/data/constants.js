@@ -10,6 +10,6 @@ export const PAROLES_LABEL_MAX_LENGTH = 50
 export const PATCH_GRADIENTS_COLOR_LENGTH = 6
 
 export const SHOW_CABLE_UI = debug.includes('cables')
-export const DEBUG_PAD_MAP = params.get('pad-map')
+export const DEBUG_PAD_MAP = String(params.get('pad-map')).split(',')
 export const DEBUG_POINTERS = debug.includes('pointers')
 export const DEBUG_WORDS = debug.includes('words')
