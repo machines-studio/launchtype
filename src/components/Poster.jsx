@@ -128,9 +128,9 @@ export default class Poster extends Component {
   }
 
   afterMount () {
-    this.#handleParole(this.props.parole.get())
+    this.#handleParole()
     this.props.parole.subscribe(this.#handleParole)
-
+    this.refs.patch.state.loaded.subscribe(this.#handleParole)
     window.addEventListener('resize', this.#handleResize)
 
     this.props.playing.subscribe(this.#handlePlay)
@@ -144,17 +144,27 @@ export default class Poster extends Component {
     this.refs.words?.clear()
   }
 
-  #handleParole = parole => {
+  #handleParole = () => {
     this.clear()
 
+    const parole = this.props.parole.get()
     if (!parole) return
     if (!parole.timestamps) return
 
     // Push new words to store and render/bind
     this.store.words.update(words => {
-      for (const { uuid, ...data } of parole.timestamps) {
+      for (const index in parole.timestamps) {
+        const { uuid, ...data } = parole.timestamps[index]
+
         // Store word data
-        const word = words.get(uuid) ?? { ...data, position: null }
+        const word = words.get(uuid) ?? {
+          ...data,
+          position: [
+            -1,
+            map(+index, 0, parole.timestamps.length - 1, -0.5, 0.5)
+          ]
+        }
+
         words.set(uuid, word)
 
         // Render word
@@ -167,32 +177,29 @@ export default class Poster extends Component {
           />
         ), this.refs.wordsContainer)
 
-        const updatePosition = () => {
-          // Screen coordinates to normalized on [-1, 1], origin is [left, center]
-          word.position = [
-            map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
-            map(draggable.y + draggable.$target.clientHeight / 2, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
-            map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1)
-          ]
-
-          this.store.words.update(words => words, true)
-        }
-
         // Bind draggable
         const draggable = createDraggable(this.refs.words.get(uuid), {
+          velocityMultiplier: 0, // Disable inertia
           container: this.refs.wordsContainer,
-          onUpdate: updatePosition
+          onUpdate: () => {
+            // Screen coordinates to normalized on [-1, 1], origin is [left, center]
+            word.position = [
+              map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
+              map(draggable.y + draggable.$target.clientHeight / 2, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
+              map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1)
+            ]
+
+            this.store.words.update(words => words, true)
+          }
         })
         this.refs.draggables.set(uuid, draggable)
-
-        // Set initial position
-        if (!word.position) updatePosition()
       }
 
       return words
     }, true)
 
-    this.#handleResize()
+    // Using RAF to fix race condition with this.ref.patch.state.loaded
+    window.requestAnimationFrame(this.#handleResize)
   }
 
   #handleResize = () => {
