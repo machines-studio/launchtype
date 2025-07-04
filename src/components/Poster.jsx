@@ -277,7 +277,7 @@ export default class Poster extends Component {
         // Screen coordinates
         screenX: e.clientX - left,
         screenY: e.clientY - top,
-        radius: Math.max(e.width, e.height) / 2, // WIP vw
+        radius: ((Math.max(e.width, e.height)) / width) * 100 / 2, // vw
         intensity: 1
       })
       return pointers
