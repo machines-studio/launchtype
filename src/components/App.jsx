@@ -11,6 +11,8 @@ import basename from '/utils/basename'
 import * as Icons from '/data/icons'
 import * as Constants from '/data/constants'
 
+import confirm from '/controllers/confirm'
+
 import { Button, Select, Toolbar } from '@tooooools/ui/components'
 import Poster from '/components/Poster'
 import Pad from '/components/Pad'
@@ -112,6 +114,15 @@ export default class App extends Component {
             ]}
             compare={(a, b) => JSON.stringify(a) === JSON.stringify(b)}
           />
+
+          <Button
+            icon={Icons.reset}
+            disabled={not(state.parole)}
+            event-click={e => confirm(this.#handleReset, {
+              title: 'Réinitialiser la position des mots ?',
+              confirm: { label: 'réinitialiser' }
+            })}
+          />
         </Toolbar>
 
         <section class='app__artboard'>
@@ -187,5 +198,17 @@ export default class App extends Component {
 
     if (this.state.playing.get()) sound.stop()
     else sound.play()
+  }
+
+  #handleReset = e => {
+    this.refs.poster.store.words.update(words => {
+      // Remove all current store words
+      for (const [uuid] of words) {
+        if (!this.refs.poster.refs.words.has(uuid)) continue
+        words.delete(uuid)
+      }
+
+      this.refs.poster.refresh()
+    }, true)
   }
 }

@@ -63,3 +63,7 @@
   max-width: 100%;
   min-width: 20rem;
 }
+
+[class^='ui-modal-'] {
+  --ui-border: 0;
+}

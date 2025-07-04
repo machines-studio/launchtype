@@ -144,6 +144,10 @@ export default class Poster extends Component {
     this.refs.words?.clear()
   }
 
+  refresh () {
+    this.#handleParole()
+  }
+
   #handleParole = () => {
     this.clear()
 
