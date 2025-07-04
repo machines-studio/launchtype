@@ -20,17 +20,17 @@
   }
 
   &__word {
+    @include debug(0, blue);
+    position: absolute;
+
     display: inline-block;
     margin-right: 0.25em; // Simulate a space between words
     cursor: pointer;
 
     font-family: var(--poster-font-family);
-    font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.68);
-    line-height: 0.5;
+    font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.78);
+    line-height: 0.8;
     color: transparent;
-
-    // TODO absolute when dragged (to avoid moving when fontsize change)
-    position: absolute;
   }
 
   &__words.has-debug &__word {
