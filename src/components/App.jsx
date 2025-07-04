@@ -1,6 +1,8 @@
 // WIP
 // BUG audio context not allowed to start because no user gesture
 
+/* global __REPOSITORY_URL__, __VERSION__ */
+
 import './App.scss'
 import { Component } from '@tooooools/ui'
 import { $, persist, not } from '@tooooools/ui/state'
@@ -82,54 +84,6 @@ export default class App extends Component {
   template (props, state) {
     return (
       <main class='app'>
-        <div class='app__pads'>
-          <Pad
-            labelX='typo'
-            maps={[
-              { value: this.store.brushIntensity, src: 'pad-maps/brush-intensity.png', mode: 'value' },
-              { value: this.store.brushRadius, src: 'pad-maps/brush-radius.png', mode: 'value', range: [5, 25] }, // vw
-              { value: this.store.brushShape, src: 'pad-maps/brush-shape.png', mode: 'value' },
-
-              { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: ['Milling-Triplex1mm', 'Milling-Duplex1mm'] },
-              { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
-            ].map(data => ({
-              ...data,
-              debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
-            }))}
-          />
-
-          <Pad
-            labelX='couleurs'
-            maps={[
-              { value: this.patch.textBlendMode, src: 'pad-maps/font-color.png', mode: 'enum', enumValues: [Constants.CABLE_BLEND_MODE_NORMAL, Constants.CABLE_BLEND_MODE_SCREEN] },
-              { value: this.store.fontColor, src: 'pad-maps/font-color.png', mode: 'rgb' },
-              { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value' },
-              { value: this.store.multB, src: 'pad-maps/mult-b.png', mode: 'value' },
-              ...this.store.colors.map((color, index) => ({
-                value: color,
-                src: `pad-maps/gradient-${index + 1}.png`,
-                mode: 'rgb'
-              }))
-            ].map(data => ({
-              ...data,
-              debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
-            }))}
-          />
-        </div>
-
-        <Poster
-          ref={this.ref('poster')}
-          playing={state.playing}
-          parole={state.parole}
-          patch={this.patch}
-          brushIntensity={this.store.brushIntensity}
-          brushRadius={this.store.brushRadius}
-          brushShape={this.store.brushShape}
-          fontColor={this.store.fontColor}
-          fontSize={this.store.fontSize}
-          fontFamily={this.store.fontFamily}
-        />
-
         <Toolbar class='app__toolbar'>
           <Button
             icon={$(state.playing, p => p ? Icons.stop : Icons.play)}
@@ -153,6 +107,65 @@ export default class App extends Component {
             compare={(a, b) => JSON.stringify(a) === JSON.stringify(b)}
           />
         </Toolbar>
+
+        <section class='app__artboard'>
+          <Poster
+            ref={this.ref('poster')}
+            playing={state.playing}
+            parole={state.parole}
+            patch={this.patch}
+            brushIntensity={this.store.brushIntensity}
+            brushRadius={this.store.brushRadius}
+            brushShape={this.store.brushShape}
+            fontColor={this.store.fontColor}
+            fontSize={this.store.fontSize}
+            fontFamily={this.store.fontFamily}
+          />
+
+          <aside class='app__sidebar'>
+            <section class='app__pads'>
+              <Pad
+                label='typographie'
+                maps={[
+                  { value: this.store.brushIntensity, src: 'pad-maps/brush-intensity.png', mode: 'value' },
+                  { value: this.store.brushRadius, src: 'pad-maps/brush-radius.png', mode: 'value', range: [5, 25] }, // vw
+                  { value: this.store.brushShape, src: 'pad-maps/brush-shape.png', mode: 'value' },
+
+                  { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: ['Milling-Triplex1mm', 'Milling-Duplex1mm'] },
+                  { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
+                ].map(data => ({
+                  ...data,
+                  debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
+                }))}
+              />
+
+              <Pad
+                label='couleurs'
+                maps={[
+                  { value: this.patch.textBlendMode, src: 'pad-maps/font-color.png', mode: 'enum', enumValues: [Constants.CABLE_BLEND_MODE_NORMAL, Constants.CABLE_BLEND_MODE_SCREEN] },
+                  { value: this.store.fontColor, src: 'pad-maps/font-color.png', mode: 'rgb' },
+                  { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value' },
+                  { value: this.store.multB, src: 'pad-maps/mult-b.png', mode: 'value' },
+                  ...this.store.colors.map((color, index) => ({
+                    value: color,
+                    src: `pad-maps/gradient-${index + 1}.png`,
+                    mode: 'rgb'
+                  }))
+                ].map(data => ({
+                  ...data,
+                  debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
+                }))}
+              />
+            </section>
+
+            <footer class='app__footer'>
+              <ul>
+                <li><a href={__REPOSITORY_URL__} target='_blank' rel='noreferrer'>launchtype@{__VERSION__}</a></li>
+                <li><a href='https://machines.studio' target='_blank' rel='noreferrer'>made by machines</a></li>
+              </ul>
+            </footer>
+          </aside>
+        </section>
       </main>
     )
   }

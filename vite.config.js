@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
     base: env.BASE || '/',
 
     define: {
+      __REPOSITORY_URL__: JSON.stringify(process.env.npm_package_repository_url),
       __VERSION__: JSON.stringify(process.env.npm_package_version)
     },
 

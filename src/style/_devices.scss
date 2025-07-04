@@ -15,3 +15,15 @@
     @content;
   }
 }
+
+@mixin narrow {
+  @media (max-width: 85vh) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: 113vh) {
+    @content;
+  }
+}

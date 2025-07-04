@@ -9,22 +9,26 @@
   --color-background: #1e1e1e;
   --color-background-rgb: 30 30 30;
 
-  --space-gutter: 1.4rem;
+  --font-size: 1.5rem;
+  --font-size-small: 1.2rem;
+
+  --space-gutter: 1.2rem;
   --border-radius: 0.5rem;
   --easing: 200ms;
   --easing-slow: 1000ms;
 
-  // --poster-width: calc(100vw - var(--space-gutter) * 2);
-  // --poster-height: calc((100vw - var(--space-gutter) * 2) / (50 / 70));
-  --poster-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
-  --poster-height: calc(100vh - var(--space-gutter) * 2);
+  --artboard-height: calc(100vh - var(--ui-height) - var(--space-gutter));
+  --artboard-width: 100vw;
+  --poster-height: calc(var(--artboard-height) - var(--space-gutter) * 2);
+  --poster-width: calc(var(--poster-height) * (50 / 70));
+  --pad-size: calc(var(--artboard-width) - var(--space-gutter) * 3 - var(--poster-width));
 
-  --ui-height: 4.6rem;
-  --ui-font-size: 1.6rem;
-  --ui-line-height: 1.4;
-  --ui-padding-container: 1rem 1rem 0.8rem;
+  --ui-height: 4rem;
+  --ui-font-size: var(--font-size);
+  --ui-line-height: 1.33;
+  --ui-padding-container: 0.9rem 0.8rem 0.8rem;
   --ui-padding-content: var(--space-gutter);
-  --ui-icon-size: 2.4rem;
+  --ui-icon-size: 2.0rem;
   --ui-border-radius: var(--border-radius);
   --ui-border: 1px solid;
   --ui-color-background: var(--color-background);
@@ -35,6 +39,10 @@
   --ui-toast-color-neutral: #262627;
   --ui-toast-color-warning: #fe8d59;
   --ui-toast-color-error: #ff5449;
+
+  @include narrow {
+    --poster-height: calc(0.75 * var(--artboard-height) - var(--space-gutter) * 2);
+  }
 }
 
 [class^='ui-toast-'] {

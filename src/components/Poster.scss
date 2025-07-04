@@ -2,9 +2,15 @@
   --poster-vw: 1%;
 
   position: relative;
+
   width: var(--poster-width);
   height: var(--poster-height);
+  max-width: var(--poster-width);
+  max-height: var(--poster-height);
+  min-width: var(--poster-width);
+  min-height: var(--poster-height);
   overflow: hidden;
+
   border-radius: var(--border-radius);
 
   .cables-patch,

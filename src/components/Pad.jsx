@@ -30,8 +30,9 @@ export default class Pad extends Component {
         event-pointermove={this.#handleMove}
         event-pointerup={this.#handleUp}
       >
-        {props.labelX && <div class='pad__label pad__label--x' innerHTML={props.labelX} />}
-        {props.labelY && <div class='pad__label pad__label--y' innerHTML={props.labelY} />}
+        {props.label && <label innerHTML={props.label} />}
+        {props.labelX && <label data-axis='x' innerHTML={props.labelX} />}
+        {props.labelY && <label data-axis='y' innerHTML={props.labelY} />}
 
         <div
           ref={this.ref('cursor')}
