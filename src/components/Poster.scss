@@ -20,7 +20,6 @@
   }
 
   &__word {
-    @include debug(0, blue);
     position: absolute;
 
     display: inline-block;
@@ -28,6 +27,8 @@
     cursor: pointer;
 
     font-family: var(--poster-font-family);
+
+    // BUG cables.gl vw are not correct (viewport not updated ?)
     font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.78);
     line-height: 0.8;
     color: transparent;
