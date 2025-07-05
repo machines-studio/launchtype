@@ -183,7 +183,8 @@ export default class Poster extends Component {
 
         // Bind draggable
         const draggable = createDraggable(this.refs.words.get(uuid), {
-          velocityMultiplier: 0, // Disable inertia
+          velocityMultiplier: 0, // Disable target inertia
+          containerFriction: 1, // Disable container inertia
           container: this.refs.wordsContainer,
           onUpdate: () => {
             // Screen coordinates to normalized on [-1, 1], origin is [left, center]
