@@ -115,6 +115,8 @@ export default class CablesPatch extends Component {
     }
   }
 
+  toBlob = (type, quality) => new Promise(resolve => this.refs.canvas.toBlob(resolve, type, quality))
+
   beforeDestroy () {
     this.refs.patch?.dispose()
     for (const [signal, setValue] of this.boundVars) signal.unsubscribe(setValue)

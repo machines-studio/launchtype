@@ -4,6 +4,7 @@ import './App.scss'
 import { Component } from '@tooooools/ui'
 import { $, persist, not } from '@tooooools/ui/state'
 import { Howl } from 'howler'
+import { Convert } from '@tooooools/utils'
 
 import dirname from '/utils/dirname'
 import basename from '/utils/basename'
@@ -123,6 +124,12 @@ export default class App extends Component {
               confirm: { label: 'réinitialiser' }
             })}
           />
+
+          <Button
+            icon={Icons.save}
+            disabled={not(state.parole)}
+            event-click={this.#handleSave}
+          />
         </Toolbar>
 
         <section class='app__artboard'>
@@ -211,4 +218,48 @@ export default class App extends Component {
       this.refs.poster.refresh()
     }, true)
   }
+
+  #handleSave = async e => {
+    // Get the poster image
+    const blob = await this.refs.poster.refs.patch.toBlob()
+    const dataURL = await Convert.blob(blob).toDataURL()
+
+    const body = new FormData()
+    body.append('png', dataURL)
+    body.append('json', JSON.stringify(this.toJSON()))
+
+    return new Promise((resolve, reject) => {
+      const request = new XMLHttpRequest()
+      request.responseType = 'json'
+
+      // Handle response
+      request.onreadystatechange = () => {
+        if (request.readyState !== 4) return
+
+        if (request.response.error) {
+          reject(new Error(`[${request.status}] ${request.statusText}\n${request.response.message}`))
+        } else {
+          resolve(request.response)
+        }
+      }
+
+      // Send request
+      request.open('POST', window.location.origin + '/save')
+      request.send(body)
+    })
+  }
+
+  toJSON = () => ({
+    parole: this.state.parole.get(),
+    brushIntensity: this.store.brushIntensity.get(),
+    brushRadius: this.store.brushRadius.get(),
+    brushShape: this.store.brushShape.get(),
+    fontColor: this.store.fontColor.get(),
+    fontFamily: this.store.fontFamily.get(),
+    fontSize: this.store.fontSize.get(),
+    multA: this.store.multA.get(),
+    multB: this.store.multB.get(),
+    colors: this.store.colors.map(color => color.get()),
+    words: Array.from(this.refs.poster.store.words.get()?.values())
+  })
 }

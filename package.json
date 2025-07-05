@@ -4,7 +4,7 @@
   "description": "launchpad + type case",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview --open",
     "cables:pull": "node scripts/cables.mjs",
     "test": "vite --mode test",
@@ -33,9 +33,11 @@
   },
   "dependencies": {
     "@tooooools/ui": "^1.10.0",
+    "@tooooools/utils": "^1.4.3",
     "animejs": "^4.0.2",
     "chalk": "^5.4.1",
     "express": "^5.1.0",
+    "express-form-data": "^3.0.1",
     "fs-extra": "^11.3.0",
     "howler": "^2.2.4",
     "iconoir": "^7.11.0",
