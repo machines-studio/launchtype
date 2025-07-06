@@ -153,7 +153,7 @@ export default class App extends Component {
                 maps={[
                   { value: this.store.brushIntensity, src: 'pad-maps/brush-intensity.png', mode: 'value' },
                   { value: this.store.brushRadius, src: 'pad-maps/brush-radius.png', mode: 'value', range: [5, 25] }, // vw
-                  { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: ['Milling-Triplex1mm', 'Milling-Duplex1mm', 'Milling-Triplex0mm', 'Milling-Triplex3-5mm'] },
+                  { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: ['Milling-Triplex1mm', 'Milling-Duplex1mm', 'Milling-Triplex0mm', 'Milling-Triplex1mm', 'Milling-Triplex3mm'] },
                   { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
                 ].map(data => ({
                   ...data,
