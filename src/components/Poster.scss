@@ -29,7 +29,7 @@
     font-family: var(--poster-font-family);
 
     // BUG cables.gl vw are not correct (viewport not updated ?)
-    font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.78);
+    font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.728);
     line-height: 0.8;
     color: transparent;
   }
