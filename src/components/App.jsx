@@ -153,9 +153,7 @@ export default class App extends Component {
                 maps={[
                   { value: this.store.brushIntensity, src: 'pad-maps/brush-intensity.png', mode: 'value' },
                   { value: this.store.brushRadius, src: 'pad-maps/brush-radius.png', mode: 'value', range: [5, 25] }, // vw
-                  { value: this.store.brushShape, src: 'pad-maps/brush-shape.png', mode: 'value' },
-
-                  { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: ['Milling-Triplex1mm', 'Milling-Duplex1mm'] },
+                  { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: ['Milling-Triplex1mm', 'Milling-Duplex1mm', 'Milling-Triplex0mm', 'Milling-Triplex3-5mm'] },
                   { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
                 ].map(data => ({
                   ...data,
@@ -168,9 +166,10 @@ export default class App extends Component {
                 maps={[
                   { value: this.patch.textBlendMode, src: 'pad-maps/font-color.png', mode: 'enum', enumValues: [Constants.CABLE_BLEND_MODE_NORMAL, Constants.CABLE_BLEND_MODE_SCREEN] },
                   { value: this.store.fontColor, src: 'pad-maps/font-color.png', mode: 'rgb' },
-                  { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value' },
-                  { value: this.store.multB, src: 'pad-maps/mult-b.png', mode: 'value' },
-                  ...this.store.colors.map((color, index) => ({
+                  { value: this.store.brushShape, src: 'pad-maps/brush-shape.png', mode: 'value' },
+                  { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value', range: [0.01, .4] },
+                  { value: this.store.multB, src: 'pad-maps/mult-b.png', mode: 'value', range: [0, 1] },
+                  ...this.store.colors.map((color, index) => ({ 
                     value: color,
                     src: `pad-maps/gradient-${index + 1}.png`,
                     mode: 'rgb'
