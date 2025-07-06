@@ -88,7 +88,8 @@ export default class Poster extends Component {
         style={{
           '--poster-vw': this.state.vw,
           '--poster-font-size': this.props.fontSize,
-          '--poster-font-family': $(this.props.fontFamily, fs => `"${fs}"`)
+          '--poster-font-family': $(this.props.fontFamily, fs => `"${fs}"`),
+          'touch-action': 'none'
         }}
         event-pointerdown={this.#handlePointerDown}
         event-pointermove={this.#handlePointerMove}
