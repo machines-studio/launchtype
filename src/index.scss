@@ -20,9 +20,9 @@
   --easing-slow: 1000ms;
 
   // @tooooools/ui
-  --ui-height: 4rem;
+  --ui-height: 3.8rem;
   --ui-font-size: var(--font-size);
-  --ui-line-height: 1.33;
+  --ui-line-height: 1.3;
   --ui-padding-container: 0.9rem 0.8rem 0.8rem;
   --ui-padding-content: var(--space-gutter);
   --ui-icon-size: 2.0rem;
@@ -56,6 +56,10 @@
     --poster-height: calc(0.75 * var(--artboard-height) - var(--space-gutter) * 2);
     --pad-size: calc(0.25 * var(--poster-height) - var(--space-gutter) - var(--font-size-small));
   }
+}
+
+[class^='ui-toolbar-'] {
+  overflow: visible;
 }
 
 [class^='ui-toast-'] {
