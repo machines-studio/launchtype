@@ -193,11 +193,12 @@ export default class Poster extends Component {
         containerFriction: 1, // Disable container inertia
         container: this.refs.wordsContainer,
         onUpdate: () => {
-          // Screen coordinates to normalized on [-1, 1], origin is [left, center]
+          // Screen coordinates to normalized on [-1, 1], origin is [left, top]
           word.position = [
             map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
-            map(draggable.y + draggable.$target.clientHeight / 2, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
-            map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1)
+            map(draggable.y, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
+            map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
+            map(draggable.y + draggable.$target.clientHeight, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1)
           ]
 
           store.update(words => words, true)
@@ -263,9 +264,9 @@ export default class Poster extends Component {
       const draggable = this.refs.draggables.get(uuid)
       if (!draggable) continue
       if (word.position) {
-        // Normalized [-1, 1] to screen coordinates, origin is [left, center]
+        // Normalized [-1, 1] to screen coordinates, origin is [left, top]
         draggable.setX(map(word.position[0], -1, 1, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth))
-        draggable.setY(map(word.position[1], -1, 1, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight) - draggable.$target.clientHeight / 2)
+        draggable.setY(map(word.position[1], -1, 1, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight))
       } else {
         const { left, top, height } = draggable.$target.getBoundingClientRect()
         draggable.setX(left)
@@ -301,9 +302,10 @@ export default class Poster extends Component {
       const delay = data.startMs / Constants.PLAYBACK_RATE
       const duration = (data.endMs / Constants.PLAYBACK_RATE) - delay
 
+      const y = position[1] + (position[3] - position[1]) / 2
       updateCursor({
         x: { from: position[0], to: position[2] },
-        y: { from: position[1], to: position[1] },
+        y: { from: y, to: y },
         duration,
       }, delay)
     }
