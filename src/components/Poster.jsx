@@ -83,7 +83,8 @@ export default class Poster extends Component {
       <section
         class={['poster', {
           'is-playing': props.playing,
-          'has-pointer-down': state.hasPointerDown
+          'has-pointer-down': state.hasPointerDown,
+          'show-words-bbox': props.showWordsBbox
         }]}
         style={{
           '--poster-vw': this.state.vw,

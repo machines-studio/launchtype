@@ -33,6 +33,7 @@ export default class App extends Component {
       : $(null), // Avoid Howler "HTML5 audio pool exhausted error" on Safari
     playing: $(false),
     loading: $(false),
+    showWordsBbox: $(false),
   }
 
   // Internal data store
@@ -100,6 +101,12 @@ export default class App extends Component {
             event-click={this.#handlePlay}
           />
 
+          <Button
+            icon={Icons.bbox}
+            active={state.showWordsBbox}
+            event-click={state.showWordsBbox.toggle}
+          />
+
           <Select
             value={state.parole}
             label={
@@ -138,6 +145,7 @@ export default class App extends Component {
             playing={state.playing}
             parole={state.parole}
             patch={this.patch}
+            showWordsBbox={state.showWordsBbox}
             brushIntensity={this.store.brushIntensity}
             brushRadius={this.store.brushRadius}
             brushShape={this.store.brushShape}
