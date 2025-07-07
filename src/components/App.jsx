@@ -60,7 +60,6 @@ export default class App extends Component {
 
     userWords: placeholder(),
 
-
     brushIntensity: $(null),
     brushRadius: $(null),
     brushShape: $(null),
@@ -145,8 +144,8 @@ export default class App extends Component {
             icon={Icons.reset}
             disabled={not(state.parole)}
             event-click={e => confirm(this.#handleReset, {
-              title: 'Réinitialiser la position des mots ?',
-              message: 'Les mots ajoutés à la parole seront également supprimés.',
+              title: 'Réinitialiser la composition',
+              message: 'La position des mots de la paroles sera réinitisalisée, et les mots ajoutés à la parole seront supprimés.',
               confirm: { label: 'réinitialiser' }
             })}
           />

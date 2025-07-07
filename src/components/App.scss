@@ -15,8 +15,17 @@
     padding: var(--space-gutter);
     padding-bottom: 0;
 
+    @include mobile {
+      max-width: calc(var(--poster-width) + var(--space-gutter) * 2);
+    }
+
+    [class^='ui-select__label-'] {
+      min-width: 0;
+    }
+
     .flex,
     [class^='ui-select-'] {
+      width: fit-content;
       flex: 1;
     }
   }
