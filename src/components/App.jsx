@@ -73,7 +73,7 @@ export default class App extends Component {
   patch = {
     sidebarView: +(Constants.SHOW_CABLE_UI),
     textBlendMode: $(Constants.CABLE_BLEND_MODE_NORMAL),
-    maxPixelDensity: window.devicePixelRatio ?? 1,
+    maxPixelDensity: Constants.DPR,
     gradients: $([
       this.store.multA,
       this.store.multB,
