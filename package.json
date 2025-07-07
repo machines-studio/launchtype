@@ -42,6 +42,7 @@
     "howler": "^2.2.4",
     "iconoir": "^7.11.0",
     "missing-math": "^3.4.0",
+    "object-hash": "^3.0.0",
     "uid": "^2.0.2"
   }
 }

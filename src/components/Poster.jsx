@@ -2,8 +2,12 @@ import './Poster.scss'
 import { Component } from '@tooooools/ui'
 import { $, persist } from '@tooooools/ui/state'
 
+import hash from 'object-hash'
+import { uid } from 'uid'
 import { createDraggable, createTimeline } from 'animejs'
 import { map } from 'missing-math'
+
+import lastOf from '/utils/array-last'
 
 import * as Constants from '/data/constants'
 
@@ -11,6 +15,11 @@ import CablesPatch from '/components/CablesPatch'
 
 // Fix animejs not recognizing Inifnity
 const ANIMEJS_INF = -9999
+
+const persistMap = {
+  encode: map => JSON.stringify(Array.from(map)),
+  decode: string => new Map(JSON.parse(string))
+}
 
 export default class Poster extends Component {
   // UI state
@@ -21,11 +30,10 @@ export default class Poster extends Component {
 
   // Internal data store
   store = {
-    words: persist(new Map(), 'poster.words', {
-      encode: map => JSON.stringify(Array.from(map)),
-      decode: string => new Map(JSON.parse(string))
-    }),
     timeline: $(null),
+
+    words: persist(new Map(), 'poster.words', persistMap),
+    userWords: persist(new Map(), 'poster.userWords', persistMap),
 
     cursor: $({ x: ANIMEJS_INF, y: ANIMEJS_INF }),
     pointers: $(new Map()) // Map(<{ x, y, screenX, screenY, radius }>[])
@@ -35,16 +43,18 @@ export default class Poster extends Component {
   patch = {
     words: $([
       this.store.words,
+      this.store.userWords,
       this.props.fontColor,
       this.props.fontSize,
       this.props.fontFamily
     ], ([
-      words,
+      words = new Map(),
+      userWords = new Map(),
       fontColor,
       fontSize,
       fontFamily
     ]) => JSON.stringify(
-      Array.from(words)
+      Array.from([...words, ...userWords])
         .filter(([uuid]) => this.refs.words?.has(uuid))
         .map(([, { text, position }]) => ({
           word: text,
@@ -144,10 +154,80 @@ export default class Poster extends Component {
 
     for (const [, word] of this.refs.words ?? []) word.remove()
     this.refs.words?.clear()
+
+    this.store.userWords.set(new Map())
   }
 
   refresh () {
     this.#handleParole()
+  }
+
+  addWord ({
+    uuid = 'word_' + uid(),
+    text = null,
+    position = [-1, -1],
+    ...data
+  } = {}, store = this.store.words) {
+    if (!text) return
+    if (!String(text).trim()) return
+
+    store.update(words => {
+      const word = words.get(uuid) ?? { text, position, ...data }
+
+      // Store word data
+      words.set(uuid, word)
+
+      // Render word
+      this.render((
+        <div
+          class='poster__word'
+          id={uuid}
+          ref={this.refMap(uuid, 'words')}
+          innerHTML={text.replace(/\n/g, '<br/>')}
+        />
+      ), this.refs.wordsContainer)
+
+      // Bind draggable
+      const draggable = createDraggable(this.refs.words.get(uuid), {
+        velocityMultiplier: 0, // Disable target inertia
+        containerFriction: 1, // Disable container inertia
+        container: this.refs.wordsContainer,
+        onUpdate: () => {
+          // Screen coordinates to normalized on [-1, 1], origin is [left, center]
+          word.position = [
+            map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
+            map(draggable.y + draggable.$target.clientHeight / 2, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
+            map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1)
+          ]
+
+          store.update(words => words, true)
+        }
+      })
+
+      this.refs.draggables.set(uuid, draggable)
+
+      return words
+    }, true)
+  }
+
+  popWord (store = this.store.words) {
+    const [uuid] = lastOf(Array.from(store.get()))
+    this.removeWord(uuid, store)
+  }
+
+  removeWord (uuid, store = this.store.words) {
+    // Remove from DOM
+    this.refs.words.get(uuid)?.remove()
+
+    // Remove from refs
+    this.refs.words.delete(uuid)
+    this.refs.draggables.delete(uuid)
+
+    // Remove from store
+    store.update(words => {
+      words.delete(uuid)
+      return words
+    }, true)
   }
 
   #handleParole = () => {
@@ -158,52 +238,16 @@ export default class Poster extends Component {
     if (!parole.timestamps) return
 
     // Push new words to store and render/bind
-    this.store.words.update(words => {
-      for (const index in parole.timestamps) {
-        const { uuid, ...data } = parole.timestamps[index]
-
-        // Store word data
-        const word = words.get(uuid) ?? {
-          ...data,
-          position: [
-            -1,
-            map(+index, 0, parole.timestamps.length - 1, -0.5, 0.5)
-          ]
-        }
-
-        words.set(uuid, word)
-
-        // Render word
-        this.render((
-          <div
-            class='poster__word'
-            id={uuid}
-            ref={this.refMap(uuid, 'words')}
-            innerHTML={data.text}
-          />
-        ), this.refs.wordsContainer)
-
-        // Bind draggable
-        const draggable = createDraggable(this.refs.words.get(uuid), {
-          velocityMultiplier: 0, // Disable target inertia
-          containerFriction: 1, // Disable container inertia
-          container: this.refs.wordsContainer,
-          onUpdate: () => {
-            // Screen coordinates to normalized on [-1, 1], origin is [left, center]
-            word.position = [
-              map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
-              map(draggable.y + draggable.$target.clientHeight / 2, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
-              map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1)
-            ]
-
-            this.store.words.update(words => words, true)
-          }
-        })
-        this.refs.draggables.set(uuid, draggable)
-      }
-
-      return words
-    }, true)
+    for (const index in parole.timestamps) {
+      this.addWord({
+        ...parole.timestamps[index],
+        uuid: `${hash(parole.transcript)}_${index}`,
+        position: [
+          -1,
+          map(+index, 0, parole.timestamps.length - 1, -0.5, 0.5)
+        ],
+      })
+    }
 
     // Using RAF to fix race condition with this.ref.patch.state.loaded
     window.requestAnimationFrame(this.#handleResize)

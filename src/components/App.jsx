@@ -2,7 +2,7 @@
 
 import './App.scss'
 import { Component } from '@tooooools/ui'
-import { $, persist, not } from '@tooooools/ui/state'
+import { $, persist, not, placeholder } from '@tooooools/ui/state'
 import { Howl } from 'howler'
 import { Convert } from '@tooooools/utils'
 
@@ -58,6 +58,9 @@ export default class App extends Component {
       })
     }),
 
+    userWords: placeholder(),
+
+
     brushIntensity: $(null),
     brushRadius: $(null),
     brushShape: $(null),
@@ -94,12 +97,30 @@ export default class App extends Component {
     return (
       <main class='app'>
         <Toolbar class='app__toolbar'>
-          <Button
-            icon={$(state.playing, p => p ? Icons.stop : Icons.play)}
-            waiting={this.state.loading}
-            disabled={not(this.store.sound)}
-            event-click={this.#handlePlay}
-          />
+          <Toolbar compact class='flex'>
+            <Button
+              icon={$(state.playing, p => p ? Icons.stop : Icons.play)}
+              waiting={this.state.loading}
+              disabled={not(this.store.sound)}
+              event-click={this.#handlePlay}
+            />
+
+            <Select
+              value={state.parole}
+              label={
+                $(state.parole, parole => parole?.transcript
+                  ? '«\u2009' + parole.transcript.toLowerCase() + '\u2009»'
+                  : parole?.label
+                )
+              }
+              options={[
+                { label: 'Aucune parole', selected: true },
+                Select.separator,
+                ...PAROLES
+              ]}
+              compare={(a, b) => JSON.stringify(a) === JSON.stringify(b)}
+            />
+          </Toolbar>
 
           <Button
             icon={Icons.bbox}
@@ -107,27 +128,25 @@ export default class App extends Component {
             event-click={state.showWordsBbox.toggle}
           />
 
-          <Select
-            value={state.parole}
-            label={
-              $(state.parole, parole => parole?.transcript
-                ? '«\u2009' + parole.transcript.toLowerCase() + '\u2009»'
-                : parole?.label
-              )
-            }
-            options={[
-              { label: 'Sélectionner une parole', selected: true },
-              Select.separator,
-              ...PAROLES
-            ]}
-            compare={(a, b) => JSON.stringify(a) === JSON.stringify(b)}
-          />
+          <Toolbar compact>
+            <Button
+              icon={Icons.plus}
+              event-click={this.#handleAddWord}
+            />
+
+            <Button
+              icon={Icons.minus}
+              event-click={this.#handleRemoveWord}
+              disabled={$(this.store.userWords, words => !words?.size)}
+            />
+          </Toolbar>
 
           <Button
             icon={Icons.reset}
             disabled={not(state.parole)}
             event-click={e => confirm(this.#handleReset, {
               title: 'Réinitialiser la position des mots ?',
+              message: 'Les mots ajoutés à la parole seront également supprimés.',
               confirm: { label: 'réinitialiser' }
             })}
           />
@@ -161,17 +180,21 @@ export default class App extends Component {
                 maps={[
                   { value: this.store.brushIntensity, src: 'pad-maps/brush-intensity.png', mode: 'value' },
                   { value: this.store.brushRadius, src: 'pad-maps/brush-radius.png', mode: 'value', range: [5, 25] }, // vw
-                  { value: this.store.fontFamily, src: 'pad-maps/font-family.png', mode: 'enum', enumValues: 
-                    [
-                    'Fraunces-latin-basic',
-                    'Milling-Triplex0mm', 
-                    'Milling-Simplex1mm', 
-                    'Milling-Duplex1mm', 
-                    'Milling-Triplex1mm', 
-                    'Milling-Triplex3mm',
-                    'Sixtyfour',
-                    'GlutenVariable'
-                  ] },
+                  {
+                    value: this.store.fontFamily,
+                    src: 'pad-maps/font-family.png',
+                    mode: 'enum',
+                    enumValues: [
+                      'Fraunces-latin-basic',
+                      'Milling-Triplex0mm',
+                      'Milling-Simplex1mm',
+                      'Milling-Duplex1mm',
+                      'Milling-Triplex1mm',
+                      'Milling-Triplex3mm',
+                      'Sixtyfour',
+                      'GlutenVariable'
+                    ]
+                  },
                   { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
                 ].map(data => ({
                   ...data,
@@ -185,9 +208,9 @@ export default class App extends Component {
                   { value: this.patch.textBlendMode, src: 'pad-maps/font-color.png', mode: 'enum', enumValues: [Constants.CABLE_BLEND_MODE_NORMAL, Constants.CABLE_BLEND_MODE_SCREEN] },
                   { value: this.store.fontColor, src: 'pad-maps/font-color.png', mode: 'rgb' },
                   { value: this.store.brushShape, src: 'pad-maps/brush-shape.png', mode: 'enum', enumValues: [0, 1, 2] },
-                  { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value', range: [0., 5] },
+                  { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value', range: [0, 5] },
                   { value: this.store.multB, src: 'pad-maps/mult-b.png', mode: 'value', range: [0, 4] },
-                  ...this.store.colors.map((color, index) => ({ 
+                  ...this.store.colors.map((color, index) => ({
                     value: color,
                     src: `pad-maps/gradient-${index + 1}.png`,
                     mode: 'rgb'
@@ -212,8 +235,19 @@ export default class App extends Component {
   }
 
   afterRender () {
+    this.store.userWords.fill(this.refs.poster.store.userWords)
+
     // Ensure sound is stopped when parole changes
     this.state.parole.subscribe(() => this.store.sound.get()?.stop())
+  }
+
+  #handleAddWord = async e => {
+    const text = await prompt('Entrez vos mots :')
+    return this.refs.poster.addWord({ text }, this.refs.poster.store.userWords)
+  }
+
+  #handleRemoveWord = e => {
+    this.refs.poster.popWord(this.refs.poster.store.userWords)
   }
 
   #handlePlay = e => {

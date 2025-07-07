@@ -1,3 +1,5 @@
+export { default as plus } from 'iconoir/icons/plus.svg?raw'
+export { default as minus } from 'iconoir/icons/minus.svg?raw'
 export { default as save } from 'iconoir/icons/floppy-disk.svg?raw'
 export { default as play } from 'iconoir/icons/play.svg?raw'
 export { default as stop } from 'iconoir/icons/square.svg?raw'
