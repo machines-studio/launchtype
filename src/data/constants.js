@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search)
 const debug = String(params.get('debug')).split(',')
 
-export const DPR = params.get('low') ? 1 : (window.devicePixelRatio ?? 1)
+export const DPR = parseFloat(params.get('dpr') ?? window.devicePixelRatio ?? 1)
 export const CABLE_BLEND_MODE_NORMAL = 0
 export const CABLE_BLEND_MODE_SCREEN = 12
 
