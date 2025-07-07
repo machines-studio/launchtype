@@ -2,7 +2,7 @@
 
 * __animatedTexture__ ```Texture```
 * __brushTexture__ ```Texture```
-* __cursors__ ```String``` (default Value: `[{       "x": "-0.5",       "y": "0.5",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.5",       "y": "0.25",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.75",       "y": "-0.75",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     } ]`)
+* __cursors__ ```String``` (default Value: `[{       "x": "-0.4",       "y": "0.5",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.5",       "y": "0.25",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.75",       "y": "-0.75",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     } ]`)
 * __cursorShape__ ```Number```
 * __cursorX__ ```Number```
 * __cursorY__ ```Number```
@@ -25,6 +25,6 @@
 * __testAnim__ ```Number```
 * __textBlendMode__ ```Number``` (default Value: `12`)
 * __vw__ ```Number```
-* __words__ ```String``` (default Value: `[{       "word": "L’abeille",       "x": -0.5,       "y": -0.2,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "butine",       "x": 0.1,       "y": 0,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "tout",       "x": 0.2,       "y": 0.2,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "doucement.",       "x": -0.8,       "y": 0.5,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     } ]`)
+* __words__ ```String``` (default Value: `[{       "word": "L’abeilles",       "x": -0.5,       "y": -0.2,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "butine",       "x": 0.1,       "y": 0,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "tout",       "x": 0.2,       "y": 0.2,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "doucement.",       "x": -0.8,       "y": 0.5,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     } ]`)
 * __wordTexture__ ```Texture```
 
