@@ -263,7 +263,7 @@ export default class Poster extends Component {
       }, delay)
     }
 
-    updateCursor({ x: ANIMEJS_INF, y: ANIMEJS_INF, duration: 0 }, '<')
+    updateCursor({ x: ANIMEJS_INF, y: ANIMEJS_INF, duration: 100 }, '<')
   }
 
   #handlePointerDown = e => {
