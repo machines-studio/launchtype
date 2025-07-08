@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/motocross/il-teste-sa-nouvelle-ligne-dechappement.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_5eda5d9b732",
+      "text": "il",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.130",
+      "endMs": 130
+    },
+    {
+      "uuid": "segment_eda5d9b7321",
+      "text": "teste",
+      "start": "00:00:00.130",
+      "startMs": 130,
+      "end": "00:00:00.460",
+      "endMs": 460
+    },
+    {
+      "uuid": "segment_da5d9b73216",
+      "text": "sa",
+      "start": "00:00:00.460",
+      "startMs": 460,
+      "end": "00:00:00.590",
+      "endMs": 590
+    },
+    {
+      "uuid": "segment_a5d9b73216a",
+      "text": "nouvelle",
+      "start": "00:00:00.590",
+      "startMs": 590,
+      "end": "00:00:01.130",
+      "endMs": 1130
+    },
+    {
+      "uuid": "segment_5d9b73216a5",
+      "text": "ligne",
+      "start": "00:00:01.130",
+      "startMs": 1130,
+      "end": "00:00:01.460",
+      "endMs": 1460
+    },
+    {
+      "uuid": "segment_d9b73216a5a",
+      "text": "d'échappement",
+      "start": "00:00:01.460",
+      "startMs": 1460,
+      "end": "00:00:02.440",
+      "endMs": 2440
+    }
+  ],
+  "transcript": "il teste sa nouvelle ligne d'échappement"
+}

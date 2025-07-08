@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/motocross/il-est-dans-son-quartier.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_68e0825db99",
+      "text": "Il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_8e0825db997",
+      "text": "est",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.510",
+      "endMs": 510
+    },
+    {
+      "uuid": "segment_e0825db9978",
+      "text": "dans",
+      "start": "00:00:00.510",
+      "startMs": 510,
+      "end": "00:00:00.920",
+      "endMs": 920
+    },
+    {
+      "uuid": "segment_0825db99780",
+      "text": "son",
+      "start": "00:00:00.920",
+      "startMs": 920,
+      "end": "00:00:01.230",
+      "endMs": 1230
+    },
+    {
+      "uuid": "segment_825db997809",
+      "text": "quartier",
+      "start": "00:00:01.230",
+      "startMs": 1230,
+      "end": "00:00:02.080",
+      "endMs": 2080
+    }
+  ],
+  "transcript": "Il est dans son quartier"
+}

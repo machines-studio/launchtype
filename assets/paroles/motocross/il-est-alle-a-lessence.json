@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/motocross/il-est-alle-a-lessence.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_c667068e082",
+      "text": "Il",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_667068e0825",
+      "text": "est",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.290",
+      "endMs": 290
+    },
+    {
+      "uuid": "segment_67068e0825d",
+      "text": "allé",
+      "start": "00:00:00.290",
+      "startMs": 290,
+      "end": "00:00:00.500",
+      "endMs": 500
+    },
+    {
+      "uuid": "segment_7068e0825db",
+      "text": "à",
+      "start": "00:00:00.500",
+      "startMs": 500,
+      "end": "00:00:00.600",
+      "endMs": 600
+    },
+    {
+      "uuid": "segment_068e0825db9",
+      "text": "l'essence",
+      "start": "00:00:00.600",
+      "startMs": 600,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    }
+  ],
+  "transcript": "Il est allé à l'essence"
+}

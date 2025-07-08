@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/motocross/il-fait-de-la-motocross.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_03e2e5eda5d",
+      "text": "Il",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.160",
+      "endMs": 160
+    },
+    {
+      "uuid": "segment_3e2e5eda5d9",
+      "text": "fait",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.480",
+      "endMs": 480
+    },
+    {
+      "uuid": "segment_e2e5eda5d9b",
+      "text": "de",
+      "start": "00:00:00.480",
+      "startMs": 480,
+      "end": "00:00:00.640",
+      "endMs": 640
+    },
+    {
+      "uuid": "segment_2e5eda5d9b7",
+      "text": "la",
+      "start": "00:00:00.640",
+      "startMs": 640,
+      "end": "00:00:00.800",
+      "endMs": 800
+    },
+    {
+      "uuid": "segment_e5eda5d9b73",
+      "text": "motocross",
+      "start": "00:00:00.800",
+      "startMs": 800,
+      "end": "00:00:01.540",
+      "endMs": 1540
+    }
+  ],
+  "transcript": "Il fait de la motocross"
+}

@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/motocross/il-est-tombe-en-panne-dessence.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_978093503e2",
+      "text": "et",
+      "start": "00:00:00.080",
+      "startMs": 80,
+      "end": "00:00:00.120",
+      "endMs": 120
+    },
+    {
+      "uuid": "segment_78093503e2e",
+      "text": "les",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.350",
+      "endMs": 350
+    },
+    {
+      "uuid": "segment_8093503e2e5",
+      "text": "tombées",
+      "start": "00:00:00.350",
+      "startMs": 350,
+      "end": "00:00:00.770",
+      "endMs": 770
+    },
+    {
+      "uuid": "segment_093503e2e5e",
+      "text": "n'ont",
+      "start": "00:00:00.770",
+      "startMs": 770,
+      "end": "00:00:01.050",
+      "endMs": 1050
+    },
+    {
+      "uuid": "segment_93503e2e5ed",
+      "text": "pas",
+      "start": "00:00:01.050",
+      "startMs": 1050,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    },
+    {
+      "uuid": "segment_3503e2e5eda",
+      "text": "de",
+      "start": "00:00:01.260",
+      "startMs": 1260,
+      "end": "00:00:01.350",
+      "endMs": 1350
+    },
+    {
+      "uuid": "segment_503e2e5eda5",
+      "text": "descente",
+      "start": "00:00:01.350",
+      "startMs": 1350,
+      "end": "00:00:01.860",
+      "endMs": 1860
+    }
+  ],
+  "transcript": "et les tombées n'ont pas de descente"
+}

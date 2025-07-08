@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/motocross/il-est-rentre-chez-lui.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_25db9978093",
+      "text": "Il",
+      "start": "00:00:00.070",
+      "startMs": 70,
+      "end": "00:00:00.160",
+      "endMs": 160
+    },
+    {
+      "uuid": "segment_5db99780935",
+      "text": "est",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.410",
+      "endMs": 410
+    },
+    {
+      "uuid": "segment_db997809350",
+      "text": "rentré",
+      "start": "00:00:00.410",
+      "startMs": 410,
+      "end": "00:00:00.990",
+      "endMs": 990
+    },
+    {
+      "uuid": "segment_b9978093503",
+      "text": "chez",
+      "start": "00:00:00.990",
+      "startMs": 990,
+      "end": "00:00:01.310",
+      "endMs": 1310
+    },
+    {
+      "uuid": "segment_9978093503e",
+      "text": "lui",
+      "start": "00:00:01.310",
+      "startMs": 1310,
+      "end": "00:00:01.600",
+      "endMs": 1600
+    }
+  ],
+  "transcript": "Il est rentré chez lui"
+}
