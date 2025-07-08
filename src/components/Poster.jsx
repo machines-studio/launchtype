@@ -41,6 +41,8 @@ export default class Poster extends Component {
 
   // Cables.gl patch data
   patch = {
+    gradientAlphaMask: $(1),
+
     words: $([
       this.store.words,
       this.store.userWords,
@@ -148,18 +150,29 @@ export default class Poster extends Component {
     this.props.playing.subscribe(this.#handlePlay)
   }
 
-  clear () {
+  clear ({ words = false } = {}) {
     for (const [, draggable] of this.refs.draggables ?? []) draggable.stop()
     this.refs.draggables?.clear()
 
     for (const [, word] of this.refs.words ?? []) word.remove()
     this.refs.words?.clear()
 
+    if (words) this.store.words.set(new Map())
     this.store.userWords.set(new Map())
+
+    // Clean up cables patch alpha mask
+    // Wait a little for cables patch to register the gradientAlphaMask before resetting it
+    this.patch.gradientAlphaMask.subscribeOnce(() => window.requestAnimationFrame(() => this.patch.gradientAlphaMask.set(1)))
+    this.patch.gradientAlphaMask.set(0)
   }
 
   refresh () {
     this.#handleParole()
+  }
+
+  reset () {
+    this.clear({ words: true })
+    this.refresh()
   }
 
   addWord ({
