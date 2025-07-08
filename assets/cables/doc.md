@@ -3,7 +3,7 @@
 * __animatedTexture__ ```Texture```
 * __animatedTextureWords__ ```Texture```
 * __brushTexture__ ```Texture```
-* __cursors__ ```String``` (default Value: `[{       "x": "-0.4",       "y": "0.5",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.5",       "y": "0.25",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.75",       "y": "-0.75",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     } ]`)
+* __cursors__ ```String``` (default Value: `[{       "x": "-0.1",       "y": "0.5",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.5",       "y": "0.25",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.75",       "y": "-0.75",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     } ]`)
 * __cursorShape__ ```Number```
 * __cursorX__ ```Number```
 * __cursorY__ ```Number```
