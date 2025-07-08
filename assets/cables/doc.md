@@ -14,6 +14,7 @@
 * __debugMultA__ ```Number```
 * __debugMultB__ ```Number```
 * __fullScreenTexture__ ```Texture```
+* __gradientAlphaMask__ ```Number``` (default Value: `1`)
 * __gradients__ ```String``` (default Value: `{       "hue": "0.0",       "multA": "2",       "multB": "4",       "colorA": [0.3, 0.1, 0.6],       "colorB": [0.2, 0.4, 0.1],       "colorC": [0.8, 0.8, 0.3],       "colorD": [0.1, 0.4, 0.4],       "colorE": [0.5, 0.2, 0.9],       "colorF": [0.1, 0.3, 0] }`)
 * __gradientTexture__ ```Texture```
 * __grandientsAnim__ ```Number```

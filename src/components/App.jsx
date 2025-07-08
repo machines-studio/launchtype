@@ -85,6 +85,7 @@ export default class App extends Component {
     sidebarView: +(Constants.SHOW_CABLE_UI),
     textBlendMode: $(Constants.CABLE_BLEND_MODE_NORMAL),
     maxPixelDensity: Constants.DPR,
+    gradientAlphaMask: $(1),
     gradients: $([
       this.store.multA,
       this.store.multB,
@@ -273,6 +274,17 @@ export default class App extends Component {
         words.delete(uuid)
       }
 
+      // Clean up cables patch alpha mask
+      // Wait a little for cables patch to register the gradientAlphaMask before
+      // resetting it
+      this.patch.gradientAlphaMask.subscribeOnce(() => {
+        window.requestAnimationFrame(() => {
+          this.patch.gradientAlphaMask.set(1)
+        })
+      })
+      this.patch.gradientAlphaMask.set(0)
+
+      // Update poster positions
       this.refs.poster.refresh()
     }, true)
   }
