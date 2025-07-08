@@ -1,6 +1,7 @@
 ## Patch Variables:
 
 * __animatedTexture__ ```Texture```
+* __animatedTextureWords__ ```Texture```
 * __brushTexture__ ```Texture```
 * __cursors__ ```String``` (default Value: `[{       "x": "-0.4",       "y": "0.5",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.5",       "y": "0.25",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.75",       "y": "-0.75",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     } ]`)
 * __cursorShape__ ```Number```
@@ -12,13 +13,16 @@
 * __debugIndexBrush__ ```Number```
 * __debugMultA__ ```Number```
 * __debugMultB__ ```Number```
-* __gradients__ ```String``` (default Value: `{       "hue": "0.0",       "multA": "0.1",       "multB": "0.1",       "colorA": [0.3, 0.1, 0.6],       "colorB": [0.2, 0.4, 0.1],       "colorC": [0.8, 0.8, 0.3],       "colorD": [0.1, 0.4, 0.4],       "colorE": [0.5, 0.2, 0.9],       "colorF": [0.1, 0.3, 0] }`)
+* __fullScreenTexture__ ```Texture```
+* __gradients__ ```String``` (default Value: `{       "hue": "0.0",       "multA": "2",       "multB": "4",       "colorA": [0.3, 0.1, 0.6],       "colorB": [0.2, 0.4, 0.1],       "colorC": [0.8, 0.8, 0.3],       "colorD": [0.1, 0.4, 0.4],       "colorE": [0.5, 0.2, 0.9],       "colorF": [0.1, 0.3, 0] }`)
 * __gradientTexture__ ```Texture```
 * __grandientsAnim__ ```Number```
 * __indexCursors__ ```Number```
 * __indexWords__ ```Number```
 * __maskTexture__ ```Texture```
+* __maskWordsTexture__ ```Texture```
 * __maxPixelDensity__ ```Number``` (default Value: `2`)
+* __postProcessTextureWords__ ```Texture```
 * __postProcTexture__ ```Texture```
 * __radiusCursor__ ```Number```
 * __sidebarView__ ```Number``` (default Value: `1`)
