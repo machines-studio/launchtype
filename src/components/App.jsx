@@ -150,7 +150,6 @@ export default class App extends Component {
 
           <Button
             icon={Icons.reset}
-            disabled={not(state.parole)}
             event-click={e => confirm(this.#handleReset, {
               title: 'Réinitialiser la composition',
               message: 'La position des mots de la paroles sera réinitisalisée, et les mots ajoutés à la parole seront supprimés.',
