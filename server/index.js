@@ -41,6 +41,9 @@ app.post('/save', (req, res, next) => {
   res.status(201).json({ status: 'ok' })
 })
 
+// Redirect subdirectories to index, enabling front routing
+app.get('/:path', (req, res) => res.sendFile(path.join(__dirname, '..', 'build', '/index.html')))
+
 // Log errors
 app.use((error, req, res, next) => {
   logger({ color: 'red', prefix: '[EXPRESS]', level: 'error' })(error)
