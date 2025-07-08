@@ -19,11 +19,19 @@ import Poster from '/components/Poster'
 import Pad from '/components/Pad'
 
 const PAROLES = Object.entries(import.meta.glob('@assets/paroles/**/*.json', { eager: true }))
-  .map(([filename, json]) => ({
-    group: basename(dirname(filename)),
-    label: json.default.transcript.toLowerCase().substr(0, Constants.PAROLES_LABEL_MAX_LENGTH).trim() + (json.default.transcript.length > Constants.PAROLES_LABEL_MAX_LENGTH ? '…' : ''),
-    value: json.default
-  }))
+  .map(([filename, json]) => {
+    const group = basename(dirname(filename))
+
+    // Show only matching parole for pathname
+    const path = (window.location.pathname ?? '/').replace(/^\//, '')
+    if (path && path !== group) return null
+
+    return {
+      group,
+      label: json.default.transcript.toLowerCase().substr(0, Constants.PAROLES_LABEL_MAX_LENGTH).trim() + (json.default.transcript.length > Constants.PAROLES_LABEL_MAX_LENGTH ? '…' : ''),
+      value: json.default
+    }
+  }).filter(Boolean)
 
 export default class App extends Component {
   // UI state
