@@ -3,7 +3,7 @@
   "timestamps": [
     {
       "uuid": "segment_978093503e2",
-      "text": "et",
+      "text": "Il",
       "start": "00:00:00.080",
       "startMs": 80,
       "end": "00:00:00.120",
@@ -11,7 +11,7 @@
     },
     {
       "uuid": "segment_78093503e2e",
-      "text": "les",
+      "text": "est",
       "start": "00:00:00.120",
       "startMs": 120,
       "end": "00:00:00.350",
@@ -19,7 +19,7 @@
     },
     {
       "uuid": "segment_8093503e2e5",
-      "text": "tombées",
+      "text": "tombé",
       "start": "00:00:00.350",
       "startMs": 350,
       "end": "00:00:00.770",
@@ -27,7 +27,7 @@
     },
     {
       "uuid": "segment_093503e2e5e",
-      "text": "n'ont",
+      "text": "en",
       "start": "00:00:00.770",
       "startMs": 770,
       "end": "00:00:01.050",
@@ -35,28 +35,20 @@
     },
     {
       "uuid": "segment_93503e2e5ed",
-      "text": "pas",
+      "text": "panne",
       "start": "00:00:01.050",
       "startMs": 1050,
       "end": "00:00:01.260",
       "endMs": 1260
     },
     {
-      "uuid": "segment_3503e2e5eda",
-      "text": "de",
+      "uuid": "segment_503e2e5eda5",
+      "text": "d'essence",
       "start": "00:00:01.260",
       "startMs": 1260,
-      "end": "00:00:01.350",
-      "endMs": 1350
-    },
-    {
-      "uuid": "segment_503e2e5eda5",
-      "text": "descente",
-      "start": "00:00:01.350",
-      "startMs": 1350,
       "end": "00:00:01.860",
       "endMs": 1860
     }
   ],
-  "transcript": "et les tombées n'ont pas de descente"
+  "transcript": "Il est tombé en panne d'essence"
 }
