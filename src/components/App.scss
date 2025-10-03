@@ -1,241 +1,103 @@
 .app {
-  --ui-border: 1px solid var(--ui-color-text);
-  --ui-toolbar-hr: 1px dashed var(--ui-color-text);
-
-  position: fixed;
-  inset: 0;
-
   display: flex;
   flex-direction: column;
-  gap: var(--space-gutter);
-  padding: var(--space-gutter);
-  overflow: scroll;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 
-  @include portrait {
-    position: relative;
+  &__toolbar {
+    --ui-color-background: transparent;
+
+    width: 100%;
+    padding: var(--space-gutter);
+    padding-bottom: 0;
+
+    @include mobile {
+      max-width: calc(var(--poster-width) + var(--space-gutter) * 2);
+    }
+
+    [class^='ui-select__label-'] {
+      min-width: 0;
+    }
+
+    .flex,
+    [class^='ui-select-'] {
+      width: fit-content;
+      flex: 1;
+    }
   }
 
   &__artboard {
-    flex: 1;
     display: flex;
     gap: var(--space-gutter);
+    max-width: var(--artboard-width);
+    padding: var(--space-gutter);
     overflow: hidden;
 
-    @include portrait {
+    @include mobile {
       flex-direction: column;
     }
   }
 
-  &__toolbar {
-    justify-content: space-between;
-    overflow: visible;
-
-    @include portrait {
-      width: 100%;
-
-      .button--prev-blueprint svg,
-      .button--next-blueprint svg {
-        transform: rotate(-90deg);
-      }
-    }
-
-    @include landscape {
-      &, [class^='ui-toolbar-'] {
-        flex-direction: column;
-
-        hr {
-          border: 0;
-          border-top: var(--ui-toolbar-hr);
-        }
-
-        &:not(.is-compact) > hr + * {
-          margin-top: var(--ui-gap);
-          margin-left: 0;
-        }
-
-        &.is-compact > *:not(:first-child) {
-          border: 0;
-          border-top: var(--ui-border);
-        }
-      }
-    }
-  }
-
-  &__poster-container {
-    flex-grow: 1;
-    flex-shrink: 0;
-
-    width: var(--poster-width);
-    height: var(--poster-height);
-    max-width: var(--poster-width);
-    max-height: var(--poster-height);
-    min-width: var(--poster-width);
-    min-height: var(--poster-height);
-    overflow: visible;
-
-    @include portrait {
-      width: 100%;
-      height: calc((100vw - var(--space-gutter) * 2) / (50 / 70));
-      max-width: unset;
-      min-width: unset;
-    }
-  }
-
-  &.has-playback &__poster-container {
-    pointer-events: none;
-  }
-
-  &__words {
+  .poster {
     flex: 1;
+  }
+
+  &__sidebar {
     display: flex;
     flex-direction: column;
     gap: var(--space-gutter);
-  }
 
-  &.has-playback &__words {
-    display: none;
-  }
-
-  &__words-container {
-    flex: 1;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    gap: var(--ui-gap);
-    min-height: calc(var(--ui-height) * 3 + var(--ui-gap) * 2);
-    margin-bottom: auto;
-
-    border-radius: var(--ui-border-radius);
-
-    &:empty {
-      border: 1px dashed;
-    }
-  }
-
-  &__words-toolbar {
-    order: -1;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  &__words-container .word,
-  & > .word.draggable-mirror {
-    height: var(--ui-height) !important;
-    padding: var(--ui-padding-container) !important;
-
-    font-family: var(--ui-font-family) !important;
-    font-size: var(--ui-icon-size) !important;
-    line-height: 90% !important;
-    letter-spacing: normal !important;
-    color: black !important;
-
-    background: white;
-    border-radius: var(--rounded);
-    transform: none !important;
-
-    .app.is-recording & {
-      pointer-events: none;
-      color: var(--ui-color-text) !important;
-      background: var(--ui-color-background);
-      outline: var(--ui-outline);
-      opacity: var(--ui-disabled-opacity);
+    @include wide {
+      --pad-size: calc(var(--artboard-height) / 2 - var(--space-gutter) * 3);
     }
 
-    &.draggable-source--is-dragging,
-    &.draggable-mirror {
-      z-index: 9;
-      cursor: grabbing;
-      background: var(--ui-color-accent);
-      transform: translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0) !important;
-      box-shadow: 0 0 10px rgba(0 0 0 / 10%);
-    }
-
-    &.draggable-source--is-dragging {
-      cursor: grabbing;
-      opacity: 0.2;
-    }
-  }
-
-  // Disable word dragging during recording, which also allows setting very large
-  // font size while maintaining adsr trigger possible on containing cell
-  .app.is-recording .poster .word {
-    pointer-events: none;
-  }
-
-  // Style when dropping a word to an actionable button
-  .button--add-word:has(.word),
-  .button--remove-word:has(.word) {
-    @include easing(transform, var(--easing), true);
-
-    svg {
-      @include easing(transform);
-      transform: scale(1.2) rotate(2deg);
-    }
-
-    .word {
-      display: none;
-    }
-  }
-
-  .button--record:not(.has-recorded) svg path {
-    fill: #fe6766;
-    stroke: #fe6766;
-  }
-
-  .button--record.is-waiting svg {
-    visibility: hidden;
-  }
-
-  &.is-recording .button--record svg {
-    animation: fade-out 600ms ease-in-out alternate infinite;
-  }
-
-  &__playbacks {
-    @include invisible-scroll(y);
-    --ui-color-background: white;
-    --ui-color-text: black;
-
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-gutter);
-    width: 100%;
-
-    [class^='ui-toolbar-'] {
-      width: 100%;
-    }
-
-    [data-filename], [data-duration] {
-      position: relative;
-      padding-top: calc(var(--space-gutter) + 1em);
-    }
-
-    [data-filename]::before,
-    [data-duration]::after {
-      position: absolute;
-      top: 0;
-      display: block;
-      margin-bottom: var(--space-gutter);
-    }
-
-    [data-filename]::before {
-      content: attr(data-filename);
-    }
-
-    [data-duration]::after {
-      content: attr(data-duration)'\202Fs';
-      right: 0;
-    }
-
-    [class^='ui-range-'] {
-      pointer-events: none;
+    @include mobile {
       flex: 1;
     }
+  }
 
-    .is-active {
-      --ui-color-background: var(--ui-color-accent);
+  &__pads {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-gutter);
+
+    @include mobile {
+      flex-direction: row;
     }
   }
+
+  &__footer {
+    margin-top: auto;
+    font-family: var(--ui-font-mono);
+    font-size: var(--font-size-small);
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0 3ch;
+
+      @include narrow {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      @include mobile {
+        flex-direction: row;
+      }
+    }
+
+    a {
+      @include easing(opacity);
+      opacity: 0.4;
+
+      &:hover { opacity: 1; }
+    }
+  }
+
 }

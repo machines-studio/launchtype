@@ -1,473 +1,312 @@
+/* global __REPOSITORY_URL__, __VERSION__ */
+
 import './App.scss'
-import { Droppable } from '@shopify/draggable'
 import { Component } from '@tooooools/ui'
-import { Button, Toolbar, FileDropper, Range } from '@tooooools/ui/components'
-import { $, persist } from '@tooooools/ui/state'
+import { $, persist, not, placeholder } from '@tooooools/ui/state'
+import { Howl } from 'howler'
+import { Convert } from '@tooooools/utils'
+
+import dirname from '/utils/dirname'
+import basename from '/utils/basename'
 
 import * as Icons from '/data/icons'
+import * as Constants from '/data/constants'
 
 import confirm from '/controllers/confirm'
-import * as Timeline from '/controllers/Timeline'
 
+import { Button, Select, Toolbar } from '@tooooools/ui/components'
 import Poster from '/components/Poster'
+import Pad from '/components/Pad'
 
-import readFile from '/utils/read-file'
+const PAROLES = Object.entries(import.meta.glob('@assets/paroles/**/*.json', { eager: true }))
+  .map(([filename, json]) => {
+    const group = basename(dirname(filename))
 
-let hasRecordedTimer
-const BLUEPRINTS = Object.values(import.meta.glob('/data/blueprints/*.jsx', { eager: true }))
+    // Show only matching parole for pathname
+    const path = (window.location.pathname ?? '/').replace(/^\//, '')
+    if (path && path !== group) return null
+
+    return {
+      group,
+      label: json.default.transcript.toLowerCase().substr(0, Constants.PAROLES_LABEL_MAX_LENGTH).trim() + (json.default.transcript.length > Constants.PAROLES_LABEL_MAX_LENGTH ? '…' : ''),
+      value: json.default
+    }
+  }).filter(Boolean)
 
 export default class App extends Component {
+  // UI state
   state = {
-    blueprint: $(null),
-    playbacks: $(null),
-    playbackIndex: $(0),
+    parole: import.meta.env.DEV
+      ? persist(null, 'app.state.parole')
+      : $(null), // Avoid Howler "HTML5 audio pool exhausted error" on Safari
+    playing: $(false),
+    loading: $(false),
+    showWordsBbox: $(false),
+  }
 
-    // To simplify word insertion/deletion and its draggable interface, single
-    // source of truth will be the DOM (via <App>.refs.words). This internal
-    // state will be updated each time the DOM is modified
-    words: persist([], 'app.words'),
+  // Internal data store
+  store = {
+    sound: $(this.state.parole, async parole => {
+      if (!parole || !parole.sound) return
+      return new Promise(resolve => {
+        this.state.loading.set(true)
+        const sound = new Howl({
+          src: parole.sound,
+          preload: true,
+          html5: true,
+          rate: Constants.PLAYBACK_RATE,
+          onplay: () => this.state.playing.set(true),
+          onstop: () => this.state.playing.set(false),
+          onend: () => this.state.playing.set(false),
+          onload: () => {
+            this.state.loading.set(false)
+            resolve(sound)
+          }
+        })
+      })
+    }),
 
-    isFullscreen: $(!!document.fullscreenElement),
-    hasVisibleGrid: persist(false, 'app.hasVisibleGrid'),
-    hasRecorded: $(false),
+    userWords: placeholder(),
 
-    // XXX TODO refactor
-    foreground: persist('#000000', 'app.foreground'),
-    background: persist('#FFFFFF', 'app.background')
+    brushIntensity: $(null),
+    brushRadius: $(null),
+    brushShape: $(null),
+    fontColor: $(null),
+    fontFamily: $(null),
+    fontSize: $(null),
+
+    multA: $(1),
+    multB: $(1),
+    colors: new Array(Constants.PATCH_GRADIENTS_COLOR_LENGTH).fill(true).map(() => $([0, 0, 0]))
+  }
+
+  // Cables.gl patch data
+  patch = {
+    sidebarView: +(Constants.SHOW_CABLE_UI),
+    textBlendMode: $(Constants.CABLE_BLEND_MODE_NORMAL),
+    maxPixelDensity: Constants.DPR,
+    gradients: $([
+      this.store.multA,
+      this.store.multB,
+      ...this.store.colors,
+    ], ([multA, multB, ...colors]) => JSON.stringify({
+      multA,
+      multB,
+      // colorA, B, C, etc…
+      ...colors.reduce((acc, cur, index) => ({
+        ...acc,
+        ['color' + String.fromCharCode(65 + index)]: cur
+      }), {})
+    }))
   }
 
   template (props, state) {
     return (
-      <main
-        id='app'
-        class={['app', {
-          'is-fullscreen': state.isFullscreen,
-          'has-visible-grid': state.hasVisibleGrid,
-          'is-recording': Timeline.isRecording,
-          'has-playback': state.playbacks
-        }]}
-        style={{
-          '--poster-color-foreground': state.foreground,
-          '--poster-color-background': state.background
-        }}
-      >
-        <FileDropper event-drop={this.#handleDrop} />
+      <main class='app'>
+        <Toolbar class='app__toolbar'>
+          <Toolbar compact class='flex'>
+            <Button
+              icon={$(state.playing, p => p ? Icons.stop : Icons.play)}
+              waiting={this.state.loading}
+              disabled={not(this.store.sound)}
+              event-click={this.#handlePlay}
+            />
+
+            <Select
+              value={state.parole}
+              label={
+                $(state.parole, parole => parole?.transcript
+                  ? '«\u2009' + parole.transcript.toLowerCase() + '\u2009»'
+                  : parole?.label
+                )
+              }
+              options={[
+                { label: 'Aucune parole', selected: true },
+                Select.separator,
+                ...PAROLES
+              ]}
+              compare={(a, b) => JSON.stringify(a) === JSON.stringify(b)}
+            />
+          </Toolbar>
+
+          <Button
+            icon={Icons.bbox}
+            active={state.showWordsBbox}
+            event-click={state.showWordsBbox.toggle}
+          />
+
+          <Toolbar compact>
+            <Button
+              icon={Icons.plus}
+              event-click={this.#handleAddWord}
+            />
+
+            <Button
+              icon={Icons.minus}
+              event-click={this.#handleRemoveWord}
+              disabled={$(this.store.userWords, words => !words?.size)}
+            />
+          </Toolbar>
+
+          <Button
+            icon={Icons.reset}
+            event-click={e => confirm(this.#handleReset, {
+              title: 'Réinitialiser la composition',
+              message: 'La position des mots de la paroles sera réinitisalisée, et les mots ajoutés à la parole seront supprimés.',
+              confirm: { label: 'réinitialiser' }
+            })}
+          />
+
+          <Button
+            icon={Icons.save}
+            disabled={not(state.parole)}
+            event-click={this.#handleSave}
+          />
+        </Toolbar>
 
         <section class='app__artboard'>
-          <Toolbar
-            class='app__toolbar'
-            disabled={Timeline.isRecording}
-          >
-            <Toolbar compact hidden={state.playbacks}>
-              <Button
-                icon={Icons.up}
-                class='button--prev-blueprint'
-                event-click={this.#handlePreviousBlueprint}
-              />
-              <Button
-                icon={Icons.down}
-                class='button--next-blueprint'
-                event-click={this.#handleNextBlueprint}
-              />
-            </Toolbar>
-
-            <Toolbar>
-              <Toolbar compact>
-                <Button
-                  icon={Icons.plus}
-                  class='button--prev-blueprint'
-                  event-click={e => this.refs.poster.state.fontScale.update(scale => scale * 1.1)}
-                />
-                <Button
-                  icon={Icons.minus}
-                  class='button--next-blueprint'
-                  event-click={e => this.refs.poster.state.fontScale.update(scale => scale * 0.9)}
-                />
-              </Toolbar>
-
-              <Toolbar>
-                <input
-                  type='color'
-                  value={state.foreground}
-                  event-input={e => state.foreground.set(e.target.value)}
-                />
-
-                <input
-                  type='color'
-                  value={state.background}
-                  event-input={e => state.background.set(e.target.value)}
-                />
-              </Toolbar>
-            </Toolbar>
-
-            <Toolbar>
-              <Button
-                icon={Icons.grid}
-                active={state.hasVisibleGrid}
-                event-click={state.hasVisibleGrid.toggle}
-              />
-
-              {document.body.requestFullscreen && [
-                <Button
-                  icon={$(state.isFullscreen, f => f ? Icons.exitFullscreen : Icons.requestFullscreen)}
-                  event-click={this.#handleFullscreen}
-                />
-              ]}
-            </Toolbar>
-          </Toolbar>
-          <div
-            class='app__poster-container'
-            ref={this.ref('posterContainer')}
+          <Poster
+            ref={this.ref('poster')}
+            playing={state.playing}
+            parole={state.parole}
+            patch={this.patch}
+            showWordsBbox={state.showWordsBbox}
+            brushIntensity={this.store.brushIntensity}
+            brushRadius={this.store.brushRadius}
+            brushShape={this.store.brushShape}
+            fontColor={this.store.fontColor}
+            fontSize={this.store.fontSize}
+            fontFamily={this.store.fontFamily}
           />
 
-          <section class='app__words'>
-            <div class='app__words-container' ref={this.ref('wordsContainer')} />
-            <Toolbar class='app__words-toolbar'>
-              <Button
-                icon={$(state.hasRecorded, r => r ? Icons.ok : Icons.record)}
-                disabled={state.hasRecorded}
-                class={['button--record', { 'has-recorded': state.hasRecorded }]}
-                event-click={this.#handleRecord}
-                label='REC'
+          <aside class='app__sidebar'>
+            <section class='app__pads'>
+              <Pad
+                label='typographie'
+                maps={[
+                  { value: this.store.brushIntensity, src: 'pad-maps/brush-intensity.png', mode: 'value' },
+                  { value: this.store.brushRadius, src: 'pad-maps/brush-radius.png', mode: 'value', range: [5, 25] }, // vw
+                  {
+                    value: this.store.fontFamily,
+                    src: 'pad-maps/font-family.png',
+                    mode: 'enum',
+                    enumValues: [
+                      'Fraunces-latin-basic',
+                      'Milling-Triplex0mm',
+                      'Milling-Simplex1mm',
+                      'Milling-Duplex1mm',
+                      'Milling-Triplex1mm',
+                      'Milling-Triplex3mm',
+                      'Sixtyfour',
+                      'GlutenVariable'
+                    ]
+                  },
+                  { value: this.store.fontSize, src: 'pad-maps/font-size.png', mode: 'value', range: [10, 30] }, // vw
+                ].map(data => ({
+                  ...data,
+                  debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
+                }))}
               />
 
-              <Toolbar disabled={Timeline.isRecording}>
-                <Button
-                  icon={Icons.plus}
-                  class='button--add-word'
-                  ref={this.ref('addWord')}
-                  event-click={this.#handleInsertWord}
-                />
+              <Pad
+                label='couleurs'
+                maps={[
+                  { value: this.patch.textBlendMode, src: 'pad-maps/font-color.png', mode: 'enum', enumValues: [Constants.CABLE_BLEND_MODE_NORMAL, Constants.CABLE_BLEND_MODE_SCREEN] },
+                  { value: this.store.fontColor, src: 'pad-maps/font-color.png', mode: 'rgb' },
+                  { value: this.store.brushShape, src: 'pad-maps/brush-shape.png', mode: 'enum', enumValues: [0, 1, 2] },
+                  { value: this.store.multA, src: 'pad-maps/mult-a.png', mode: 'value', range: [0, 5] },
+                  { value: this.store.multB, src: 'pad-maps/mult-b.png', mode: 'value', range: [0, 4] },
+                  ...this.store.colors.map((color, index) => ({
+                    value: color,
+                    src: `pad-maps/gradient-${index + 1}.png`,
+                    mode: 'rgb'
+                  }))
+                ].map(data => ({
+                  ...data,
+                  debug: Boolean(Constants.DEBUG_PAD_MAP.find(padMap => data.src.includes(padMap)))
+                }))}
+              />
+            </section>
 
-                <Button
-                  icon={Icons.trash}
-                  class='button--remove-word'
-                  ref={this.ref('removeWords')}
-                  event-click={e => confirm(this.#handleRemoveWords, {
-                    title: 'Supprimer tous les mots ?',
-                    message: 'Les mots déjà placés seront également supprimés.',
-                    confirm: { label: 'supprimer', icon: Icons.trash }
-                  })}
-                />
-              </Toolbar>
-            </Toolbar>
-          </section>
-
-          <section
-            class='app__playbacks'
-            ref={this.ref('playbacks')}
-          />
+            <footer class='app__footer'>
+              <ul>
+                <li><a href={__REPOSITORY_URL__} target='_blank' rel='noreferrer'>launchtype@{__VERSION__}</a></li>
+                <li><a href='https://machines.studio' target='_blank' rel='noreferrer'>made by machines</a></li>
+              </ul>
+            </footer>
+          </aside>
         </section>
       </main>
     )
   }
 
-  get droppable () {
-    return [
-      ...this.refs.poster.refs.cells,
-      this.refs.wordsContainer,
-      this.refs.addWord.base,
-      this.refs.removeWords.base
-    ]
-  }
-
   afterRender () {
-    this.state.words.get().forEach(this.addWord)
-    this.state.blueprint.subscribe(this.#handleBlueprint)
+    this.store.userWords.fill(this.refs.poster.store.userWords)
+
+    // Ensure sound is stopped when parole changes
+    this.state.parole.subscribe(() => this.store.sound.get()?.stop())
   }
 
-  afterMount () {
-    this.state.blueprint.set(BLUEPRINTS[0])
+  #handleAddWord = async e => {
+    const text = await prompt('Entrez vos mots :')
+    return this.refs.poster.addWord({ text }, this.refs.poster.store.userWords)
   }
 
-  // Insert a word by its string
-  addWord = string => {
-    if (!string || !string.length) return
-    const word = this.render((
-      <div
-        class='word'
-        ref={this.refArray('words')}
-        tabIndex='-1'
-        style={{
-          '--word-length': string.length
-        }}
-      >
-        {
-          // Wrap each character in a <span>
-          string.split('').map(c => (
-            <span
-              class='char'
-              innerText={c}
-              data-char={c}
-            />
-          ))
-        }
-      </div>
-    ), this.refs.wordsContainer)
-
-    this.#updateInternalWords()
-    return word
+  #handleRemoveWord = e => {
+    this.refs.poster.popWord(this.refs.poster.store.userWords)
   }
 
-  // Remove a word by its element
-  removeWord = (element, { dispatch = true } = {}) => {
-    const index = this.refs.words.indexOf(element)
-    if (index < 0) return
+  #handlePlay = e => {
+    const sound = this.store.sound.get()
+    if (!sound) return
 
-    element.remove()
-    this.refs.words.splice(index, 1)
-
-    if (dispatch) this.#updateInternalWords()
+    if (this.state.playing.get()) sound.stop()
+    else sound.play()
   }
 
-  // Ensure state.words is up to date with DOM
-  #updateInternalWords = () => {
-    this.state.words.set(this.refs.words.map(el => el.innerText))
-  }
+  #handleReset = e => this.refs.poster.reset()
 
-  // Prompt for a string and insert words accordingly
-  #handleInsertWord = async e => {
-    // TODO non-native ui ?
-    const result = await prompt('Entrez vos mots :')
-    result && result.split(/,/).forEach(this.addWord)
-  }
+  #handleSave = async e => {
+    // Get the poster image
+    const blob = await this.refs.poster.refs.patch.toBlob()
+    const dataURL = await Convert.blob(blob).toDataURL()
 
-  #handleFullscreen = async () => {
-    if (!document.fullscreenElement) await document.body.requestFullscreen()
-    else await document.exitFullscreen()
-    this.state.isFullscreen.set(document.fullscreenElement)
-  }
+    const body = new FormData()
+    body.append('png', dataURL)
+    body.append('json', JSON.stringify(this.toJSON()))
 
-  // Remove all words
-  #handleRemoveWords = async () => {
-    if (!this.refs.words) return
+    return new Promise((resolve, reject) => {
+      const request = new XMLHttpRequest()
+      request.responseType = 'json'
 
-    // Delete each word reference in the DOM
-    for (let index = this.refs.words.length - 1; index >= 0; index--) {
-      this.removeWord(this.refs.words[index], { dispatch: false })
-    }
-    this.#updateInternalWords()
-  }
+      // Handle response
+      request.onreadystatechange = () => {
+        if (request.readyState !== 4) return
 
-  #handleBlueprint = blueprint => {
-    // Store placed words to later replace them in the new rendered Poster
-    const placedWords = new Map()
-    if (this.refs.poster) {
-      for (const word of this.refs.poster.base.querySelectorAll('.cell .word')) {
-        const cell = word.parentNode
-        const index = this.refs.poster.refs.cells.indexOf(cell)
-        placedWords.set(index, word)
-      }
-    }
-
-    // Cleanup
-    Timeline.reset()
-    this.refs.poster?.destroy()
-    this.refs.droppable?.destroy()
-
-    // Render a new Poster
-    this.render(<Poster ref={this.ref('poster')} {...blueprint} />, this.refs.posterContainer)
-
-    // Replace previous placed words in the new poster
-    for (const [index, word] of placedWords) {
-      // Fallback to words container if less cells than previous poster
-      ;(this.refs.poster.refs.cells[index] ?? this.refs.wordsContainer).appendChild(word)
-    }
-
-    // Instanciate draggablejs
-    this.refs.droppable = new Droppable(this.droppable, {
-      draggable: '.word',
-      distance: 30,
-      delay: { mouse: 0, drag: 0, touch: 0 },
-      mirror: { appendTo: this.base },
-      dropzone: this.droppable
-    })
-
-    // Implement custom mirror:move, because draggablejs does some weird offset
-    this.refs.droppable.on('mirror:move', e => {
-      e.cancel()
-      const x = e.sensorEvent.clientX - document.documentElement.scrollLeft
-      const y = e.sensorEvent.clientY - document.documentElement.scrollTop
-      e.mirror.style.setProperty('--x', x + 'px')
-      e.mirror.style.setProperty('--y', y + 'px')
-    })
-
-    // Prevent ADSR animation during drag
-    this.refs.droppable.on('drag:start', e => {
-      // Disable draggablejs when recording
-      if (Timeline.isRecording.get()) {
-        e.cancel()
-        return
-      }
-
-      e.data.source.removeAttribute('style')
-      for (const child of e.data.source.children) child.removeAttribute('style')
-      this.refs.poster.abort(e.data.sourceContainer)
-    })
-
-    // Implement various behaviors when a word is dropped
-    this.refs.droppable.on('droppable:stop', e => {
-      if (!e.data.dropzone) return
-
-      // Allow draggable to drop on occupied dropzones
-      e.data.dropzone.classList.remove('draggable-dropzone--occupied')
-
-      // Cell drop behavior : swap element with old one
-      if (this.refs.poster.refs.cells.includes(e.data.dropzone)) {
-        this.refs.poster.abort(e.data.dragEvent.datasourceContainer)
-        this.refs.poster.refresh(e.data.dropzone)
-
-        const existing = e.data.dropzone.querySelector('.word:not(.draggable-source--is-dragging, .draggable-mirror, .draggable--original)')
-        if (existing) {
-          e.data.dragEvent.data.sourceContainer.appendChild(existing)
-          window.requestAnimationFrame(() => this.refs.poster.refresh(e.data.dragEvent.data.sourceContainer))
+        if (request.response.error) {
+          reject(new Error(`[${request.status}] ${request.statusText}\n${request.response.message}`))
+        } else {
+          resolve(request.response)
         }
       }
 
-      // Add drop behavior : clone element
-      if (e.data.dropzone === this.refs.addWord.base) {
-        window.requestAnimationFrame(() => {
-          this.addWord(e.data.dragEvent.data.originalSource.innerText)
-          e.data.dragEvent.data.sourceContainer.appendChild(e.data.dragEvent.data.originalSource)
-        })
-      }
-
-      // Trash drop behavior : remove element
-      if (e.data.dropzone === this.refs.removeWords.base) {
-        window.requestAnimationFrame(() => {
-          this.removeWord(e.data.dragEvent.data.originalSource)
-        })
-      }
+      // Send request
+      request.open('POST', window.location.origin + '/save')
+      request.send(body)
     })
   }
 
-  #handlePreviousBlueprint = e => {
-    e.preventDefault() // Prevent double-click zoom on touch devices
-    const index = BLUEPRINTS.indexOf(this.state.blueprint.get())
-    this.state.blueprint.set(BLUEPRINTS[(index + BLUEPRINTS.length - 1) % BLUEPRINTS.length])
-  }
-
-  #handleNextBlueprint = e => {
-    e.preventDefault() // Prevent double-click zoom on touch devices
-    const index = BLUEPRINTS.indexOf(this.state.blueprint.get())
-    this.state.blueprint.set(BLUEPRINTS[(index + 1) % BLUEPRINTS.length])
-  }
-
-  #handleRecord = async e => {
-    if (Timeline.isRecording.get()) {
-      Timeline.stop()
-
-      await fetch(window.location.origin + '/save', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: Timeline.toJSON()
-      })
-
-      this.state.hasRecorded.set(true)
-      window.clearTimeout(hasRecordedTimer)
-      hasRecordedTimer = window.setTimeout(() => this.state.hasRecorded.set(false), 3000)
-
-      return
-    }
-
-    Timeline.data.set(
-      'words',
-      this.refs.poster.refs.cells.map((cell, index) => [index, cell.querySelector('.word')?.textContent])
-    )
-    Timeline.start()
-  }
-
-  #handleDrop = async (e, t) => {
-    const files = Array.from(t.state.files.get() ?? [])
-    const playbacks = await Promise.all(
-      files.map(async file => {
-        const timeline = Timeline.load(await readFile(file))
-        return {
-          file,
-          timeline,
-          state: {
-            active: $(false),
-            index: $(0),
-            corrupted: $(!timeline.data || !timeline.data.has('duration') || !timeline.data.has('words'))
-          }
-        }
-      })
-    )
-
-    this.refs.playbacks.innerHTML = ''
-    this.render(playbacks.map(playback => (
-      <div
-        class='playback'
-        data-filename={`[${playback.file.name}] ${Array.from(new Set(playback.timeline.data.get('words')?.values().map(([, w]) => w))).filter(Boolean)}`}
-        data-duration={
-          playback.timeline.data.has('duration')
-            ? (playback.timeline.data.get('duration') / 1000).toFixed(0)
-            : null
-        }
-      >
-        <Toolbar compact disabled={playback.state.corrupted}>
-          <Button
-            icon={Icons.play}
-            active={playback.state.active}
-            event-click={this.#handlePlayback(playback)}
-          />
-          <Range
-            min={0}
-            class={[{ 'is-active': playback.state.active }]}
-            value={playback.state.index}
-            max={playback.timeline?.events.length}
-          />
-        </Toolbar>
-      </div>
-    )), this.refs.playbacks)
-
-    this.state.playbacks.set(playbacks)
-  }
-
-  #handlePlayback = playback => async () => {
-    // Cleanup
-    this.#handleRemoveWords()
-    playback.state.index.set(0)
-
-    // Set blueprint
-    const blueprint = BLUEPRINTS.find(m => m.name === playback.timeline.data.get('blueprint'))
-    this.state.blueprint.set(blueprint)
-
-    // Add and place words
-    for (const [cellIndex, word] of playback.timeline.data.get('words')) {
-      if (!word) continue
-      const cell = this.refs.poster.refs.cells[cellIndex]
-      if (!cell) continue
-      cell.appendChild(this.addWord(word).nodes[0])
-    }
-
-    // Play timeline sequence
-    let ellapsed
-    const events = [...playback.timeline.events]
-    const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms))
-    playback.state.active.set(true)
-    while (events.length) {
-      const [timestamp, actions] = events.shift()
-      ellapsed ??= timestamp
-
-      await wait(timestamp - ellapsed)
-      playback.state.index.update(i => ++i)
-      for (const action of actions) {
-        for (const event in action) {
-          const cellIndex = action[event]
-          this.refs.poster.simulate(event, this.refs.poster.refs.cells[cellIndex])
-        }
-      }
-      ellapsed = timestamp
-    }
-
-    playback.state.active.set(false)
-  }
-
-  beforeDestroy () {
-    this.refs.droppable.destroy()
-  }
+  toJSON = () => ({
+    parole: this.state.parole.get(),
+    brushIntensity: this.store.brushIntensity.get(),
+    brushRadius: this.store.brushRadius.get(),
+    brushShape: this.store.brushShape.get(),
+    fontColor: this.store.fontColor.get(),
+    fontFamily: this.store.fontFamily.get(),
+    fontSize: this.store.fontSize.get(),
+    multA: this.store.multA.get(),
+    multB: this.store.multB.get(),
+    colors: this.store.colors.map(color => color.get()),
+    words: Array.from(this.refs.poster.store.words.get()?.values())
+  })
 }

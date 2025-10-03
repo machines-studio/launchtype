@@ -1,0 +1,1 @@
+Paroles are gitignored.

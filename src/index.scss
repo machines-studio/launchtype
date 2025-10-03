@@ -5,41 +5,70 @@
 @import '/style/base';
 
 :root {
+  // Global
   --color-text: white;
   --color-background: #1e1e1e;
+  --color-background-rgb: 30 30 30;
+  --font-size: 1.5rem;
+  --font-size-small: 1.2rem;
 
-  --space-gutter: 1.5rem;
-  --rounded: 1.0rem;
-  --rounded-inside: 0.3rem;
+  --space-gutter: 1.2rem;
+  --border-radius: 0.5rem;
+
+  // Animation
   --easing: 200ms;
   --easing-slow: 1000ms;
 
-  --poster-width: calc((100vh - var(--space-gutter) * 2) * (50 / 70));
-  --poster-height: calc(100vh - var(--space-gutter) * 2);
-
-  --font-family-sans: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
-  --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', menlo, consolas, 'DejaVu Sans Mono', monospace;
-
-  --ui-height: 5.3rem;
-  --ui-font-size: 2rem;
-  --ui-line-height: 1.5;
-  --ui-padding-container: 1.1rem 1.2rem 0.9rem;
+  // @tooooools/ui
+  --ui-height: 3.8rem;
+  --ui-font-size: var(--font-size);
+  --ui-line-height: 1.3;
+  --ui-padding-container: 0.9rem 0.8rem 0.8rem;
   --ui-padding-content: var(--space-gutter);
-  --ui-icon-size: 3rem;
-  --ui-border-radius: var(--rounded);
+  --ui-icon-size: 2.0rem;
+  --ui-border-radius: var(--border-radius);
+  --ui-border: 1px solid;
   --ui-color-background: var(--color-background);
   --ui-color-text: var(--color-text);
   --ui-color-accent: #968ae9;
   --ui-modal-height: 80vh;
+  --ui-modal-width: 40ch;
   --ui-button-animation: button 120ms ease-out;
+  --ui-toast-color-neutral: #CACACA;
+  --ui-toast-color-warning: #fe8d59;
+  --ui-toast-color-error: #ff5449;
 
-  @supports (max-height: 100svh) {
-    --poster-width: calc((100svh - var(--space-gutter) * 2) * (50 / 70));
-    --poster-height: calc(100svh - var(--space-gutter) * 2);
+  // Layout
+  --artboard-height: calc(100vh - var(--ui-height) - var(--space-gutter));
+  --artboard-width: 100vw;
+  --poster-height: calc(var(--artboard-height) - var(--space-gutter) * 2);
+  --poster-width: calc(var(--poster-height) * (50 / 70));
+  --pad-size: calc(var(--artboard-width) - var(--space-gutter) * 3 - var(--poster-width));
+
+  @supports (height: 100svh) {
+    --artboard-height: calc(100svh - var(--ui-height) - var(--space-gutter));
   }
 
-  @include portrait {
-    --poster-width: calc(100vw - var(--space-gutter) * 2);
-    --poster-height: calc((100vw - var(--space-gutter) * 2) / (50 / 70));
+  @include narrow {
+    --poster-height: calc(0.75 * var(--artboard-height) - var(--space-gutter) * 2);
   }
+
+  @include mobile {
+    --poster-height: calc(0.75 * var(--artboard-height) - var(--space-gutter) * 2);
+    --pad-size: calc(0.25 * var(--poster-height) - var(--space-gutter) - var(--font-size-small));
+  }
+}
+
+[class^='ui-toolbar-'] {
+  overflow: visible;
+}
+
+[class^='ui-toast-'] {
+  --ui-color-text: black;
+  max-width: 100%;
+  min-width: 20rem;
+}
+
+[class^='ui-modal-'] {
+  --ui-border: 0;
 }
