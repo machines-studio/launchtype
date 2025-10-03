@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-match-de-rugby/12-il_entend_le_coup_de_sifflet.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_c353501eb83",
+      "text": "Il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.140",
+      "endMs": 140
+    },
+    {
+      "uuid": "segment_353501eb835",
+      "text": "entend",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.570",
+      "endMs": 570
+    },
+    {
+      "uuid": "segment_53501eb835f",
+      "text": "le",
+      "start": "00:00:00.570",
+      "startMs": 570,
+      "end": "00:00:00.710",
+      "endMs": 710
+    },
+    {
+      "uuid": "segment_3501eb835f1",
+      "text": "coup",
+      "start": "00:00:00.710",
+      "startMs": 710,
+      "end": "00:00:00.990",
+      "endMs": 990
+    },
+    {
+      "uuid": "segment_501eb835f1e",
+      "text": "de",
+      "start": "00:00:00.990",
+      "startMs": 990,
+      "end": "00:00:01.130",
+      "endMs": 1130
+    },
+    {
+      "uuid": "segment_01eb835f1e1",
+      "text": "sifflet",
+      "start": "00:00:01.130",
+      "startMs": 1130,
+      "end": "00:00:01.660",
+      "endMs": 1660
+    }
+  ],
+  "transcript": "Il entend le coup de sifflet"
+}

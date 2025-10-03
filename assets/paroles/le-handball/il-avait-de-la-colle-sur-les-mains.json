@@ -1,0 +1,70 @@
+{
+  "sound": "paroles/le-handball/il-avait-de-la-colle-sur-les-mains.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4c4496100c3",
+      "text": "Il",
+      "start": "00:00:00.000",
+      "startMs": 0,
+      "end": "00:00:00.090",
+      "endMs": 90
+    },
+    {
+      "uuid": "segment_c4496100c3f",
+      "text": "avait",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.310",
+      "endMs": 310
+    },
+    {
+      "uuid": "segment_4496100c3fe",
+      "text": "de",
+      "start": "00:00:00.310",
+      "startMs": 310,
+      "end": "00:00:00.400",
+      "endMs": 400
+    },
+    {
+      "uuid": "segment_496100c3fe3",
+      "text": "la",
+      "start": "00:00:00.400",
+      "startMs": 400,
+      "end": "00:00:00.490",
+      "endMs": 490
+    },
+    {
+      "uuid": "segment_96100c3fe37",
+      "text": "colle",
+      "start": "00:00:00.490",
+      "startMs": 490,
+      "end": "00:00:00.700",
+      "endMs": 700
+    },
+    {
+      "uuid": "segment_6100c3fe37a",
+      "text": "sur",
+      "start": "00:00:00.700",
+      "startMs": 700,
+      "end": "00:00:00.840",
+      "endMs": 840
+    },
+    {
+      "uuid": "segment_100c3fe37ae",
+      "text": "les",
+      "start": "00:00:00.840",
+      "startMs": 840,
+      "end": "00:00:00.970",
+      "endMs": 970
+    },
+    {
+      "uuid": "segment_00c3fe37aea",
+      "text": "mains",
+      "start": "00:00:00.970",
+      "startMs": 970,
+      "end": "00:00:01.360",
+      "endMs": 1360
+    }
+  ],
+  "transcript": "Il avait de la colle sur les mains"
+}

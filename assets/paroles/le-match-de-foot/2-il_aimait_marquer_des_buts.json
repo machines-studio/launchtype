@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-match-de-foot/2-il_aimait_marquer_des_buts.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_a8b14e84cd3",
+      "text": "Il",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.140",
+      "endMs": 140
+    },
+    {
+      "uuid": "segment_8b14e84cd3b",
+      "text": "aimait",
+      "start": "00:00:00.140",
+      "startMs": 140,
+      "end": "00:00:00.580",
+      "endMs": 580
+    },
+    {
+      "uuid": "segment_b14e84cd3bc",
+      "text": "marquer",
+      "start": "00:00:00.580",
+      "startMs": 580,
+      "end": "00:00:01.090",
+      "endMs": 1090
+    },
+    {
+      "uuid": "segment_14e84cd3bc6",
+      "text": "des",
+      "start": "00:00:01.090",
+      "startMs": 1090,
+      "end": "00:00:01.290",
+      "endMs": 1290
+    },
+    {
+      "uuid": "segment_4e84cd3bc65",
+      "text": "buts",
+      "start": "00:00:01.290",
+      "startMs": 1290,
+      "end": "00:00:01.640",
+      "endMs": 1640
+    }
+  ],
+  "transcript": "Il aimait marquer des buts"
+}

@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-handball/il-doit-manipuler-la-balle.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_37aea991b87",
+      "text": "Il",
+      "start": "00:00:00.000",
+      "startMs": 0,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_7aea991b873",
+      "text": "doit",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.510",
+      "endMs": 510
+    },
+    {
+      "uuid": "segment_aea991b8736",
+      "text": "manipuler",
+      "start": "00:00:00.510",
+      "startMs": 510,
+      "end": "00:00:01.270",
+      "endMs": 1270
+    },
+    {
+      "uuid": "segment_ea991b8736f",
+      "text": "la",
+      "start": "00:00:01.270",
+      "startMs": 1270,
+      "end": "00:00:01.440",
+      "endMs": 1440
+    },
+    {
+      "uuid": "segment_a991b8736f9",
+      "text": "balle",
+      "start": "00:00:01.440",
+      "startMs": 1440,
+      "end": "00:00:01.880",
+      "endMs": 1880
+    }
+  ],
+  "transcript": "Il doit manipuler la balle"
+}

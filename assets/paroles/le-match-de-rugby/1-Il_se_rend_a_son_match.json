@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-match-de-rugby/1-Il_se_rend_a_son_match.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_9fb887e9077",
+      "text": "Il",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.120",
+      "endMs": 120
+    },
+    {
+      "uuid": "segment_fb887e90775",
+      "text": "se",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.240",
+      "endMs": 240
+    },
+    {
+      "uuid": "segment_b887e907754",
+      "text": "rend",
+      "start": "00:00:00.240",
+      "startMs": 240,
+      "end": "00:00:00.470",
+      "endMs": 470
+    },
+    {
+      "uuid": "segment_887e907754e",
+      "text": "à",
+      "start": "00:00:00.470",
+      "startMs": 470,
+      "end": "00:00:00.590",
+      "endMs": 590
+    },
+    {
+      "uuid": "segment_87e907754ee",
+      "text": "son",
+      "start": "00:00:00.590",
+      "startMs": 590,
+      "end": "00:00:00.780",
+      "endMs": 780
+    },
+    {
+      "uuid": "segment_7e907754ee4",
+      "text": "match",
+      "start": "00:00:00.780",
+      "startMs": 780,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    }
+  ],
+  "transcript": "Il se rend à son match"
+}

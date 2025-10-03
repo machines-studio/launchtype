@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/l-amour/6-il_se_partage.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_ab8b2b1f1eb",
+      "text": "Il",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.320",
+      "endMs": 320
+    },
+    {
+      "uuid": "segment_b8b2b1f1eb0",
+      "text": "se",
+      "start": "00:00:00.320",
+      "startMs": 320,
+      "end": "00:00:00.500",
+      "endMs": 500
+    },
+    {
+      "uuid": "segment_8b2b1f1eb0c",
+      "text": "partage",
+      "start": "00:00:00.500",
+      "startMs": 500,
+      "end": "00:00:01.440",
+      "endMs": 1440
+    }
+  ],
+  "transcript": "Il se partage"
+}

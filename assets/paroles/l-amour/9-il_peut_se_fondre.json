@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/l-amour/9-il_peut_se_fondre.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_b0c00bedd5e",
+      "text": "il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_0c00bedd5ed",
+      "text": "peut",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.590",
+      "endMs": 590
+    },
+    {
+      "uuid": "segment_c00bedd5ed9",
+      "text": "se",
+      "start": "00:00:00.590",
+      "startMs": 590,
+      "end": "00:00:00.790",
+      "endMs": 790
+    },
+    {
+      "uuid": "segment_00bedd5ed99",
+      "text": "fondre",
+      "start": "00:00:00.790",
+      "startMs": 790,
+      "end": "00:00:01.400",
+      "endMs": 1400
+    }
+  ],
+  "transcript": "il peut se fondre"
+}

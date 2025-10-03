@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-match-de-foot/4-il_aimait_son_nouveau_maillot_de_foot.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_d3bc659208d",
+      "text": "Il",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_3bc659208d3",
+      "text": "aimait",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.400",
+      "endMs": 400
+    },
+    {
+      "uuid": "segment_bc659208d3f",
+      "text": "son",
+      "start": "00:00:00.400",
+      "startMs": 400,
+      "end": "00:00:00.660",
+      "endMs": 660
+    },
+    {
+      "uuid": "segment_c659208d3f1",
+      "text": "nouveau",
+      "start": "00:00:00.660",
+      "startMs": 660,
+      "end": "00:00:00.910",
+      "endMs": 910
+    },
+    {
+      "uuid": "segment_659208d3f18",
+      "text": "maillot",
+      "start": "00:00:00.910",
+      "startMs": 910,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    },
+    {
+      "uuid": "segment_59208d3f182",
+      "text": "de",
+      "start": "00:00:01.260",
+      "startMs": 1260,
+      "end": "00:00:01.360",
+      "endMs": 1360
+    },
+    {
+      "uuid": "segment_9208d3f1822",
+      "text": "foot",
+      "start": "00:00:01.360",
+      "startMs": 1360,
+      "end": "00:00:01.760",
+      "endMs": 1760
+    }
+  ],
+  "transcript": "Il aimait son nouveau maillot de foot"
+}

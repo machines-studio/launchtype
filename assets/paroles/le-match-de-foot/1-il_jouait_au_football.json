@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-match-de-foot/1-il_jouait_au_football.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_0bedd5ed99c",
+      "text": "Il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.220",
+      "endMs": 220
+    },
+    {
+      "uuid": "segment_bedd5ed99cd",
+      "text": "jouait",
+      "start": "00:00:00.220",
+      "startMs": 220,
+      "end": "00:00:00.790",
+      "endMs": 790
+    },
+    {
+      "uuid": "segment_edd5ed99cd2",
+      "text": "au",
+      "start": "00:00:00.790",
+      "startMs": 790,
+      "end": "00:00:00.940",
+      "endMs": 940
+    },
+    {
+      "uuid": "segment_dd5ed99cd26",
+      "text": "football",
+      "start": "00:00:00.940",
+      "startMs": 940,
+      "end": "00:00:01.540",
+      "endMs": 1540
+    }
+  ],
+  "transcript": "Il jouait au football"
+}

@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-voyage/il-voit-des-paysages-defiler.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4d09ce57eab",
+      "text": "Il",
+      "start": "00:00:00.020",
+      "startMs": 20,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_d09ce57eab8",
+      "text": "voit",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.300",
+      "endMs": 300
+    },
+    {
+      "uuid": "segment_09ce57eab86",
+      "text": "les",
+      "start": "00:00:00.300",
+      "startMs": 300,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_9ce57eab86e",
+      "text": "paysages",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:00.850",
+      "endMs": 850
+    },
+    {
+      "uuid": "segment_ce57eab86ef",
+      "text": "défiler",
+      "start": "00:00:00.850",
+      "startMs": 850,
+      "end": "00:00:01.440",
+      "endMs": 1440
+    }
+  ],
+  "transcript": "Il voit les paysages défiler"
+}

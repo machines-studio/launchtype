@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-voyage/il-recoit-de-l-amour.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_314099960bf",
+      "text": "il",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.260",
+      "endMs": 260
+    },
+    {
+      "uuid": "segment_14099960bfc",
+      "text": "reçoit",
+      "start": "00:00:00.260",
+      "startMs": 260,
+      "end": "00:00:01.180",
+      "endMs": 1180
+    },
+    {
+      "uuid": "segment_4099960bfcb",
+      "text": "de",
+      "start": "00:00:01.180",
+      "startMs": 1180,
+      "end": "00:00:01.430",
+      "endMs": 1430
+    },
+    {
+      "uuid": "segment_099960bfcb2",
+      "text": "l'amour",
+      "start": "00:00:01.430",
+      "startMs": 1430,
+      "end": "00:00:02.420",
+      "endMs": 2420
+    }
+  ],
+  "transcript": "il reçoit de l'amour"
+}

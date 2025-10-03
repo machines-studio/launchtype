@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-match-de-foot/13-il_n_etait_jamais_hors_jeu.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_c8c2a8b14e8",
+      "text": "Il",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_8c2a8b14e84",
+      "text": "n'était",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.510",
+      "endMs": 510
+    },
+    {
+      "uuid": "segment_c2a8b14e84c",
+      "text": "jamais",
+      "start": "00:00:00.510",
+      "startMs": 510,
+      "end": "00:00:00.830",
+      "endMs": 830
+    },
+    {
+      "uuid": "segment_2a8b14e84cd",
+      "text": "hors-jeu",
+      "start": "00:00:00.830",
+      "startMs": 830,
+      "end": "00:00:01.280",
+      "endMs": 1280
+    }
+  ],
+  "transcript": "Il n'était jamais hors-jeu"
+}

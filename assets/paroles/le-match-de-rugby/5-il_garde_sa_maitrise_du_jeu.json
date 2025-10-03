@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-match-de-rugby/5-il_garde_sa_maitrise_du_jeu.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_b5d5eb18595",
+      "text": "il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.160",
+      "endMs": 160
+    },
+    {
+      "uuid": "segment_5d5eb185953",
+      "text": "garde",
+      "start": "00:00:00.160",
+      "startMs": 160,
+      "end": "00:00:00.590",
+      "endMs": 590
+    },
+    {
+      "uuid": "segment_d5eb185953a",
+      "text": "sa",
+      "start": "00:00:00.590",
+      "startMs": 590,
+      "end": "00:00:00.730",
+      "endMs": 730
+    },
+    {
+      "uuid": "segment_5eb185953aa",
+      "text": "maîtrise",
+      "start": "00:00:00.730",
+      "startMs": 730,
+      "end": "00:00:01.450",
+      "endMs": 1450
+    },
+    {
+      "uuid": "segment_eb185953aa6",
+      "text": "du",
+      "start": "00:00:01.450",
+      "startMs": 1450,
+      "end": "00:00:01.610",
+      "endMs": 1610
+    },
+    {
+      "uuid": "segment_b185953aa6b",
+      "text": "jeu",
+      "start": "00:00:01.610",
+      "startMs": 1610,
+      "end": "00:00:01.900",
+      "endMs": 1900
+    }
+  ],
+  "transcript": "il garde sa maîtrise du jeu"
+}

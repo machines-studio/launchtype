@@ -1,0 +1,70 @@
+{
+  "sound": "paroles/le-match-de-rugby/11-il_sent_venir_le_dernier_combat.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4ee406c3c35",
+      "text": "",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.100",
+      "endMs": 100
+    },
+    {
+      "uuid": "segment_ee406c3c353",
+      "text": "Il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_e406c3c3535",
+      "text": "sent",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.410",
+      "endMs": 410
+    },
+    {
+      "uuid": "segment_406c3c35350",
+      "text": "venir",
+      "start": "00:00:00.410",
+      "startMs": 410,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_06c3c353501",
+      "text": "le",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:00.780",
+      "endMs": 780
+    },
+    {
+      "uuid": "segment_6c3c353501e",
+      "text": "dernier",
+      "start": "00:00:00.780",
+      "startMs": 780,
+      "end": "00:00:01.160",
+      "endMs": 1160
+    },
+    {
+      "uuid": "segment_c3c353501eb",
+      "text": "combat",
+      "start": "00:00:01.160",
+      "startMs": 1160,
+      "end": "00:00:01.700",
+      "endMs": 1700
+    },
+    {
+      "uuid": "segment_3c353501eb8",
+      "text": "",
+      "start": "00:00:01.700",
+      "startMs": 1700,
+      "end": "00:00:01.980",
+      "endMs": 1980
+    }
+  ],
+  "transcript": " Il sent venir le dernier combat "
+}

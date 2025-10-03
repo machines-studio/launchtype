@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-voyage/il-rencontre-la-population.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_99960bfcb24",
+      "text": "il",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.300",
+      "endMs": 300
+    },
+    {
+      "uuid": "segment_9960bfcb243",
+      "text": "rencontre",
+      "start": "00:00:00.300",
+      "startMs": 300,
+      "end": "00:00:01.410",
+      "endMs": 1410
+    },
+    {
+      "uuid": "segment_960bfcb2430",
+      "text": "la",
+      "start": "00:00:01.410",
+      "startMs": 1410,
+      "end": "00:00:01.610",
+      "endMs": 1610
+    },
+    {
+      "uuid": "segment_60bfcb2430b",
+      "text": "population",
+      "start": "00:00:01.610",
+      "startMs": 1610,
+      "end": "00:00:02.660",
+      "endMs": 2660
+    }
+  ],
+  "transcript": "il rencontre la population"
+}

@@ -1,0 +1,46 @@
+{
+  "sound": "paroles/le-handball/il-doit-finir-aux-cages.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_0c3fe37aea9",
+      "text": "Il",
+      "start": "00:00:00.000",
+      "startMs": 0,
+      "end": "00:00:00.120",
+      "endMs": 120
+    },
+    {
+      "uuid": "segment_c3fe37aea99",
+      "text": "doit",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.360",
+      "endMs": 360
+    },
+    {
+      "uuid": "segment_3fe37aea991",
+      "text": "finir",
+      "start": "00:00:00.360",
+      "startMs": 360,
+      "end": "00:00:00.650",
+      "endMs": 650
+    },
+    {
+      "uuid": "segment_fe37aea991b",
+      "text": "au",
+      "start": "00:00:00.650",
+      "startMs": 650,
+      "end": "00:00:00.770",
+      "endMs": 770
+    },
+    {
+      "uuid": "segment_e37aea991b8",
+      "text": "cage",
+      "start": "00:00:00.770",
+      "startMs": 770,
+      "end": "00:00:01.200",
+      "endMs": 1200
+    }
+  ],
+  "transcript": "Il doit finir au cage"
+}

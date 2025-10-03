@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-voyage/il-a-un-sentiment-de-liberte.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_68eb27a3fba",
+      "text": "Il",
+      "start": "00:00:00.030",
+      "startMs": 30,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_8eb27a3fba9",
+      "text": "a",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.270",
+      "endMs": 270
+    },
+    {
+      "uuid": "segment_eb27a3fba9a",
+      "text": "un",
+      "start": "00:00:00.270",
+      "startMs": 270,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_b27a3fba9a2",
+      "text": "sentiment",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:01.240",
+      "endMs": 1240
+    },
+    {
+      "uuid": "segment_27a3fba9a2a",
+      "text": "de",
+      "start": "00:00:01.240",
+      "startMs": 1240,
+      "end": "00:00:01.430",
+      "endMs": 1430
+    },
+    {
+      "uuid": "segment_7a3fba9a2a5",
+      "text": "liberté",
+      "start": "00:00:01.430",
+      "startMs": 1430,
+      "end": "00:00:02.150",
+      "endMs": 2150
+    }
+  ],
+  "transcript": "Il a un sentiment de liberté"
+}

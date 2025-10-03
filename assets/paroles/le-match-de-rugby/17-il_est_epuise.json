@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/le-match-de-rugby/17-il_est_epuise.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_240d582fd8d",
+      "text": "Il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.120",
+      "endMs": 120
+    },
+    {
+      "uuid": "segment_40d582fd8db",
+      "text": "est",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.280",
+      "endMs": 280
+    },
+    {
+      "uuid": "segment_0d582fd8dbe",
+      "text": "épuisé",
+      "start": "00:00:00.280",
+      "startMs": 280,
+      "end": "00:00:00.940",
+      "endMs": 940
+    }
+  ],
+  "transcript": "Il est épuisé"
+}

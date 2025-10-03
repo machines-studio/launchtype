@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/le-voyage/il-se-deplace.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_2430bd3d5c6",
+      "text": "Il",
+      "start": "00:00:00.020",
+      "startMs": 20,
+      "end": "00:00:00.110",
+      "endMs": 110
+    },
+    {
+      "uuid": "segment_430bd3d5c6a",
+      "text": "se",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.220",
+      "endMs": 220
+    },
+    {
+      "uuid": "segment_30bd3d5c6a4",
+      "text": "déplace",
+      "start": "00:00:00.220",
+      "startMs": 220,
+      "end": "00:00:00.880",
+      "endMs": 880
+    }
+  ],
+  "transcript": "Il se déplace"
+}

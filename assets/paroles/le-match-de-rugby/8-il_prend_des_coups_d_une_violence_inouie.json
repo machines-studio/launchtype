@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-match-de-rugby/8-il_prend_des_coups_d_une_violence_inouie.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_ba88d669ca6",
+      "text": "Il",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.130",
+      "endMs": 130
+    },
+    {
+      "uuid": "segment_a88d669ca67",
+      "text": "prend",
+      "start": "00:00:00.130",
+      "startMs": 130,
+      "end": "00:00:00.460",
+      "endMs": 460
+    },
+    {
+      "uuid": "segment_88d669ca67d",
+      "text": "des",
+      "start": "00:00:00.460",
+      "startMs": 460,
+      "end": "00:00:00.770",
+      "endMs": 770
+    },
+    {
+      "uuid": "segment_8d669ca67d2",
+      "text": "coups",
+      "start": "00:00:00.770",
+      "startMs": 770,
+      "end": "00:00:01.040",
+      "endMs": 1040
+    },
+    {
+      "uuid": "segment_d669ca67d27",
+      "text": "d'une",
+      "start": "00:00:01.040",
+      "startMs": 1040,
+      "end": "00:00:01.300",
+      "endMs": 1300
+    },
+    {
+      "uuid": "segment_669ca67d279",
+      "text": "violence",
+      "start": "00:00:01.300",
+      "startMs": 1300,
+      "end": "00:00:01.790",
+      "endMs": 1790
+    },
+    {
+      "uuid": "segment_69ca67d2793",
+      "text": "inouïe",
+      "start": "00:00:01.790",
+      "startMs": 1790,
+      "end": "00:00:02.240",
+      "endMs": 2240
+    }
+  ],
+  "transcript": "Il prend des coups d'une violence inouïe"
+}

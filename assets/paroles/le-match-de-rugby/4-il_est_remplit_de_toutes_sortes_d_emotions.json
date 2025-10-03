@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-match-de-rugby/4-il_est_remplit_de_toutes_sortes_d_emotions.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_252a4b9b5d5",
+      "text": "Il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.120",
+      "endMs": 120
+    },
+    {
+      "uuid": "segment_52a4b9b5d5e",
+      "text": "est",
+      "start": "00:00:00.120",
+      "startMs": 120,
+      "end": "00:00:00.310",
+      "endMs": 310
+    },
+    {
+      "uuid": "segment_2a4b9b5d5eb",
+      "text": "rempli",
+      "start": "00:00:00.310",
+      "startMs": 310,
+      "end": "00:00:00.680",
+      "endMs": 680
+    },
+    {
+      "uuid": "segment_a4b9b5d5eb1",
+      "text": "de",
+      "start": "00:00:00.680",
+      "startMs": 680,
+      "end": "00:00:00.800",
+      "endMs": 800
+    },
+    {
+      "uuid": "segment_4b9b5d5eb18",
+      "text": "toutes",
+      "start": "00:00:00.800",
+      "startMs": 800,
+      "end": "00:00:01.170",
+      "endMs": 1170
+    },
+    {
+      "uuid": "segment_b9b5d5eb185",
+      "text": "sortes",
+      "start": "00:00:01.170",
+      "startMs": 1170,
+      "end": "00:00:01.540",
+      "endMs": 1540
+    },
+    {
+      "uuid": "segment_9b5d5eb1859",
+      "text": "d'émotions",
+      "start": "00:00:01.540",
+      "startMs": 1540,
+      "end": "00:00:02.280",
+      "endMs": 2280
+    }
+  ],
+  "transcript": "Il est rempli de toutes sortes d'émotions"
+}

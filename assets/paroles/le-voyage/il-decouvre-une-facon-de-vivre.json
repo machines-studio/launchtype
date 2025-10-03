@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/le-voyage/il-decouvre-une-facon-de-vivre.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_9a2a5731409",
+      "text": "il",
+      "start": "00:00:00.010",
+      "startMs": 10,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_a2a57314099",
+      "text": "découvre",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:01.050",
+      "endMs": 1050
+    },
+    {
+      "uuid": "segment_2a573140999",
+      "text": "une",
+      "start": "00:00:01.050",
+      "startMs": 1050,
+      "end": "00:00:01.330",
+      "endMs": 1330
+    },
+    {
+      "uuid": "segment_a5731409996",
+      "text": "façon",
+      "start": "00:00:01.330",
+      "startMs": 1330,
+      "end": "00:00:01.890",
+      "endMs": 1890
+    },
+    {
+      "uuid": "segment_57314099960",
+      "text": "de",
+      "start": "00:00:01.890",
+      "startMs": 1890,
+      "end": "00:00:02.090",
+      "endMs": 2090
+    },
+    {
+      "uuid": "segment_7314099960b",
+      "text": "vivre",
+      "start": "00:00:02.090",
+      "startMs": 2090,
+      "end": "00:00:02.600",
+      "endMs": 2600
+    }
+  ],
+  "transcript": "il découvre une façon de vivre"
+}

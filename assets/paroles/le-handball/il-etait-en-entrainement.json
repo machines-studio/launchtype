@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-handball/il-etait-en-entrainement.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_991b8736f9c",
+      "text": "Il",
+      "start": "00:00:00.000",
+      "startMs": 0,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_91b8736f9c1",
+      "text": "était",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.650",
+      "endMs": 650
+    },
+    {
+      "uuid": "segment_1b8736f9c1c",
+      "text": "en",
+      "start": "00:00:00.650",
+      "startMs": 650,
+      "end": "00:00:00.810",
+      "endMs": 810
+    },
+    {
+      "uuid": "segment_b8736f9c1ca",
+      "text": "entraînement",
+      "start": "00:00:00.810",
+      "startMs": 810,
+      "end": "00:00:01.880",
+      "endMs": 1880
+    }
+  ],
+  "transcript": "Il était en entraînement"
+}

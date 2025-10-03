@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/le-match-de-rugby/18-il_est_tellement_vivant.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_d582fd8dbe3",
+      "text": "Il",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.150",
+      "endMs": 150
+    },
+    {
+      "uuid": "segment_582fd8dbe3b",
+      "text": "est",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.230",
+      "endMs": 230
+    },
+    {
+      "uuid": "segment_82fd8dbe3bf",
+      "text": "tellement",
+      "start": "00:00:00.230",
+      "startMs": 230,
+      "end": "00:00:00.660",
+      "endMs": 660
+    },
+    {
+      "uuid": "segment_2fd8dbe3bf2",
+      "text": "vivant",
+      "start": "00:00:00.660",
+      "startMs": 660,
+      "end": "00:00:01.100",
+      "endMs": 1100
+    }
+  ],
+  "transcript": "Il est tellement vivant"
+}

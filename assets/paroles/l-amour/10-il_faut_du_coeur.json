@@ -1,0 +1,38 @@
+{
+  "sound": "paroles/l-amour/10-il_faut_du_coeur.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_0612a073a8c",
+      "text": "il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.200",
+      "endMs": 200
+    },
+    {
+      "uuid": "segment_612a073a8cd",
+      "text": "faut",
+      "start": "00:00:00.200",
+      "startMs": 200,
+      "end": "00:00:00.610",
+      "endMs": 610
+    },
+    {
+      "uuid": "segment_12a073a8cd0",
+      "text": "du",
+      "start": "00:00:00.610",
+      "startMs": 610,
+      "end": "00:00:00.810",
+      "endMs": 810
+    },
+    {
+      "uuid": "segment_2a073a8cd0e",
+      "text": "cœur",
+      "start": "00:00:00.810",
+      "startMs": 810,
+      "end": "00:00:01.340",
+      "endMs": 1340
+    }
+  ],
+  "transcript": "il faut du cœur"
+}

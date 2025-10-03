@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/l-amour/5-il_est_present.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_c4adab8b2b1",
+      "text": "Il",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.170",
+      "endMs": 170
+    },
+    {
+      "uuid": "segment_4adab8b2b1f",
+      "text": "est",
+      "start": "00:00:00.170",
+      "startMs": 170,
+      "end": "00:00:00.420",
+      "endMs": 420
+    },
+    {
+      "uuid": "segment_adab8b2b1f1",
+      "text": "présent",
+      "start": "00:00:00.420",
+      "startMs": 420,
+      "end": "00:00:01.100",
+      "endMs": 1100
+    }
+  ],
+  "transcript": "Il est présent"
+}

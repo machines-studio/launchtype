@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-match-de-foot/7-il_se_sentait_bien_dans_son_equipe.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_b29431b4cd5",
+      "text": "Il",
+      "start": "00:00:00.010",
+      "startMs": 10,
+      "end": "00:00:00.090",
+      "endMs": 90
+    },
+    {
+      "uuid": "segment_29431b4cd54",
+      "text": "se",
+      "start": "00:00:00.090",
+      "startMs": 90,
+      "end": "00:00:00.180",
+      "endMs": 180
+    },
+    {
+      "uuid": "segment_9431b4cd546",
+      "text": "sentait",
+      "start": "00:00:00.180",
+      "startMs": 180,
+      "end": "00:00:00.550",
+      "endMs": 550
+    },
+    {
+      "uuid": "segment_431b4cd5468",
+      "text": "bien",
+      "start": "00:00:00.550",
+      "startMs": 550,
+      "end": "00:00:00.720",
+      "endMs": 720
+    },
+    {
+      "uuid": "segment_31b4cd5468a",
+      "text": "dans",
+      "start": "00:00:00.720",
+      "startMs": 720,
+      "end": "00:00:00.890",
+      "endMs": 890
+    },
+    {
+      "uuid": "segment_1b4cd5468a9",
+      "text": "son",
+      "start": "00:00:00.890",
+      "startMs": 890,
+      "end": "00:00:01.050",
+      "endMs": 1050
+    },
+    {
+      "uuid": "segment_b4cd5468a9f",
+      "text": "équipe",
+      "start": "00:00:01.050",
+      "startMs": 1050,
+      "end": "00:00:01.540",
+      "endMs": 1540
+    }
+  ],
+  "transcript": "Il se sentait bien dans son équipe"
+}

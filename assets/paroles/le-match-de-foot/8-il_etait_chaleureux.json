@@ -1,0 +1,30 @@
+{
+  "sound": "paroles/le-match-de-foot/8-il_etait_chaleureux.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_4cd5468a9fb",
+      "text": "Il",
+      "start": "00:00:00.060",
+      "startMs": 60,
+      "end": "00:00:00.130",
+      "endMs": 130
+    },
+    {
+      "uuid": "segment_cd5468a9fb8",
+      "text": "était",
+      "start": "00:00:00.130",
+      "startMs": 130,
+      "end": "00:00:00.590",
+      "endMs": 590
+    },
+    {
+      "uuid": "segment_d5468a9fb88",
+      "text": "chaleureux",
+      "start": "00:00:00.590",
+      "startMs": 590,
+      "end": "00:00:01.200",
+      "endMs": 1200
+    }
+  ],
+  "transcript": "Il était chaleureux"
+}

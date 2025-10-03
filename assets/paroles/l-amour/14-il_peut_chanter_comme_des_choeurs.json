@@ -1,0 +1,54 @@
+{
+  "sound": "paroles/l-amour/14-il_peut_chanter_comme_des_choeurs.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_fd46112d0b0",
+      "text": "Il",
+      "start": "00:00:00.110",
+      "startMs": 110,
+      "end": "00:00:00.150",
+      "endMs": 150
+    },
+    {
+      "uuid": "segment_d46112d0b01",
+      "text": "peut",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.450",
+      "endMs": 450
+    },
+    {
+      "uuid": "segment_46112d0b01c",
+      "text": "chanter",
+      "start": "00:00:00.450",
+      "startMs": 450,
+      "end": "00:00:01.000",
+      "endMs": 1000
+    },
+    {
+      "uuid": "segment_6112d0b01c4",
+      "text": "comme",
+      "start": "00:00:01.000",
+      "startMs": 1000,
+      "end": "00:00:01.350",
+      "endMs": 1350
+    },
+    {
+      "uuid": "segment_112d0b01c4a",
+      "text": "des",
+      "start": "00:00:01.350",
+      "startMs": 1350,
+      "end": "00:00:01.530",
+      "endMs": 1530
+    },
+    {
+      "uuid": "segment_12d0b01c4ad",
+      "text": "chœurs",
+      "start": "00:00:01.530",
+      "startMs": 1530,
+      "end": "00:00:02.000",
+      "endMs": 2000
+    }
+  ],
+  "transcript": "Il peut chanter comme des chœurs"
+}

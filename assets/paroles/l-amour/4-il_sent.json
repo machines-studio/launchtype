@@ -1,0 +1,22 @@
+{
+  "sound": "paroles/l-amour/4-il_sent.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_01c4adab8b2",
+      "text": "Il",
+      "start": "00:00:00.100",
+      "startMs": 100,
+      "end": "00:00:00.390",
+      "endMs": 390
+    },
+    {
+      "uuid": "segment_1c4adab8b2b",
+      "text": "sent",
+      "start": "00:00:00.390",
+      "startMs": 390,
+      "end": "00:00:00.920",
+      "endMs": 920
+    }
+  ],
+  "transcript": "Il sent"
+}

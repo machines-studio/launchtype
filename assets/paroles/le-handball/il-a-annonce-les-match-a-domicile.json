@@ -1,0 +1,62 @@
+{
+  "sound": "paroles/le-handball/il-a-annonce-les-match-a-domicile.wav",
+  "timestamps": [
+    {
+      "uuid": "segment_25dd6c05a79",
+      "text": "Il",
+      "start": "00:00:00.150",
+      "startMs": 150,
+      "end": "00:00:00.190",
+      "endMs": 190
+    },
+    {
+      "uuid": "segment_5dd6c05a79b",
+      "text": "a",
+      "start": "00:00:00.190",
+      "startMs": 190,
+      "end": "00:00:00.290",
+      "endMs": 290
+    },
+    {
+      "uuid": "segment_dd6c05a79b4",
+      "text": "annoncé",
+      "start": "00:00:00.290",
+      "startMs": 290,
+      "end": "00:00:01.070",
+      "endMs": 1070
+    },
+    {
+      "uuid": "segment_d6c05a79b4c",
+      "text": "le",
+      "start": "00:00:01.070",
+      "startMs": 1070,
+      "end": "00:00:01.260",
+      "endMs": 1260
+    },
+    {
+      "uuid": "segment_6c05a79b4c4",
+      "text": "match",
+      "start": "00:00:01.260",
+      "startMs": 1260,
+      "end": "00:00:01.750",
+      "endMs": 1750
+    },
+    {
+      "uuid": "segment_c05a79b4c44",
+      "text": "à",
+      "start": "00:00:01.750",
+      "startMs": 1750,
+      "end": "00:00:01.940",
+      "endMs": 1940
+    },
+    {
+      "uuid": "segment_05a79b4c449",
+      "text": "domicile",
+      "start": "00:00:01.940",
+      "startMs": 1940,
+      "end": "00:00:02.780",
+      "endMs": 2780
+    }
+  ],
+  "transcript": "Il a annoncé le match à domicile"
+}
