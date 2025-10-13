@@ -1,0 +1,169 @@
+body {
+  --color-background: black;
+  --ui-color-background: black;
+}
+
+main#recorder {
+  --color-background: black;
+  --color-gray: #bebebe;
+  --color-red: #ff3b31;
+
+  --record-size: 10rem;
+  --record-color: var(--color-gray);
+  --record-start-size: var(--record-size);
+  --record-start-color: var(--color-red);
+  --record-stop-size: 5rem;
+  --record-stop-color: var(--color-gray);
+  --record-progress-width: 1rem;
+  --record-progress-color: var(--color-red);
+
+  --transcript-font-size: 6vw;
+  --transcript-padding: 4vw;
+  --transcript-toolbar-gap: 6vw;
+
+  --ui-color-accent: white;
+  --ui-color-accent-contrast: black;
+
+  .record {
+    --scale: 1;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--record-size);
+    height: var(--record-size);
+
+    transform: translateX(-50%) translateY(-50%);
+
+    &:active {
+      --scale: 0.8;
+    }
+
+    // Progress ring mask
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-background);
+      border-radius: 100%;
+    }
+
+    &__start {
+      @include easing(transform, var(--easing));
+      width: var(--record-start-size);
+      height: var(--record-start-size);
+
+      background: var(--record-start-color);
+      border: 0;
+      border-radius: 100%;
+      animation: pulse 2s var(--easing-ease-back) infinite;
+    }
+
+    &__stop {
+      display: none;
+      width: var(--record-stop-size);
+      height: var(--record-stop-size);
+
+      background: var(--record-stop-color);
+      border: 0;
+      border-radius: 0.6rem;
+    }
+
+    &__progress {
+      position: absolute;
+      z-index: -1;
+      inset: calc(-1 * var(--record-progress-width));
+      background: conic-gradient(var(--record-progress-color) calc(100% * var(--record-progress, 0)), transparent 0);
+      border-radius: 100%;
+    }
+  }
+
+  &.is-recording .record {
+    &__start { display: none; }
+
+    &__stop {
+      display: block;
+      animation: half-spin var(--easing-slow) var(--easing-ease-back) forwards;
+    }
+  }
+
+  &.is-waiting .record {
+    --record-start-color: none;
+    pointer-events: none;
+
+    &__progress {
+      background: conic-gradient(transparent, white 100%);
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  &:not(.is-recording, .is-waiting) .record {
+    &__progress {
+      background: var(--record-progress-color);
+      animation: pulse 2s 1s var(--easing-ease-smooth) infinite;
+    }
+  }
+
+  .transcript {
+    @include invisible-scroll(y);
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    padding: var(--transcript-padding);
+    pointer-events: none;
+
+    font-size: var(--transcript-font-size);
+
+    background: var(--color-background);
+    opacity: 0;
+
+    .wrapper {
+      margin: auto 0;
+    }
+
+    &__value {
+      margin-left: 1.25ch;
+      font-family: milling, sans-serif;
+      line-height: 110%;
+
+      &::before, &::after {
+        color: var(--color-gray);
+      }
+
+      &::before { content: "«\2009"; margin-left: -1.25ch; }
+      &::after { content: "\2009»"; }
+    }
+
+    &__toolbar {
+      padding-left: 1.5ch;
+      margin-top: var(--transcript-toolbar-gap);
+    }
+  }
+
+  &.has-transcript .transcript {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.6); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0turn); }
+  to { transform: rotate(1turn); }
+}
+
+@keyframes half-spin {
+  from { transform: rotate(0turn); }
+  to { transform: rotate(0.5turn); }
+}

@@ -12,17 +12,23 @@
   --font-size: 1.5rem;
   --font-size-small: 1.2rem;
 
+  --body-font-family: milling, system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --code-font-family: ibm-plex-mono, monospace;
+
   --space-gutter: 1.2rem;
   --border-radius: 0.5rem;
 
   // Animation
-  --easing: 200ms;
-  --easing-slow: 1000ms;
+  --easing: 300ms;
+  --easing-fast: 120ms;
+  --easing-slow: 600ms;
+  --easing-ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --easing-ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
 
   // @tooooools/ui
   --ui-height: 3.8rem;
   --ui-font-size: var(--font-size);
-  --ui-line-height: 1.3;
+  --ui-line-height: 1.1;
   --ui-padding-container: 0.9rem 0.8rem 0.8rem;
   --ui-padding-content: var(--space-gutter);
   --ui-icon-size: 2.0rem;
@@ -37,13 +43,6 @@
   --ui-toast-color-neutral: #CACACA;
   --ui-toast-color-warning: #fe8d59;
   --ui-toast-color-error: #ff5449;
-
-  // Layout
-  --artboard-height: calc(100vh - var(--ui-height) - var(--space-gutter));
-  --artboard-width: 100vw;
-  --poster-height: calc(var(--artboard-height) - var(--space-gutter) * 2);
-  --poster-width: calc(var(--poster-height) * (50 / 70));
-  --pad-size: calc(var(--artboard-width) - var(--space-gutter) * 3 - var(--poster-width));
 
   @supports (height: 100svh) {
     --artboard-height: calc(100svh - var(--ui-height) - var(--space-gutter));
@@ -71,4 +70,8 @@
 
 [class^='ui-modal-'] {
   --ui-border: 0;
+}
+
+body > pre {
+  padding: 2rem;
 }

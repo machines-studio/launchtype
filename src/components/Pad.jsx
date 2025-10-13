@@ -1,14 +1,17 @@
 import './Pad.scss'
 import { Component } from '@tooooools/ui'
-import { $, persist, placeholder } from '@tooooools/ui/state'
+import { $, placeholder } from '@tooooools/ui/state'
+import { raf } from '@internet/raf'
 import { normalize, clamp, map as mapValue } from 'missing-math'
 import pointer from '/utils/pointer-position'
+import distSq from '/utils/distance-squared'
+import smooth from 'smooth-polyline'
 
-let PAD_INDEX = 0
+const TRAIL_LENGTH = 20 // points
+const TRAIL_WIDTH = 30 // px
+const TRAIL_SIZE = 30 // px
 
 export default class Pad extends Component {
-  NS = ++PAD_INDEX
-
   // UI state
   state = {
     dragging: $(false),
@@ -18,7 +21,7 @@ export default class Pad extends Component {
   // Internal data store
   store = {
     padding: $(0), // Will be set in afterMount
-    value: persist([0.5, 0.5], `pad.${this.NS}.value`), // normalized [0;1]
+    value: $([0.5, 0.5]), // normalized [0;1]
   }
 
   template (props, state) {
@@ -33,6 +36,7 @@ export default class Pad extends Component {
         {props.label && <label innerHTML={props.label} />}
         {props.labelX && <label data-axis='x' innerHTML={props.labelX} />}
         {props.labelY && <label data-axis='y' innerHTML={props.labelY} />}
+        {props.trail && <canvas ref={this.ref('canvas')} />}
 
         <div
           ref={this.ref('cursor')}
@@ -60,12 +64,53 @@ export default class Pad extends Component {
   }
 
   afterMount () {
-    const { width } = this.base.getBoundingClientRect()
+    const { width, height } = this.base.getBoundingClientRect()
 
     // Compute padding based on the CSS property --pad-dots
     const dots = +this.style.getPropertyValue('--pad-dots')
     const padding = width / (dots + 1)
     this.store.padding.set(padding)
+
+    if (this.refs.canvas) {
+      this.refs.canvas.width = width
+      this.refs.canvas.height = height
+
+      this.context = this.refs.canvas.getContext('2d')
+      this.context.strokeStyle = this.props.trail
+      this.context.lineWidth = TRAIL_WIDTH
+      this.context.lineCap = 'round'
+      this.context.lineJoin = 'round'
+
+      raf.add(this.tick)
+    }
+  }
+
+  tick = dt => {
+    if (!this.context) return
+    this.context.clearRect(0, 0, this.refs.canvas.width, this.refs.canvas.height)
+
+    // Push to trail
+    this.trailPoints ??= []
+    const point = [this.x, this.y]
+    this.trailPoints.push(point)
+    if (this.trailPoints.length > TRAIL_LENGTH) this.trailPoints.shift()
+
+    // Render trail
+    this.context.beginPath()
+    let len = 0
+    const points = smooth(smooth(this.trailPoints))
+    for (let index = 0; index < points.length; index++) {
+      const a = points[index]
+      const b = points[index - 1] ?? a
+
+      this.context.moveTo(a[0], a[1])
+      this.context.lineTo(b[0], b[1])
+      len += distSq(a, b)
+    }
+
+    // Trail opacity is based on total length
+    this.context.globalAlpha = normalize(len, 0, TRAIL_SIZE * TRAIL_SIZE, true)
+    this.context.stroke()
   }
 
   moveCursor (x, y) {
@@ -73,11 +118,11 @@ export default class Pad extends Component {
       const { width, height } = this.base.getBoundingClientRect()
       const padding = this.store.padding.get() ?? 0
 
-      x = clamp(x, padding, width - padding)
-      y = clamp(y, padding, height - padding)
+      this.x = clamp(x, padding, width - padding)
+      this.y = clamp(y, padding, height - padding)
 
-      this.refs.cursor.style.setProperty('--drag-x', x + 'px')
-      this.refs.cursor.style.setProperty('--drag-y', y + 'px')
+      this.refs.cursor.style.setProperty('--drag-x', this.x + 'px')
+      this.refs.cursor.style.setProperty('--drag-y', this.y + 'px')
 
       // Update internal cursor value
       this.store.value.set([
@@ -183,5 +228,9 @@ class PadMap extends Component {
 
   getValueAt (nx, ny) {
     return this.getColorAt(nx, ny)[0]
+  }
+
+  beforeDestroy () {
+    raf.remove(this.tick)
   }
 }

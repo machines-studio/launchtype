@@ -3,7 +3,9 @@
   "version": "2.0.0",
   "description": "launchpad + type case",
   "scripts": {
-    "start": "vite",
+    "start": "concurrently \"npm:server\" \"npm:vite\" -c gray,green",
+    "server": "cross-env NODE_ENV=development node server",
+    "vite": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview --open",
     "cables:pull": "node scripts/cables.mjs",
@@ -20,6 +22,8 @@
   },
   "devDependencies": {
     "@cables/cables": "^0.23.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
     "eslint": "^9.23.0",
     "ghp": "^1.7.0",
     "glob": "^11.0.3",
@@ -32,17 +36,23 @@
     "vite": "^4.2.1"
   },
   "dependencies": {
-    "@tooooools/ui": "^1.10.1",
+    "@internet/raf": "^0.2.1",
+    "@tooooools/ui": "^2.0.0-alpha.1",
     "@tooooools/utils": "^1.4.3",
     "animejs": "^4.0.2",
     "chalk": "^5.4.1",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
-    "express-form-data": "^3.0.1",
+    "ffmpeg-static": "^5.2.0",
     "fs-extra": "^11.3.0",
     "howler": "^2.2.4",
     "iconoir": "^7.11.0",
     "missing-math": "^3.4.0",
+    "multer": "^2.0.2",
     "object-hash": "^3.0.0",
-    "uid": "^2.0.2"
+    "reconnectingwebsocket": "^1.0.0",
+    "smooth-polyline": "^1.0.8",
+    "uid": "^2.0.2",
+    "ws": "^8.18.3"
   }
 }

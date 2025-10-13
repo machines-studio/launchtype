@@ -1,0 +1,17 @@
+main#pads {
+  --gutter: 2rem;
+
+  --pad-size: var(--pad-height);
+  --pad-width: 50%;
+  --pad-height: calc(100vh - var(--gutter) * 2);
+  --pad-color-background: black;
+  --pad-dots-color: rgba(255 255 255 / 15%);
+
+  --ui-border: 1px solid var(--pad-dots-color);
+  --ui-border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  gap: var(--gutter);
+  padding: var(--gutter);
+}

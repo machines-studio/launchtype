@@ -64,7 +64,7 @@ const model = `./models/ggml-${MODEL}.bin`
       '--language', LANG,
       '--suppress-nst',
       '--split-on-word'
-    ], whisper, { verbose: false })
+    ], whisper, { verbose: true })
 
     if (code === 1) console.error(stderr)
     else {

@@ -1,0 +1,11 @@
+:root {
+  --gutter: 2rem;
+}
+
+main#text {
+  // display: flex;
+  // justify-content: center;
+  gap: var(--gutter);
+  padding: var(--gutter);
+  font-variant-numeric: tabular-nums;
+}

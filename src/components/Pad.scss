@@ -4,18 +4,21 @@
   --pad-dots: 16;
   --pad-dots-size: 2px;
   --pad-dots-color: rgba(255 255 255 / 10%);
+
+  --pad-width: var(--pad-size);
+  --pad-height: var(--pad-size);
 }
 
 .pad {
   --padding: calc((var(--pad-size) / (var(--pad-dots) + 1)));
   position: relative;
 
-  width: var(--pad-size, 10rem);
-  height: var(--pad-size, 10rem);
-  max-width: var(--pad-size, 10rem);
-  max-height: var(--pad-size, 10rem);
-  min-width: var(--pad-size, 10rem);
-  min-height: var(--pad-size, 10rem);
+  width: var(--pad-width, 10rem);
+  height: var(--pad-height, 10rem);
+  max-width: var(--pad-width, 10rem);
+  max-height: var(--pad-height, 10rem);
+  min-width: var(--pad-width, 10rem);
+  min-height: var(--pad-height, 10rem);
   cursor: crosshair;
 
   background: var(--pad-color-background);
@@ -109,5 +112,11 @@
       background: var(--ui-color-accent);
       opacity: 0.7;
     }
+  }
+
+  canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
   }
 }

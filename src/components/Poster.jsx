@@ -62,7 +62,7 @@ export default class Poster extends Component {
           word: text,
           fontColor,
           fontSize,
-          fontFamily,
+          fontFamily: fontFamily ?? 'Fraunces-latin-basic', // TODO[stef] bug when no default fontFamily
           x: position ? position[0] : 0,
           y: position ? position[1] : 0,
         }))

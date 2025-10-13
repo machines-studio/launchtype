@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => {
 
     define: {
       __REPOSITORY_URL__: JSON.stringify(process.env.npm_package_repository_url),
-      __VERSION__: JSON.stringify(process.env.npm_package_version)
+      __VERSION__: JSON.stringify(process.env.npm_package_version),
+      WS_PORT: JSON.stringify(env.WS_PORT)
     },
 
     resolve: {

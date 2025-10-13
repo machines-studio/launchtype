@@ -1,3 +1,5 @@
+/* global WS_PORT */
+
 const params = new URLSearchParams(window.location.search)
 const debug = String(params.get('debug')).split(',')
 
@@ -14,3 +16,5 @@ export const SHOW_CABLE_UI = debug.includes('cables')
 export const DEBUG_PAD_MAP = String(params.get('pad-map')).split(',')
 export const DEBUG_POINTERS = debug.includes('pointers')
 export const DEBUG_WORDS = debug.includes('words')
+
+export const WS_URL = 'ws://localhost:8888'

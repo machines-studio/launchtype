@@ -1,21 +1,36 @@
 #!/usr/bin/env node
 
-process.env.HTTP_PORT = process.env.HTTP_PORT ?? 8080
+process.env.HTTP_PORT = process.env.HTTP_PORT ?? 8888
 process.env.NODE_ENV = process.env.NODE_ENV ?? 'production'
 
-const os = require('os')
 const fs = require('fs-extra')
+const cors = require('cors')
 const path = require('path')
 const http = require('http')
 const express = require('express')
-const formData = require('express-form-data')
+const { uid } = require('uid')
+// const formData = require('express-form-data')
+const multer = require('multer')
+const { WebSocketServer } = require('ws')
 const logger = require('./utils/logger')
+const ffmpeg = require('./utils/ffmpeg')
+const transcript = require('./utils/transcript')
 
 const saves = path.join(__dirname, '.saves')
+const recordings = path.join(__dirname, '.recordings')
 
 // Instanciate express server
 const app = express()
 const server = http.createServer(app)
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: recordings,
+    // filename: (req, file, callback) => callback(null, Date.now() + '_' + Math.round(Math.random() * 1e9) + '.ogg')
+  })
+})
+
+// Enable CORS
+app.use(cors())
 
 // Log request
 app.use((req, res, next) => {
@@ -26,11 +41,7 @@ app.use((req, res, next) => {
 // Serve static files
 app.use(express.static(path.join(__dirname, '..', 'build')))
 
-// Handle formData
-app.use(formData.parse({ uploadDir: os.tmpdir(), autoClean: true }))
-app.use(formData.format())
-app.use(formData.stream())
-
+// Handle saving png
 app.post('/save', (req, res, next) => {
   fs.ensureDirSync(saves)
 
@@ -39,6 +50,34 @@ app.post('/save', (req, res, next) => {
   fs.writeJsonSync(filepath + '.json', JSON.parse(req.body.json))
 
   res.status(201).json({ status: 'ok' })
+})
+
+// Handle saving and transcripting audio recordings
+app.post('/save/sound', upload.single('sound'), async (req, res, next) => {
+  try {
+    const file = req.file
+    const filename = file.filename + '.wav'
+
+    // Convert to wav
+    await ffmpeg(recordings, [
+      '-i', file.filename,
+      '-ar', '16000',
+      '-ac', '1',
+      '-c:a', 'pcm_s16le',
+      filename
+    ])
+
+    // Delte ogg
+    await fs.unlink(file.path)
+
+    // Send back transcript and filename
+    res.status(200).json({
+      filename,
+      transcript: await transcript(file.path + '.wav')
+    })
+  } catch (error) {
+    next(error)
+  }
 })
 
 // Redirect subdirectories to index, enabling front routing
@@ -53,7 +92,40 @@ app.use((error, req, res, next) => {
 // Start HTTP server
 server.listen(process.env.HTTP_PORT, () => {
   logger({
-    color: 'green',
+    color: 'cyan',
     prefix: '[EXPRESS]'
   })(`HTTP server is up and running on port ${process.env.HTTP_PORT}`)
+})
+
+// Simple WS broadcast server
+const clients = new Map()
+new WebSocketServer({ server }).on('connection', ws => {
+  const log = logger({
+    color: 'blue',
+    prefix: '[WEBSOCKET]'
+  })
+
+  // Reference the client in a map by UID
+  ws.uid = uid()
+  clients.set(ws.uid, ws)
+  log(`Client ${ws.uid} connected`)
+
+  ws.on('close', () => {
+    clients.delete(ws.uid)
+    log(`Client ${ws.uid} disconnected`)
+  })
+
+  // Send back its UID
+  ws.send(JSON.stringify({ event: 'handshake', message: ws.uid }))
+
+  // Broadcast all incoming messages
+  ws.on('message', data => {
+    try {
+      const d = data.toString()
+      log(d)
+      for (const [, client] of clients) client.send(d)
+    } catch (error) {
+      console.error(new Date(), error)
+    }
+  })
 })

@@ -1,5 +1,7 @@
 /* global __REPOSITORY_URL__, __VERSION__ */
 
+// TODO replace by views/app
+
 import './App.scss'
 import { Component } from '@tooooools/ui'
 import { $, persist, not, placeholder } from '@tooooools/ui/state'
@@ -102,7 +104,7 @@ export default class App extends Component {
 
   template (props, state) {
     return (
-      <main class='app'>
+      <main id='app' class='app'>
         <Toolbar class='app__toolbar'>
           <Toolbar compact class='flex'>
             <Button

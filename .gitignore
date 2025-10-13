@@ -4,8 +4,7 @@ build/*
 *.local
 assets/paroles/*
 !assets/paroles/README.md
-server/.timelines
-server/.saves
+server/.*
 scripts/bin
 
 ####### NODE ########

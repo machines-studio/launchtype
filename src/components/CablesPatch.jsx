@@ -2,7 +2,7 @@
 import './CablesPatch.scss'
 
 import { Component } from '@tooooools/ui'
-import { $ } from '@tooooools/ui/state'
+import { $, Derived } from '@tooooools/ui/state'
 import { uid } from 'uid'
 import dirname from '/utils/dirname'
 
@@ -37,9 +37,17 @@ export default class CablesPatch extends Component {
   }
 
   afterMount () {
-    this.state.loaded.subscribe(this.#handleResize)
-    document.addEventListener('CABLES.jsLoaded', this.#handleLoad)
     window.addEventListener('resize', this.#handleResize)
+    this.state.loaded.subscribe(this.#handleResize)
+
+    document.addEventListener('CABLES.jsLoaded', this.#handleLoad)
+
+    // Trigger manually CABLES.jsLoaded event because internally it is bound to the window load event
+    this.refs.script.onload = () => {
+      const e = document.createEvent('Event')
+      e.initEvent('load', false, false)
+      window.dispatchEvent(e)
+    }
   }
 
   #handleResize = () => {
@@ -89,7 +97,10 @@ export default class CablesPatch extends Component {
       patchVariable.setValue(signal.get())
 
       // Read from patch
-      patchVariable.on('change', value => signal.set(value))
+      patchVariable.on('change', value => {
+        if (signal instanceof Derived) return
+        signal.set(value)
+      })
     }
   }
 

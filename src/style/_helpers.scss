@@ -1,3 +1,40 @@
+/*
+  Apply a font style defined using CSS variables:
+
+  :root {
+    --<namespace>-<prop1>: <value>;
+    --<namespace>-<prop2>: <value>;
+  }
+
+  selector {
+    @include font(namespace);
+  }
+*/
+@mixin font ($namespace) {
+  @each $prop, $default in (
+    'font-family': inherit,
+    'font-size': inherit,
+    'font-weight': inherit,
+    'font-style': normal,
+    'font-synthesis': none,
+    'font-feature-settings': initial,
+    'font-variant': none,
+    'font-kerning': auto,
+    'line-height': inherit,
+    'text-transform': none,
+    'text-underline-offset': inherit,
+    'text-decoration-thickness': from-font,
+    'word-spacing': normal,
+    'letter-spacing': normal,
+    'font-variation-settings': initial
+  ) {
+    #{$prop}: var(--#{$namespace}-#{$prop}, $default);
+  }
+}
+
+// Fix text-decoration-thickness inheritance
+* { text-decoration-thickness: inherit; }
+
 @mixin debug ($offset: 0, $color: red) {
   outline: 1px solid $color;
 
@@ -44,8 +81,8 @@
   }
 }
 
-@mixin dot-grid ($background: white, $color: black, $size: 1px, $gap: 40px) {
+@mixin dot-grid ($background: white, $color: black, $size: 1px, $gap-x: 40px, $gap-y: $gap-x) {
   background: $background;
   background-image: radial-gradient($color $size, transparent 0);
-  background-size: $gap $gap;
+  background-size: $gap-x $gap-y;
 }
