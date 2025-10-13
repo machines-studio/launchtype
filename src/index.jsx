@@ -64,6 +64,7 @@ console.warn = (...args) => {
 window.addEventListener('error', e => displayError(e.error))
 
 function displayError (error) {
+  console.error(error)
   Toast.display([
     <p>Une erreur inconnue est survenue{error.stack?.length ? '\u2009:' : ''}</p>,
     error.stack?.length && <pre>{error.stack}</pre>

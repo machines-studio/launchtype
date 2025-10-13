@@ -8,9 +8,10 @@ const cors = require('cors')
 const path = require('path')
 const http = require('http')
 const express = require('express')
+const bodyParser = require('body-parser')
 const { uid } = require('uid')
-// const formData = require('express-form-data')
 const multer = require('multer')
+const { glob } = require('glob')
 const { WebSocketServer } = require('ws')
 const logger = require('./utils/logger')
 const ffmpeg = require('./utils/ffmpeg')
@@ -25,12 +26,13 @@ const server = http.createServer(app)
 const upload = multer({
   storage: multer.diskStorage({
     destination: recordings,
-    // filename: (req, file, callback) => callback(null, Date.now() + '_' + Math.round(Math.random() * 1e9) + '.ogg')
+    filename: (req, file, callback) => callback(null, Date.now() + '_' + Math.round(Math.random() * 1e9) + '.ogg')
   })
 })
 
 // Enable CORS
 app.use(cors())
+app.use(bodyParser.json())
 
 // Log request
 app.use((req, res, next) => {
@@ -42,6 +44,8 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '..', 'build')))
 
 // Handle saving png
+// TODO refactor with multer
+// TODO prefix with /api/ etc
 app.post('/save', (req, res, next) => {
   fs.ensureDirSync(saves)
 
@@ -53,7 +57,7 @@ app.post('/save', (req, res, next) => {
 })
 
 // Handle saving and transcripting audio recordings
-app.post('/save/sound', upload.single('sound'), async (req, res, next) => {
+app.post('/api/transcript/prepare', upload.single('sound'), async (req, res, next) => {
   try {
     const file = req.file
     const filename = file.filename + '.wav'
@@ -80,8 +84,22 @@ app.post('/save/sound', upload.single('sound'), async (req, res, next) => {
   }
 })
 
+// Save JSON transcript alongside its audio file
+app.post('/api/transcript/commit', (req, res) => {
+  fs.writeJsonSync(path.join(recordings, req.body.filename + '.json'), req.body)
+  res.status(201).json({ status: 'ok' })
+})
+
 // Redirect subdirectories to index, enabling front routing
 app.get('/:path', (req, res) => res.sendFile(path.join(__dirname, '..', 'build', '/index.html')))
+
+// Get the list of all commited transcripts
+app.get('/api/paroles/', async (req, res) => {
+  const paroles = []
+  const entries = await glob(path.join(recordings, '*.json'), { nodir: true })
+  for (const entry of entries.sort((a, b) => a - b)) paroles.push(fs.readJsonSync(entry))
+  res.status(200).json(paroles)
+})
 
 // Log errors
 app.use((error, req, res, next) => {

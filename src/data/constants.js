@@ -1,5 +1,3 @@
-/* global WS_PORT */
-
 const params = new URLSearchParams(window.location.search)
 const debug = String(params.get('debug')).split(',')
 
@@ -17,4 +15,13 @@ export const DEBUG_PAD_MAP = String(params.get('pad-map')).split(',')
 export const DEBUG_POINTERS = debug.includes('pointers')
 export const DEBUG_WORDS = debug.includes('words')
 
+// TODO dynamic url
+export const API_URL = 'http://localhost:8888/api'
 export const WS_URL = 'ws://localhost:8888'
+
+export const PAROLES = {
+  fetch: async () => {
+    const resp = await fetch(API_URL + '/paroles')
+    return resp.json()
+  }
+}

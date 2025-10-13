@@ -40,6 +40,7 @@
     "@tooooools/ui": "^2.0.0-alpha.1",
     "@tooooools/utils": "^1.4.3",
     "animejs": "^4.0.2",
+    "body-parser": "^2.2.0",
     "chalk": "^5.4.1",
     "cors": "^2.8.5",
     "express": "^5.1.0",

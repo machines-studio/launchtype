@@ -3,11 +3,9 @@ import { $ } from '@tooooools/ui/state'
 import Poster from '/components/Poster'
 import { $listen } from '/controllers/WebSocket'
 
-const PAROLES = Object.entries(import.meta.glob('@assets/paroles/**/*.json', { eager: true })) // WIP
-
 const Store = {
   $playing: $(false),
-  $parole: $(PAROLES[0][1]),
+  $parole: $listen('parole'),
   $showWordsBbox: $(false),
 
   // Controlled by pads

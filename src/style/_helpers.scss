@@ -43,10 +43,10 @@
   }
 }
 
-@mixin easing ($property: all, $duration: var(--easing), $will-change: false) {
+@mixin easing ($property: all, $duration: var(--easing), $timing: var(--easing-ease-smooth), $will-change: false) {
   transition-duration: $duration;
   transition-property: $property;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-timing-function: $timing;
 
   @if $will-change {
     will-change: $property;

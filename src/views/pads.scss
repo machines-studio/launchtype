@@ -2,7 +2,7 @@ main#pads {
   --gutter: 2rem;
 
   --pad-size: var(--pad-height);
-  --pad-width: 50%;
+  --pad-width: calc(50vw - var(--gutter) * 1.5);
   --pad-height: calc(100vh - var(--gutter) * 2);
   --pad-color-background: black;
   --pad-dots-color: rgba(255 255 255 / 15%);

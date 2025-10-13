@@ -6,7 +6,8 @@ body {
 main#recorder {
   --color-background: black;
   --color-gray: #bebebe;
-  --color-red: #ff3b31;
+  --color-red: #f1513f;
+  --color-green: #54db87;
 
   --record-size: 10rem;
   --record-color: var(--color-gray);
@@ -21,7 +22,7 @@ main#recorder {
   --transcript-padding: 4vw;
   --transcript-toolbar-gap: 6vw;
 
-  --ui-color-accent: white;
+  --ui-color-accent: var(--color-green);
   --ui-color-accent-contrast: black;
 
   .record {

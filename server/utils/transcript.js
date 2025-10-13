@@ -1,19 +1,15 @@
 const path = require('path')
-const fs = require('node:fs/promises')
 const { uid } = require('uid')
 const chalk = require('chalk').default
 const { spawn } = require('child_process')
 
 const whisper = path.join(__dirname, '../../scripts/bin/whisper.cpp')
+const root = path.join(__dirname, '..')
 
 module.exports = async (filepath, {
   model = 'large-v3',
   lang = 'FR'
 } = {}) => {
-  const basedir = path.dirname(filepath)
-  const basename = path.basename(filepath, '.wav')
-  const json = path.join(basedir, basename + '.json')
-
   // Run transcription
   const { stdout, stderr, code } = await run('./build/bin/whisper-cli', [
     '--model', `./models/ggml-${model}.bin`,
@@ -28,7 +24,7 @@ module.exports = async (filepath, {
 
   // Write transcript to json data
   const data = {}
-  // data.sound = path.relative(path.join(root, 'assets'), file)
+  data.sound = path.relative(root, filepath)
   data.timestamps = (() => {
     const segments = []
     for (const segment of stdout.split('\n')) {
@@ -50,7 +46,6 @@ module.exports = async (filepath, {
   })()
   data.transcript = data.timestamps.map(({ text }) => text).join(' ')
 
-  await fs.writeFile(json, JSON.stringify(data, null, 2), 'utf8')
   return data
 }
 

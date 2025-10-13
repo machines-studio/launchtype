@@ -1,9 +1,6 @@
 import { $ } from '@tooooools/ui/state'
 import { raf } from '@internet/raf'
 
-// TODO dynamic url
-const API_URL = 'http://localhost:8888/save/sound'
-
 export default class AudioRecorder {
   $recording = $(false)
   $duration = $(0)
@@ -43,7 +40,7 @@ export default class AudioRecorder {
     raf.remove(this.tick)
   }
 
-  transcript = () => new Promise((resolve, reject) => {
+  transcript = endpoint => new Promise((resolve, reject) => {
     this.mediaRecorder.onstop = async () => {
       try {
         this.$recording.value = false
@@ -54,7 +51,7 @@ export default class AudioRecorder {
         const body = new FormData()
         body.append('sound', blob)
 
-        const response = await fetch(API_URL, {
+        const response = await fetch(endpoint, {
           headers: { Accept: 'application/json' },
           method: 'POST',
           body
