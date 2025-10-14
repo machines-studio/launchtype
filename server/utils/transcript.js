@@ -17,7 +17,8 @@ module.exports = async (filepath, {
     '--max-len', 1,
     '--language', lang,
     '--suppress-nst',
-    '--split-on-word'
+    '--split-on-word',
+    // '-ng' // Make it works on macOs Intel
   ], whisper, { verbose: false })
 
   if (code === 1) throw new Error(stderr)

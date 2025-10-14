@@ -2,47 +2,48 @@ import './poster.scss'
 import { $ } from '@tooooools/ui/state'
 import Poster from '/components/Poster'
 import { $listen } from '/controllers/WebSocket'
+import { map } from 'missing-math'
 
-const Store = {
-  $playing: $(false),
+const store = {
   $parole: $listen('parole'),
-  $showWordsBbox: $(false),
 
   // Controlled by pads
-  $brushIntensity: (null),
-  $brushRadius: $(null),
-  $brushShape: $(null),
-  $fontColor: $(null),
-  $fontSize: $(null),
-  $fontFamily: $(null),
-  $multA: $(1),
-  $multB: $(1)
+  // $brushIntensity: (null),
+  // $brushRadius: $(null),
+  // $brushShape: $(null),
+
+  $fontSize: $($listen('pad[0].x', 0), v => map(v, -1, 1, 10, 30)),
+  $multA: $listen('pad[0].x', 0),
+  $multB: $listen('pad[0].x', 0)
 }
 
 const patch = {
   /* Your variables here */
   pad1: $([$listen('pad[0].x'), $listen('pad[0].y')], ([x, y]) => [x ?? 0, y ?? 0]),
-  pad2: $([$listen('pad[1].x'), $listen('pad[1].y')], ([x, y]) => [x ?? 0, y ?? 0])
+  pad2: $([$listen('pad[1].x'), $listen('pad[1].y')], ([x, y]) => [x ?? 0, y ?? 0]),
+
+  // TODO
+  // gradients: $([
+  //   store.$multA,
+  //   store.$multB,
+  // ], ([multA, multB]) => JSON.stringify({
+  //   multA,
+  //   multB,
+  // }))
 }
 
 export default () => (
   <main
     id='poster'
-    class={{
+    class={[{
       'is-loading': WebSocket.$connected
-    }}
+    }]}
   >
     <Poster
-      playing={Store.$playing}
-      parole={Store.$parole}
+      showWords
       patch={patch}
-      showWordsBbox={Store.$showWordsBbox}
-      brushIntensity={Store.$brushIntensity}
-      brushRadius={Store.$brushRadius}
-      brushShape={Store.$brushShape}
-      fontColor={Store.$fontColor}
-      fontSize={Store.$fontSize}
-      fontFamily={Store.$fontFamily}
+      fontSize={store.$fontSize}
+      parole={$(store.$parole, p => p?.transcript)}
     />
   </main>
 )

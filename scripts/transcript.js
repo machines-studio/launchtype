@@ -63,7 +63,8 @@ const model = `./models/ggml-${MODEL}.bin`
       '--max-len', 1,
       '--language', LANG,
       '--suppress-nst',
-      '--split-on-word'
+      '--split-on-word',
+      // '-ng' // Make it works on macOs Intel
     ], whisper, { verbose: true })
 
     if (code === 1) console.error(stderr)

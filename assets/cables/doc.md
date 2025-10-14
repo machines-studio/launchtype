@@ -1,35 +1,35 @@
 ## Patch Variables:
 
-* __animatedTexture__ ```Texture```
-* __animatedTextureWords__ ```Texture```
-* __brushTexture__ ```Texture```
-* __cursors__ ```String``` (default Value: `[{       "x": "-0.1",       "y": "0.5",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.5",       "y": "0.25",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     },     {       "x": "0.75",       "y": "-0.75",       "radius": "15",       "intensity": "0.5",       "shape": "0.5"     } ]`)
-* __cursorShape__ ```Number```
-* __cursorX__ ```Number```
-* __cursorY__ ```Number```
-* __debugBrushSize__ ```Number```
-* __debugFontSize__ ```Number```
-* __debugHue__ ```Number```
-* __debugIndexBrush__ ```Number```
-* __debugMultA__ ```Number```
-* __debugMultB__ ```Number```
-* __fullScreenTexture__ ```Texture```
-* __gradientAlphaMask__ ```Number``` (default Value: `1`)
-* __gradients__ ```String``` (default Value: `{       "hue": "0.0",       "multA": "2",       "multB": "4",       "colorA": [0.3, 0.1, 0.6],       "colorB": [0.2, 0.4, 0.1],       "colorC": [0.8, 0.8, 0.3],       "colorD": [0.1, 0.4, 0.4],       "colorE": [0.5, 0.2, 0.9],       "colorF": [0.1, 0.3, 0] }`)
+* __cursorRadius__ ```Number``` (default Value: `20`)
+* __cursors__ ```String``` (default Value: `[{            "x": "-0.1",           "y": "0.5",            "radius": "15",            "intensity": "0.5",            "shape": "0.5"           }]     `)
+* __displacedText__ ```Texture```
+* __finaleTexture__ ```Texture```
+* __fontSizeMagicNbr__ ```Number``` (default Value: `32.79`)
+
+  Default : 10
+  Range : 0 -> inf
+
+* __gradients__ ```String``` (default Value: `{        "hue": "0.1",        "multA": ".2",        "multB": ".02"        }`)
 * __gradientTexture__ ```Texture```
-* __grandientsAnim__ ```Number```
-* __indexCursors__ ```Number```
 * __indexWords__ ```Number```
-* __maskTexture__ ```Texture```
-* __maskWordsTexture__ ```Texture```
-* __maxPixelDensity__ ```Number``` (default Value: `2`)
-* __postProcessTextureWords__ ```Texture```
-* __postProcTexture__ ```Texture```
-* __radiusCursor__ ```Number```
-* __sidebarView__ ```Number``` (default Value: `1`)
-* __testAnim__ ```Number```
-* __textBlendMode__ ```Number``` (default Value: `12`)
-* __vw__ ```Number```
-* __words__ ```String``` (default Value: `[{       "word": "L’abeilles",       "x": -0.5,       "y": -0.2,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "butine",       "x": 0.1,       "y": 0,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "tout",       "x": 0.2,       "y": 0.2,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     }, {       "word": "doucement.",       "x": -0.8,       "y": 0.5,       "fontColor": [1,1,1],       "fontSize": 8,       "fontFamily": "Milling-Triplex1mm"     } ]`)
-* __wordTexture__ ```Texture```
+* __noiseTexture__ ```Texture```
+* __optimH__ ```Number```
+* __optimW__ ```Number```
+* __pad1__ ```Array```
+* __pad2__ ```Array```
+* __resolFactor__ ```Number``` (default Value: `1`)
+
+  Default : 1
+  Range : 0 -> 1
+
+* __trailBrut__ ```Texture```
+* __trailForGradient__ ```Texture```
+* __trailForType__ ```Texture```
+* __trailNoClear__ ```Texture```
+* __viewPerf__ ```Number``` (default Value: `0`)
+
+  Default: 0
+  Bool : 0 or 1
+
+* __words__ ```String``` (default Value: `[     {         "word": "il",         "x": -0.9,         "y": -0.5,         "fontColor": [             1,             1,             1         ],         "fontSize": 8,         "fontFamily": "Milling-Triplex1mm"     },              {         "word": "sait",         "x": -0.9,         "y": -0.275,         "fontColor": [             1,             1,             1         ],         "fontSize": 8,         "fontFamily": "Milling-Triplex1mm"     },      {         "word": "que",         "x": -0.9,         "y": -0.05,         "fontColor": [             1,             1,             1         ],         "fontSize": 8,         "fontFamily": "Milling-Triplex1mm"     },      {         "word": "c’est",         "x": -0.9,         "y": 0.27,         "fontColor": [             1,             1,             1         ],         "fontSize": 8,         "fontFamily": "Milling-Triplex1mm"     },      {         "word": "la guerre.",         "x": -0.9,         "y": 0.5,         "fontColor": [             1,             1,             1         ],         "fontSize": 8,         "fontFamily": "Milling-Triplex1mm"     } ]`)
 

@@ -11,10 +11,13 @@ import lastOf from '/utils/array-last'
 
 import * as Constants from '/data/constants'
 
+import { $sync } from '/controllers/WebSocket'
 import CablesPatch from '/components/CablesPatch'
 
 // Fix animejs not recognizing Inifnity
 const ANIMEJS_INF = -9999
+
+let SILENT_MOVE = false // Avoid broadcasting word movement
 
 const persistMap = {
   encode: map => JSON.stringify(Array.from(map)),
@@ -31,9 +34,7 @@ export default class Poster extends Component {
   // Internal data store
   store = {
     timeline: $(null),
-
-    words: persist(new Map(), 'poster.words', persistMap),
-    userWords: persist(new Map(), 'poster.userWords', persistMap),
+    words: $sync('poster.words', {}, persistMap),
 
     cursor: $({ x: ANIMEJS_INF, y: ANIMEJS_INF }),
     pointers: $(new Map()) // Map(<{ x, y, screenX, screenY, radius }>[])
@@ -45,22 +46,17 @@ export default class Poster extends Component {
 
     words: $([
       this.store.words,
-      this.store.userWords,
-      this.props.fontColor,
       this.props.fontSize,
       this.props.fontFamily
     ], ([
-      words = new Map(),
-      userWords = new Map(),
-      fontColor,
+      words = {},
       fontSize,
       fontFamily
     ]) => JSON.stringify(
-      Array.from([...words, ...userWords])
-        .filter(([uuid]) => this.refs.words?.has(uuid))
-        .map(([, { text, position }]) => ({
+      Object.values(words)
+        .filter(({ uuid }) => this.refs.words?.has(uuid))
+        .map(({ text, position }) => ({
           word: text,
-          fontColor,
           fontSize,
           fontFamily: fontFamily ?? 'Fraunces-latin-basic', // TODO[stef] bug when no default fontFamily
           x: position ? position[0] : 0,
@@ -108,16 +104,18 @@ export default class Poster extends Component {
         event-pointermove={this.#handlePointerMove}
         event-pointerup={this.#handlePointerUp}
       >
-        <CablesPatch
-          ref={this.ref('patch')}
-          path='cables/patch.js'
-          variables={{ ...this.patch, ...props.patch }}
-        />
+        {props.patch && (
+          <CablesPatch
+            ref={this.ref('patch')}
+            path='cables/patch.js'
+            variables={{ ...this.patch, ...props.patch }}
+          />
+        )}
 
         <div
           ref={this.ref('wordsContainer')}
           class={['poster__words', {
-            'has-debug': Constants.DEBUG_WORDS
+            'has-debug': props.showWords ?? Constants.DEBUG_WORDS
           }]}
         />
 
@@ -143,11 +141,14 @@ export default class Poster extends Component {
 
   afterMount () {
     this.#handleParole()
+    this.store.words.subscribe(this.#handleWords)
     this.props.parole.subscribe(this.#handleParole)
-    this.refs.patch.state.loaded.subscribe(this.#handleParole)
+    this.refs.patch?.state.loaded.subscribe(this.#handleParole)
     window.addEventListener('resize', this.#handleResize)
 
-    this.props.playing.subscribe(this.#handlePlay)
+    this.props.playing?.subscribe(this.#handlePlay)
+
+    this.patch.words.subscribe(v => this.log(v))
   }
 
   clear ({ words = false } = {}) {
@@ -157,13 +158,7 @@ export default class Poster extends Component {
     for (const [, word] of this.refs.words ?? []) word.remove()
     this.refs.words?.clear()
 
-    if (words) this.store.words.set(new Map())
-    this.store.userWords.set(new Map())
-
-    // Clean up cables patch alpha mask
-    // Wait a little for cables patch to register the gradientAlphaMask before resetting it
-    this.patch.gradientAlphaMask.subscribeOnce(() => window.requestAnimationFrame(() => this.patch.gradientAlphaMask.set(1)))
-    this.patch.gradientAlphaMask.set(0)
+    this.store.words.set({})
   }
 
   refresh () {
@@ -184,11 +179,12 @@ export default class Poster extends Component {
     if (!text) return
     if (!String(text).trim()) return
 
-    store.update(words => {
-      const word = words.get(uuid) ?? { text, position, ...data }
+    this.log(text)
+    // this.log(this.refs.words)
 
+    store.update(words => {
       // Store word data
-      words.set(uuid, word)
+      words[uuid] = { uuid, text, position, ...data }
 
       // Render word
       this.render((
@@ -206,15 +202,16 @@ export default class Poster extends Component {
         containerFriction: 1, // Disable container inertia
         container: this.refs.wordsContainer,
         onUpdate: () => {
+          // TODO flag to avoid moving
+
           // Screen coordinates to normalized on [-1, 1], origin is [left, top]
-          word.position = [
+          words[uuid].position = [
             map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
             map(draggable.y, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1),
             map(draggable.x + draggable.$target.clientWidth, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),
             map(draggable.y + draggable.$target.clientHeight, draggable.containerBounds[0], draggable.containerBounds[2] + draggable.$target.clientHeight, -1, 1)
           ]
-
-          store.update(words => words, true)
+          if (!SILENT_MOVE) store.set(words, true)
         }
       })
 
@@ -267,14 +264,20 @@ export default class Poster extends Component {
     window.requestAnimationFrame(this.#handleResize)
   }
 
+  #handleWords = () => {
+    // Update words positions
+    this.#handleResize()
+  }
+
   #handleResize = () => {
     // Store a vw unit
     const { width } = this.base.getBoundingClientRect()
     this.state.vw.set(Math.round(width / 100) + 'px')
 
+    SILENT_MOVE = true
     // Update words position
-    for (const [uuid, word] of this.store.words.get()) {
-      const draggable = this.refs.draggables.get(uuid)
+    for (const word of Object.values(this.store.words.get())) {
+      const draggable = this.refs.draggables.get(word.uuid)
       if (!draggable) continue
       if (word.position) {
         // Normalized [-1, 1] to screen coordinates, origin is [left, top]
@@ -286,6 +289,8 @@ export default class Poster extends Component {
         draggable.setY(top + height / 2)
       }
     }
+
+    SILENT_MOVE = false
   }
 
   #handlePlay = playing => {

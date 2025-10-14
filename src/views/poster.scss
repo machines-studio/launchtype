@@ -1,5 +1,5 @@
 main#poster {
-  --poster-width: 100vw;
   --poster-height: 100vh;
+  --poster-width: calc(var(--poster-height) * (50 / 70));
   --border-radius: 0;
 }

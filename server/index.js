@@ -6,7 +6,7 @@ process.env.NODE_ENV = process.env.NODE_ENV ?? 'production'
 const fs = require('fs-extra')
 const cors = require('cors')
 const path = require('path')
-const http = require('http')
+const https = require('https')
 const express = require('express')
 const bodyParser = require('body-parser')
 const { uid } = require('uid')
@@ -22,7 +22,11 @@ const recordings = path.join(__dirname, '.recordings')
 
 // Instanciate express server
 const app = express()
-const server = http.createServer(app)
+const server = https.createServer({
+  key: fs.readFileSync(path.join(__dirname, 'selfsigned.key')),
+  cert: fs.readFileSync(path.join(__dirname, 'selfsigned.crt'))
+}, app)
+
 const upload = multer({
   storage: multer.diskStorage({
     destination: recordings,
@@ -117,7 +121,7 @@ server.listen(process.env.HTTP_PORT, () => {
 
 // Simple WS broadcast server
 const clients = new Map()
-new WebSocketServer({ server }).on('connection', ws => {
+new WebSocketServer({ port: 1337 }).on('connection', ws => {
   const log = logger({
     color: 'blue',
     prefix: '[WEBSOCKET]'

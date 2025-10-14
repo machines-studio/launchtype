@@ -2,7 +2,8 @@ import './text.scss'
 import { render } from '@tooooools/ui'
 import { Button } from '@tooooools/ui/components'
 import { $ } from '@tooooools/ui/state'
-import { $broadcast, $listen } from '/controllers/WebSocket'
+import { map } from 'missing-math'
+import { $sync, $listen } from '/controllers/WebSocket'
 
 import * as Icons from '/data/icons'
 import * as Constants from '/data/constants'
@@ -10,25 +11,39 @@ import * as Constants from '/data/constants'
 import Poster from '/components/Poster'
 
 const store = {
-  $parole: $broadcast('parole'),
-  $paroles: undefined // Will be init with fetched paroles during setup
+  $parole: $sync('parole'),
+  $paroles: undefined, // Will be init with fetched paroles during setup,
+  $fontSize: $($listen('pad[0].x', 0), v => map(v, -1, 1, 10, 30))
 }
 
 export default async () => {
+  // Fetch, bind and render paroles
   store.$paroles = $listen('paroles', await Constants.PAROLES.fetch())
-
   store.$paroles.subscribe(handleParoles)
   window.setTimeout(handleParoles, 1000) // Dirty
 
   return (
     <main id='text'>
-      <ul class='paroles' />
-      <Poster /* WIP *//>
+      <aside class='paroles'>
+        <Button
+          class='paroles__current'
+          icon={Icons.play}
+          label={$(store.$parole, p => p?.transcript?.transcript ?? 'Sélectionnez une parole')}
+          active={store.$parole}
+          // event-click={} // TODO play sound
+        />
+        <ul class='paroles__container' />
+      </aside>
+      <Poster
+        showWords
+        fontSize={store.$fontSize}
+        parole={$(store.$parole, p => p?.transcript)}
+      />
     </main>
   )
 
   function handleParoles () {
-    const container = document.querySelector('.paroles')
+    const container = document.querySelector('.paroles__container')
     if (!container) return
     container.innerHTML = ''
 
@@ -38,7 +53,7 @@ export default async () => {
           icon={Icons.play}
           class='parole'
           event-click={e => store.$parole.set(parole, true)}
-          active={$(store.$parole, p => p === parole)}
+          active={$(store.$parole, p => p?.filename && p.filename === parole.filename)}
           label={parole.transcript.transcript}
         />
       ), container)

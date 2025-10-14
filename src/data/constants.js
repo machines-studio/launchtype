@@ -15,9 +15,10 @@ export const DEBUG_PAD_MAP = String(params.get('pad-map')).split(',')
 export const DEBUG_POINTERS = debug.includes('pointers')
 export const DEBUG_WORDS = debug.includes('words')
 
-// TODO dynamic url
-export const API_URL = 'http://localhost:8888/api'
-export const WS_URL = 'ws://localhost:8888'
+export const API_URL = import.meta.env.DEV
+  ? 'https://localhost:8888/api'
+  : window.location.origin + '/api'
+export const WS_URL = (window.location.protocol === 'https' ? 'wss://' : 'ws://') + 'localhost:1337'
 
 export const PAROLES = {
   fetch: async () => {

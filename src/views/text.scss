@@ -1,5 +1,7 @@
 main#text {
   --gutter: 2rem;
+  --artboard-height: calc(100vh - var(--gutter) * 2);
+
   --color-gray: #262626;
   --ui-color-accent: #ffe448;
   --ui-color-accent-contrast: black;
@@ -12,10 +14,19 @@ main#text {
   font-variant-numeric: tabular-nums;
 
   .paroles {
-    @include invisible-scroll(y);
-    height: calc(100vh - var(--gutter) * 2);
-    border: var(--ui-border);
-    border-radius: var(--ui-border-radius);
+    flex: 1;
+    height: var(--artboard-height);
+
+    &__current {
+      margin-bottom: var(--gutter);
+    }
+
+    &__container {
+      @include invisible-scroll(y);
+      border: var(--ui-border);
+      border-radius: var(--ui-border-radius);
+    }
+
   }
 
   .parole {
@@ -50,6 +61,28 @@ main#text {
     label {
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+  }
+
+  .poster {
+    --poster-height: var(--artboard-height);
+    --poster-width: calc(var(--poster-height) * (50 / 70));
+
+    border: var(--ui-border);
+    border-radius: var(--ui-border-radius);
+
+    &__word {
+      font-family: milling, sans-serif;
+      color: var(--color-white);
+      background: none;
+      outline: 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -1rem;
+        outline: var(--ui-border);
+      }
     }
   }
 }
