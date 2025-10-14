@@ -3,8 +3,6 @@ main#text {
   --artboard-height: calc(100vh - var(--gutter) * 2);
 
   --color-gray: #262626;
-  --ui-color-accent: #ffe448;
-  --ui-color-accent-contrast: black;
   --ui-border: 1px solid var(--color-gray);
   --ui-border-radius: 1rem;
 
@@ -21,6 +19,10 @@ main#text {
     overflow: hidden;
 
     &__current {
+      --ui-color-accent: #54db87;
+      --ui-color-text: black;
+      --ui-color-accent-contrast: black;
+
       width: 100%;
       margin-bottom: var(--gutter);
     }
@@ -37,12 +39,13 @@ main#text {
     --ui-font-size: 1.8rem;
     --ui-icon-size: 2.4rem;
     --ui-height: 4.2rem;
-    --ui-line-height: 130%;
+    --ui-line-height: 125%;
   }
 
   .parole {
     @include easing(transform, var(--easing), var(--easing-ease-back));
 
+    --ui-color-accent: var(--color-gray);
     --ui-border-radius: 0;
     --offx: calc(var(--ui-icon-size) + 0.7rem);
 

@@ -1,6 +1,6 @@
 import './Poster.scss'
 import { Component } from '@tooooools/ui'
-import { $, persist } from '@tooooools/ui/state'
+import { $ } from '@tooooools/ui/state'
 
 import hash from 'object-hash'
 import { uid } from 'uid'
@@ -35,15 +35,11 @@ export default class Poster extends Component {
   store = {
     timeline: $(null),
     words: $sync('poster.words', {}, persistMap),
-
-    cursor: $({ x: ANIMEJS_INF, y: ANIMEJS_INF }),
-    pointers: $(new Map()) // Map(<{ x, y, screenX, screenY, radius }>[])
+    cursor: $({ x: ANIMEJS_INF, y: ANIMEJS_INF, scale: 0 })
   }
 
   // Cables.gl patch data
   patch = {
-    gradientAlphaMask: $(1),
-
     words: $([
       this.store.words,
       this.props.fontSize,
@@ -64,22 +60,9 @@ export default class Poster extends Component {
         }))
     )),
 
-    cursors: $([
-      this.store.cursor,
-      this.store.pointers,
-      this.props.brushIntensity,
-      this.props.brushRadius,
-      this.props.brushShape,
-    ], ([
-      cursor,
-      pointers,
-      intensity,
-      radius,
-      shape,
-    ]) => JSON.stringify([
-      { ...cursor, radius, intensity, shape },
-      ...pointers.values()
-    ]))
+    cursorX: $(this.store.cursor, c => c?.x ?? ANIMEJS_INF),
+    cursorY: $(this.store.cursor, c => c?.y ?? ANIMEJS_INF),
+    cursorScale: $(this.store.cursor, c => c?.scale ?? 0)
   }
 
   beforeRender () {
@@ -91,7 +74,6 @@ export default class Poster extends Component {
       <section
         class={['poster', {
           'is-playing': props.playing,
-          'has-pointer-down': state.hasPointerDown,
           'show-words-bbox': props.showWordsBbox
         }]}
         style={{
@@ -100,9 +82,6 @@ export default class Poster extends Component {
           '--poster-font-family': $(this.props.fontFamily, fs => `"${fs}"`),
           'touch-action': 'none'
         }}
-        event-pointerdown={this.#handlePointerDown}
-        event-pointermove={this.#handlePointerMove}
-        event-pointerup={this.#handlePointerUp}
       >
         {props.patch && (
           <CablesPatch
@@ -118,23 +97,6 @@ export default class Poster extends Component {
             'has-debug': props.showWords ?? Constants.DEBUG_WORDS
           }]}
         />
-
-        {Constants.DEBUG_POINTERS && (
-          new Array(100).fill(true).map((_, index) => {
-            const pointer = $(this.store.pointers, pointers => Array.from(pointers.values())[index])
-
-            return (
-              <div
-                class='poster__pointer--debug'
-                style={{
-                  '--pointer-x': $(pointer, pointer => (pointer?.screenX ?? -100) + 'px'),
-                  '--pointer-y': $(pointer, pointer => (pointer?.screenY ?? -100) + 'px'),
-                  '--pointer-radius': $(pointer, pointer => (pointer?.radius ?? 1) + 'px')
-                }}
-              />
-            )
-          })
-        )}
       </section>
     )
   }
@@ -147,8 +109,6 @@ export default class Poster extends Component {
     window.addEventListener('resize', this.#handleResize)
 
     this.props.playing?.subscribe(this.#handlePlay)
-
-    this.patch.words.subscribe(v => this.log(v))
   }
 
   clear ({ words = false } = {}) {
@@ -178,9 +138,6 @@ export default class Poster extends Component {
   } = {}, store = this.store.words) {
     if (!text) return
     if (!String(text).trim()) return
-
-    this.log(text)
-    // this.log(this.refs.words)
 
     store.update(words => {
       // Store word data
@@ -312,7 +269,7 @@ export default class Poster extends Component {
     }
 
     // Assuming words have been inserted in the order of their transcript
-    for (const [uuid, { position, ...data }] of this.store.words.get()) {
+    for (const { uuid, position, ...data } of Object.values(this.store.words.get())) {
       const word = this.refs.words.get(uuid)
       const draggable = this.refs.draggables.get(uuid)
       if (!word || !draggable) continue
@@ -324,52 +281,12 @@ export default class Poster extends Component {
       updateCursor({
         x: { from: position[0], to: position[2] },
         y: { from: y, to: y },
+        scale: 1,
         duration,
       }, delay)
     }
 
-    updateCursor({ x: ANIMEJS_INF, y: ANIMEJS_INF, duration: 100 }, '<')
-  }
-
-  #handlePointerDown = e => {
-    // ??? enable only when playing ? If so, force pointerup on stop
-    // if (!this.props.playing.get()) return
-    if (e.target.matches('.poster__word')) return
-
-    this.base.setPointerCapture(e.pointerId)
-    this.state.hasPointerDown.set(true)
-    this.refs.draggables?.forEach(draggable => draggable.disable())
-  }
-
-  #handlePointerMove = e => {
-    if (!this.state.hasPointerDown.get()) return
-
-    e.preventDefault()
-
-    this.store.pointers.update(pointers => {
-      const { top, left, width, height } = this.base.getBoundingClientRect()
-      pointers.set(e.pointerId, {
-        // Normalized [-1, 1]
-        x: map(e.clientX - left, 0, width, -1, 1),
-        y: map(e.clientY - top, 0, height, -1, 1),
-        // Screen coordinates
-        screenX: e.clientX - left,
-        screenY: e.clientY - top,
-        radius: ((Math.max(e.width, e.height)) / width) * 100 / 2, // vw
-        intensity: 1
-      })
-      return pointers
-    }, true)
-  }
-
-  #handlePointerUp = e => {
-    this.store.pointers.update(pointers => {
-      pointers.delete(e.pointerId)
-      return pointers
-    }, true)
-
-    this.refs.draggables?.forEach(draggable => draggable.enable())
-    this.state.hasPointerDown.set(false)
+    updateCursor({ x: ANIMEJS_INF, y: ANIMEJS_INF, scale: 0, duration: 100 }, '<')
   }
 
   beforeDestroy () {

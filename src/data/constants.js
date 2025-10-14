@@ -15,9 +15,8 @@ export const DEBUG_PAD_MAP = String(params.get('pad-map')).split(',')
 export const DEBUG_POINTERS = debug.includes('pointers')
 export const DEBUG_WORDS = debug.includes('words')
 
-export const API_URL = import.meta.env.DEV
-  ? 'https://localhost:8888/api'
-  : window.location.origin + '/api'
+export const SERVER_URL = import.meta.env.DEV ? 'https://localhost:8888' : window.location.origin
+export const API_URL = SERVER_URL + '/api'
 export const WS_URL = (window.location.protocol === 'https' ? 'wss://' : 'ws://') + 'localhost:1337'
 
 export const PAROLES = {

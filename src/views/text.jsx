@@ -1,14 +1,21 @@
 import './text.scss'
 import { render } from '@tooooools/ui'
 import { Button } from '@tooooools/ui/components'
-import { $ } from '@tooooools/ui/state'
+import { $, not } from '@tooooools/ui/state'
 import { map } from 'missing-math'
-import { $sync, $listen } from '/controllers/WebSocket'
+import { $sync, $broadcast, $listen } from '/controllers/WebSocket'
 
 import * as Icons from '/data/icons'
 import * as Constants from '/data/constants'
 
 import Poster from '/components/Poster'
+
+const state = {
+  $soundPlaying: $sync('sound.playing', false),
+  $soundLoading: $listen('sound.loading', false)
+}
+
+window.state = state
 
 const store = {
   $parole: $sync('parole'),
@@ -26,11 +33,14 @@ export default async () => {
     <main id='text'>
       <aside class='paroles'>
         <Button
-          class='paroles__current'
+          class={['paroles__current', {
+            'is-waiting': $([state.$soundPlaying, state.$soundLoading], ([a, b]) => a || b)
+          }]}
           icon={Icons.sound}
           label={$(store.$parole, p => p?.transcript?.transcript ?? 'Sélectionnez une parole')}
           active={store.$parole}
-          // event-click={} // TODO play sound
+          disabled={not(store.$parole)}
+          event-click={e => $broadcast('sound.lastPlayed').set(Date.now())}
         />
         <ul class='paroles__container' />
       </aside>

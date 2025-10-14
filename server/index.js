@@ -45,6 +45,7 @@ app.use((req, res, next) => {
 })
 
 // Serve static files
+app.use('/sound', express.static(recordings))
 app.use(express.static(path.join(__dirname, '..', 'build')))
 
 // Handle saving png
