@@ -13,8 +13,8 @@ const patch = {
   /* Your variables here */
   x1: $listen('pad[0].x', 0),
   y1: $listen('pad[0].y', 0),
-  x2: $listen('pad[0].x', 0),
-  y2: $listen('pad[0].y', 0)
+  x2: $listen('pad[1].x', 0),
+  y2: $listen('pad[1].y', 0)
 }
 
 export default () => (
