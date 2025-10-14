@@ -8,11 +8,11 @@ import * as Icons from '/data/icons'
 ;(async () => {
   try {
     const ROUTES = {
-      '/': await import('/views/app'),
+      '/': await import('/views/poster'),
       '/pads': await import('/views/pads'),
-      '/poster': await import('/views/poster'),
       '/recorder': await import('/views/recorder'),
-      '/text': await import('/views/text')
+      '/text': await import('/views/text'),
+      '/moderation': await import('/views/moderation')
     }
 
     // Basic front router

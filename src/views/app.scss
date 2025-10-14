@@ -1,8 +1,0 @@
-main#app {
-  // Layout
-  --artboard-height: calc(100vh - var(--ui-height) - var(--space-gutter));
-  --artboard-width: 100vw;
-  --poster-height: calc(var(--artboard-height) - var(--space-gutter) * 2);
-  --poster-width: calc(var(--poster-height) * (50 / 70));
-  --pad-size: calc(var(--artboard-width) - var(--space-gutter) * 3 - var(--poster-width));
-}

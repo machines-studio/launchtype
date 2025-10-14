@@ -15,8 +15,6 @@ const state = {
   $soundLoading: $listen('sound.loading', false)
 }
 
-window.state = state
-
 const store = {
   $parole: $sync('parole'),
   $paroles: undefined, // Will be init with fetched paroles during setup,

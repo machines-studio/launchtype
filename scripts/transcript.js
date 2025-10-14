@@ -6,7 +6,7 @@ const { glob } = require('glob')
 const { uid } = require('uid')
 
 // SEE https://github.com/ggml-org/whisper.cpp/tree/master/models#available-models
-const MODEL = 'large-v3'
+const MODEL = 'large-v3-turbo'
 const LANG = 'FR'
 
 // Paths

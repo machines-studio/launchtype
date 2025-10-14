@@ -7,7 +7,7 @@ const whisper = path.join(__dirname, '../../scripts/bin/whisper.cpp')
 const root = path.join(__dirname, '..')
 
 module.exports = async (filepath, {
-  model = 'large-v3',
+  model = 'large-v3-turbo',
   lang = 'FR'
 } = {}) => {
   // Run transcription

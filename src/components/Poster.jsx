@@ -43,18 +43,15 @@ export default class Poster extends Component {
     words: $([
       this.store.words,
       this.props.fontSize,
-      this.props.fontFamily
     ], ([
       words = {},
-      fontSize,
-      fontFamily
+      fontSize
     ]) => JSON.stringify(
       Object.values(words)
         .filter(({ uuid }) => this.refs.words?.has(uuid))
         .map(({ text, position }) => ({
           word: text,
           fontSize,
-          fontFamily: fontFamily ?? 'Fraunces-latin-basic', // TODO[stef] bug when no default fontFamily
           x: position ? position[0] : 0,
           y: position ? position[1] : 0,
         }))
@@ -159,8 +156,6 @@ export default class Poster extends Component {
         containerFriction: 1, // Disable container inertia
         container: this.refs.wordsContainer,
         onUpdate: () => {
-          // TODO flag to avoid moving
-
           // Screen coordinates to normalized on [-1, 1], origin is [left, top]
           words[uuid].position = [
             map(draggable.x, draggable.containerBounds[3], draggable.containerBounds[1] + draggable.$target.clientWidth, -1, 1),

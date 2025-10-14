@@ -17,7 +17,6 @@ const logger = require('./utils/logger')
 const ffmpeg = require('./utils/ffmpeg')
 const transcript = require('./utils/transcript')
 
-const saves = path.join(__dirname, '.saves')
 const recordings = path.join(__dirname, '.recordings')
 
 // Instanciate express server
@@ -48,19 +47,6 @@ app.use((req, res, next) => {
 app.use('/sound', express.static(recordings))
 app.use(express.static(path.join(__dirname, '..', 'build')))
 
-// Handle saving png
-// TODO refactor with multer
-// TODO prefix with /api/ etc
-app.post('/save', (req, res, next) => {
-  fs.ensureDirSync(saves)
-
-  const filepath = path.join(saves, String(Date.now()))
-  fs.writeFileSync(filepath + '.png', Buffer.from(req.body.png.replace(/^data:image\/\w+;base64,/, ''), 'base64'))
-  fs.writeJsonSync(filepath + '.json', JSON.parse(req.body.json))
-
-  res.status(201).json({ status: 'ok' })
-})
-
 // Handle saving and transcripting audio recordings
 app.post('/api/transcript/prepare', upload.single('sound'), async (req, res, next) => {
   try {
@@ -87,6 +73,12 @@ app.post('/api/transcript/prepare', upload.single('sound'), async (req, res, nex
   } catch (error) {
     next(error)
   }
+})
+
+// Delete a transcript and its sound
+app.post('/api/transcript/delete', async (req, res, next) => {
+  await fs.unlink(path.join(recordings, req.body.filename + '.json'))
+  res.status(200).json({ status: 'ok' })
 })
 
 // Save JSON transcript alongside its audio file
