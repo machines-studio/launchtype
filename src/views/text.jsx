@@ -27,7 +27,7 @@ export default async () => {
       <aside class='paroles'>
         <Button
           class='paroles__current'
-          icon={Icons.play}
+          icon={Icons.sound}
           label={$(store.$parole, p => p?.transcript?.transcript ?? 'Sélectionnez une parole')}
           active={store.$parole}
           // event-click={} // TODO play sound
@@ -50,7 +50,7 @@ export default async () => {
     for (const parole of store.$paroles.value) {
       render((
         <Button
-          icon={Icons.play}
+          icon={Icons.selected}
           class='parole'
           event-click={e => store.$parole.set(parole, true)}
           active={$(store.$parole, p => p?.filename && p.filename === parole.filename)}

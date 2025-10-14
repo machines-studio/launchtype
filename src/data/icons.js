@@ -8,5 +8,7 @@ export { default as warning } from 'iconoir/icons/warning-triangle.svg?raw'
 export { default as reset } from 'iconoir/icons/refresh.svg?raw'
 export { default as close } from 'iconoir/icons/xmark.svg?raw'
 export { default as ok } from 'iconoir/icons/check.svg?raw'
+export { default as selected } from 'iconoir/icons/arrow-right.svg?raw'
+export { default as sound } from 'iconoir/icons/sound-high.svg?raw'
 
 export { default as bbox } from 'iconoir/icons/orthogonal-view.svg?raw'

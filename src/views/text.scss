@@ -15,9 +15,13 @@ main#text {
 
   .paroles {
     flex: 1;
-    height: var(--artboard-height);
+    display: flex;
+    flex-direction: column;
+    max-height: var(--artboard-height);
+    overflow: hidden;
 
     &__current {
+      width: 100%;
       margin-bottom: var(--gutter);
     }
 
@@ -25,20 +29,22 @@ main#text {
       @include invisible-scroll(y);
       border: var(--ui-border);
       border-radius: var(--ui-border-radius);
+      flex: 1;
     }
+  }
 
+  .paroles__current, .parole {
+    --ui-font-size: 1.8rem;
+    --ui-icon-size: 2.4rem;
+    --ui-height: 4.2rem;
+    --ui-line-height: 130%;
   }
 
   .parole {
     @include easing(transform, var(--easing), var(--easing-ease-back));
 
-    --ui-font-size: 2rem;
-    --ui-icon-size: 3rem;
-    --ui-height: 5rem;
-    --ui-line-height: 150%;
     --ui-border-radius: 0;
-
-    --offx: calc(var(--ui-icon-size) + 0.5rem);
+    --offx: calc(var(--ui-icon-size) + 0.7rem);
 
     display: flex;
     width: calc(100% + var(--offx));
