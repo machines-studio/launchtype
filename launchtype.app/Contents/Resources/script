@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ROOT="$(dirname "$(dirname "$(dirname $PWD)")")"
+NODE="/Users/rno/Library/Caches/fnm_multishells/3095_1760641891135/bin/node"
+SERVER="/Users/rno/Projects/machines/spip-signe-paroles/launchtype/server"
+
+killall node
+$NODE $SERVER 2> "$ROOT/launchtype.log" & \
+open 'https://localhost:8888/' -n -a 'Google Chrome' --args --app --kiosk --disable-features=Translate --no-first-run --autoplay-policy=no-user-gesture-required
