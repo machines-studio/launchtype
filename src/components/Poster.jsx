@@ -45,6 +45,7 @@ export default class Poster extends Component {
 
   // Cables.gl patch data
   patch = {
+    prodMode: 1,
     words: $([
       this.store.words,
       this.props.fontSize,
