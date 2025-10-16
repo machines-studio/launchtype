@@ -2,12 +2,12 @@
 
 * __cursorRadius__ ```Number``` (default Value: `20`)
 * __cursors__ ```String``` (default Value: `[{            "x": "-0.1",           "y": "0.5",            "radius": "15",            "intensity": "0.5",            "shape": "0.5"           }]     `)
-* __cursorScale__ ```Number``` (default Value: `0`)
+* __cursorScale__ ```Number``` (default Value: `1`)
 * __cursorX__ ```Number``` (default Value: `0`)
 * __cursorY__ ```Number``` (default Value: `0`)
 * __displacedText__ ```Texture```
 * __finaleTexture__ ```Texture```
-* __fontSizeMagicNbr__ ```Number``` (default Value: `32.79`)
+* __fontSizeMagicNbr__ ```Number``` (default Value: `22`)
 
   Default : 10
   Range : 0 -> inf
@@ -27,7 +27,7 @@
 * __trailForGradient__ ```Texture```
 * __trailForType__ ```Texture```
 * __trailNoClear__ ```Texture```
-* __viewPerf__ ```Number``` (default Value: `0`)
+* __viewPerf__ ```Number``` (default Value: `1`)
 
   Default: 0
   Bool : 0 or 1
