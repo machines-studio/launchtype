@@ -24,6 +24,9 @@ main#recorder {
 
   --ui-color-accent: var(--color-green);
   --ui-color-accent-contrast: black;
+  
+  width: 100vw;
+  height: 100vh;
 
   .record {
     --scale: 1;
