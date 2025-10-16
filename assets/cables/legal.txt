@@ -7,3 +7,7 @@ Additional code from contributors and libraries in this export are licenced as f
 Public Domain:
 
 - Photoshop math GLSL shaders by Romain Dura (https://mouaif.wordpress.com/2009/01/05/photoshop-math-with-glsl-shaders/)
+
+Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported:
+
+- Domain Warping Shader by inigo quilez (http://iquilezles.org/www/articles/warp/warp.htm)
