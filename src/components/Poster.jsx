@@ -283,13 +283,19 @@ export default class Poster extends Component {
       updateCursor({
         x: { from: position[0], to: position[2] },
         y: { from: y, to: y },
-        radius: position[3],
+        radius: (position[3] - position[1]) / 2,
         scale: 1,
         duration,
       }, delay)
     }
 
-    updateCursor({ x: ANIMEJS_INF, y: ANIMEJS_INF, scale: 0, duration: 100 }, '<')
+    // Reset at the end
+    updateCursor({
+      x: ANIMEJS_INF,
+      y: ANIMEJS_INF,
+      scale: 0,
+      duration: 100
+    }, '<')
   }
 
   beforeDestroy () {
