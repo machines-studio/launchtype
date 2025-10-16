@@ -4,8 +4,11 @@ build/*
 *.local
 assets/paroles/*
 !assets/paroles/README.md
-server/.*
 scripts/bin
+
+server/.*
+server/selfsigned.crt
+server/selfsigned.key
 
 ####### NODE ########
 .tmp
