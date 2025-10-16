@@ -28,7 +28,10 @@ export default class Pad extends Component {
     return (
       <section
         class={['pad', { 'is-loading': state.loading }]}
-        style='touch-action: none'
+        style={{
+          'touch-action': 'none',
+          '--ui-color-accent': props.trail ?? 'inherit'
+        }}
         event-pointerdown={this.#handleDown}
         event-pointermove={this.#handleMove}
         event-pointerup={this.#handleUp}
@@ -183,6 +186,16 @@ export default class Pad extends Component {
     // Initialize cursor position based on stored value
     const [nx, ny] = this.store.value.get() ?? [0.5, 0.5]
     this.moveCursor(padding + nx * (width - padding * 2), padding + ny * (height - padding * 2))
+
+    if (this.refs.canvas) {
+      this.trailPoints = []
+      this.refs.canvas.width = width
+      this.refs.canvas.height = height
+      this.context.strokeStyle = this.props.trail
+      this.context.lineWidth = TRAIL_WIDTH
+      this.context.lineCap = 'round'
+      this.context.lineJoin = 'round'
+    }
   }
 
   beforeDestroy () {
