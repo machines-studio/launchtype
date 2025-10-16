@@ -70,6 +70,7 @@ function displayError (error) {
     error.stack?.length && <pre>{error.stack}</pre>
   ], {
     icon: Icons.error,
-    tone: 'error'
+    tone: 'error',
+    duration: 10_000
   })
 }
