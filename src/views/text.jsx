@@ -58,7 +58,7 @@ export default async () => {
     if (!container) return
     container.innerHTML = ''
 
-    for (const parole of store.$paroles.value) {
+    for (const parole of (store.$paroles.value ?? []).reverse()) {
       render((
         <Button
           icon={Icons.selected}
