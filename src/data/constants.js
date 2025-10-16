@@ -17,7 +17,7 @@ export const DEBUG_WORDS = debug.includes('words')
 
 export const SERVER_URL = import.meta.env.DEV ? 'https://localhost:8888' : window.location.origin
 export const API_URL = SERVER_URL + '/api'
-export const WS_URL = (window.location.protocol === 'https' ? 'wss://' : 'ws://') + 'localhost:1337'
+export const WS_URL = (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host
 
 export const PAROLES = {
   fetch: async () => {

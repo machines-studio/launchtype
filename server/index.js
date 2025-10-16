@@ -114,7 +114,7 @@ server.listen(process.env.HTTP_PORT, () => {
 
 // Simple WS broadcast server
 const clients = new Map()
-new WebSocketServer({ port: 1337 }).on('connection', ws => {
+new WebSocketServer({ server }).on('connection', ws => {
   const log = logger({
     color: 'blue',
     prefix: '[WEBSOCKET]'
