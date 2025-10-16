@@ -1,5 +1,9 @@
 main#poster {
   --poster-height: 100vh;
-  --poster-width: calc(var(--poster-height) * (50 / 70));
+  --poster-width: calc(var(--poster-height) * (1080 / 1920));
   --border-radius: 0;
+
+  .poster__word {
+    font-family: milling, sans-serif;
+  }
 }

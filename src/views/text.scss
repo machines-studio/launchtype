@@ -75,7 +75,7 @@ main#text {
 
   .poster {
     --poster-height: var(--artboard-height);
-    --poster-width: calc(var(--poster-height) * (50 / 70));
+    --poster-width: calc(var(--poster-height) * (1080 / 1920));
 
     border: var(--ui-border);
     border-radius: var(--ui-border-radius);
