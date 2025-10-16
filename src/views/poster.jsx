@@ -7,8 +7,8 @@ import * as Constants from '/data/constants'
 import { $listen, $broadcast, $sync } from '/controllers/WebSocket'
 import Poster from '/components/Poster'
 
-const MIN_FONTSIZE = 10
-const MAX_FONTSIZE = 30
+const MIN_FONTSIZE = 20
+const MAX_FONTSIZE = 75
 
 const state = {
   $soundPlaying: $sync('sound.playing', false),
