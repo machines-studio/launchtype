@@ -9,11 +9,11 @@ main#recorder {
   --color-red: #f1513f;
   --color-green: #54db87;
 
-  --record-size: 10rem;
+  --record-size: 30rem;
   --record-color: var(--color-gray);
   --record-start-size: var(--record-size);
   --record-start-color: var(--color-red);
-  --record-stop-size: 5rem;
+  --record-stop-size: 10rem;
   --record-stop-color: var(--color-gray);
   --record-progress-width: 1rem;
   --record-progress-color: var(--color-red);
@@ -22,6 +22,10 @@ main#recorder {
   --transcript-padding: 4vw;
   --transcript-toolbar-gap: 6vw;
 
+  --ui-font-size: 2.2rem;
+  --ui-icon-size: 2.6rem;
+  --ui-height: 4.7rem;
+  --ui-line-height: 100%;
   --ui-color-accent: var(--color-green);
   --ui-color-accent-contrast: black;
   
@@ -54,6 +58,23 @@ main#recorder {
       inset: 0;
       background: var(--color-background);
       border-radius: 100%;
+    }
+
+    &::after {
+      @include font('ui');
+
+      --ui-font-size: 1.8rem;
+      --ui-line-height: 110%;
+
+      content: 'appuyer pour enregister';
+
+      position: absolute;
+      bottom: -50%;
+
+      width: 10ch;
+
+      color: var(--color-gray);
+      text-align: center;
     }
 
     &__start {
@@ -89,6 +110,10 @@ main#recorder {
   &.is-recording .record {
     &__start { display: none; }
 
+    &::after {
+      content: 'appuyer pour arrêter';
+    }
+
     &__stop {
       display: block;
       animation: half-spin var(--easing-slow) var(--easing-ease-back) forwards;
@@ -98,6 +123,10 @@ main#recorder {
   &.is-waiting .record {
     --record-start-color: none;
     pointer-events: none;
+
+    &::after {
+      content: 'transcription en cours';
+    }
 
     &__progress {
       background: conic-gradient(transparent, white 100%);
