@@ -43,12 +43,15 @@ ws.onmessage = e => {
 
 export function $broadcast (name, value) {
   const signal = $(value)
-  signal.wsDispatch = v => ws.send(JSON.stringify({
-    event: 'broadcast',
-    name,
-    value: v,
-    from: UID
-  }))
+  signal.wsDispatch = v => {
+    if (!$connected.value) return
+    ws.send(JSON.stringify({
+      event: 'broadcast',
+      name,
+      value: v,
+      from: UID
+    }))
+  }
   signal.subscribe(signal.wsDispatch)
   return signal
 }
