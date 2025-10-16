@@ -26,10 +26,11 @@
     margin-right: 0.25em; // Simulate a space between words
     cursor: pointer;
 
-    font-family: var(--poster-font-family);
+    font-family: milling, sans-serif;
 
     // BUG cables.gl vw are not correct (viewport not updated ?)
     font-size: calc(var(--poster-font-size) * var(--poster-vw) * 0.8);
+    font-weight: bold; // triplex1mm
     line-height: 1;
     color: transparent;
   }

@@ -20,7 +20,13 @@
     url('/fonts/205tf-milling-duplex1mm-italic.otf') format('opentype');
 }
 
-// WIP milling triplex 1mm for /text poster view
+@font-face {
+  font-family: milling;
+  font-display: auto;
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/205tf-milling-triplex1mm.otf') format('opentype');
+}
 
 @font-face {
   font-family: ibm-plex-mono;
@@ -36,76 +42,4 @@
   font-style: italic;
   font-weight: normal;
   src: url('/fonts/ibm-plex-mono-medium-italic.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: epilogue;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/epilogue-wght.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: tiny;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/TINY5x3GX.ttf') format('TrueType');
-}
-
-@font-face {
-  font-family: fraunces;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/Fraunces--latin_basic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: tiltneon;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/TiltNeon.ttf') format('TrueType');
-}
-
-@font-face {
-  font-family: blinker;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/Blinker_variable_font.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: tiltprism;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/TiltPrism.ttf') format('TrueType');
-}
-
-@font-face {
-  font-family: tiltwarp;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/TiltWarp.ttf') format('TrueType');
-}
-
-@font-face {
-  font-family: sixtyfour;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/Sixtyfour.ttf') format('TrueType');
-}
-
-@font-face {
-  font-family: gluten;
-  font-display: auto;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/GlutenVariable.woff2') format('woff2');
 }
