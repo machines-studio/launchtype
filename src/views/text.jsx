@@ -38,7 +38,7 @@ export default async () => {
             'is-waiting': $([state.$soundPlaying, state.$soundLoading], ([a, b]) => a || b)
           }]}
           icon={Icons.sound}
-          label={$(store.$parole, p => 'lancer la parole' ?? 'sélectionnez une parole')}
+          label={$(store.$parole, p => p ? 'lancer la parole' : 'sélectionnez une parole')}
           active={store.$parole}
           disabled={not(store.$parole)}
           event-click={e => $broadcast('sound.lastPlayed').set(Date.now())}
