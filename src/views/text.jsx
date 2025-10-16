@@ -18,7 +18,8 @@ const state = {
 const store = {
   $parole: $sync('parole'),
   $paroles: undefined, // Will be init with fetched paroles during setup,
-  $fontSize: $($listen('pad[0].x', 0), v => map(v, -1, 1, 10, 30))
+  $fontSize: $($listen('pad[0].x', 0), v => map(v, -1, 1, 10, 30)),
+  $lastContentChange: $broadcast('lastContentChange', Date.now())
 }
 
 export default async () => {
@@ -26,6 +27,8 @@ export default async () => {
   store.$paroles = $listen('paroles', await Constants.PAROLES.fetch())
   store.$paroles.subscribe(handleParoles)
   window.setTimeout(handleParoles, 1000) // Dirty
+
+  store.$parole.subscribe(() => store.$lastContentChange.set(Date.now()))
 
   return (
     <main id='text'>
