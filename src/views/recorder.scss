@@ -9,13 +9,13 @@ main#recorder {
   --color-red: #f1513f;
   --color-green: #54db87;
 
-  --record-size: 30rem;
+  --record-size: 30vw;
   --record-color: var(--color-gray);
   --record-start-size: var(--record-size);
   --record-start-color: var(--color-red);
-  --record-stop-size: 10rem;
+  --record-stop-size: 10vw;
   --record-stop-color: var(--color-gray);
-  --record-progress-width: 1rem;
+  --record-progress-width: 1vw;
   --record-progress-color: var(--color-red);
 
   --transcript-font-size: 6vw;
@@ -63,13 +63,13 @@ main#recorder {
     &::after {
       @include font('ui');
 
-      --ui-font-size: 1.8rem;
-      --ui-line-height: 110%;
+      --ui-font-size: 3vw;
+      --ui-line-height: 120%;
 
       content: 'appuyer pour enregister';
 
       position: absolute;
-      bottom: -50%;
+      bottom: -15vw;
 
       width: 10ch;
 
