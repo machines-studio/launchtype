@@ -8,7 +8,7 @@ import AudioRecorder from '/abstractions/AudioRecorder'
 import * as Constants from '/data/constants'
 import * as Icons from '/data/icons'
 
-const MAX_DURATION = 10_000 // ms
+const MAX_DURATION = 3_000 // ms
 
 const recorder = new AudioRecorder()
 const state = {
