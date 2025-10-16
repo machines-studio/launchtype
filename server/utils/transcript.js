@@ -35,7 +35,7 @@ module.exports = async (filepath, {
 
       segments.push({
         uuid: 'segment_' + uid(),
-        text: text.replace(/[.,«»/]/gi, ''),
+        text: text.replace(/[.,«»/]/gi, '').replace(/'/, '’'),
         start,
         startMs: timestampToMilliseconds(start),
         end,
