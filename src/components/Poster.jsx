@@ -38,7 +38,7 @@ export default class Poster extends Component {
     cursor: $({
       x: ANIMEJS_INF,
       y: ANIMEJS_INF,
-      radius: 20,
+      r: 20,
       scale: 0
     })
   }
@@ -66,7 +66,7 @@ export default class Poster extends Component {
     cursorX: $(this.store.cursor, c => c?.x ?? ANIMEJS_INF),
     cursorY: $(this.store.cursor, c => c?.y ?? ANIMEJS_INF),
     cursorScale: $(this.store.cursor, c => c?.scale ?? 0),
-    cursorRadius: $(this.store.cursor, c => c?.radius ?? 20)
+    cursorRadius: $(this.store.cursor, c => c?.r ?? 20)
   }
 
   beforeRender () {
@@ -270,6 +270,8 @@ export default class Poster extends Component {
       }, delay)
     }
 
+    const { width, height } = this.base.getBoundingClientRect()
+
     // Assuming words have been inserted in the order of their transcript
     for (const { uuid, position, ...data } of Object.values(this.store.words.get())) {
       const word = this.refs.words.get(uuid)
@@ -280,11 +282,12 @@ export default class Poster extends Component {
       const duration = (data.endMs / Constants.PLAYBACK_RATE) - delay
 
       const y = position[1] + (position[3] - position[1]) / 2
+      const h = width / ((position[3] - position[1]) * height)
       updateCursor({
         x: { from: position[0], to: position[2] },
         y: { from: y, to: y },
-        radius: (position[3] - position[1]) / 2,
-        scale: 1,
+        r: { from: h, to: h },
+        scale: { from: 1, to: 1 },
         duration,
       }, delay)
     }
