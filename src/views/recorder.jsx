@@ -1,7 +1,7 @@
 import './recorder.scss'
 import { $ } from '@tooooools/ui/state'
 import { Button, Toolbar, Toast } from '@tooooools/ui/components'
-import { $broadcast } from '/controllers/WebSocket'
+import { $sync } from '/controllers/WebSocket'
 
 import AudioRecorder from '/abstractions/AudioRecorder'
 
@@ -22,7 +22,7 @@ const store = {
 
 export default async () => {
   await recorder.init()
-  store.$paroles = $broadcast('paroles', await Constants.PAROLES.fetch())
+  store.$paroles = $sync('paroles', await Constants.PAROLES.fetch())
 
   recorder.$duration.subscribe(duration => {
     if (duration >= MAX_DURATION) transcript()
