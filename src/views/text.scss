@@ -11,8 +11,12 @@ main#text {
   padding: var(--gutter);
   font-variant-numeric: tabular-nums;
 
+  @supports (height: 100svh) {
+    --artboard-height: calc(100svh - var(--gutter) * 2);
+  }
+
   // Hide warnings on production
-  body:not([data-env='development']):has(&) [class^='ui-toast-'][data-tone='warning'] { display: none; }
+  body:not([data-env='development']) & ~ [class^='ui-toast-container-'] [data-tone='warning'] { display: none; }
 
   .paroles {
     flex: 1;
