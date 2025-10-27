@@ -3,7 +3,9 @@ main#poster {
   --poster-width: calc(var(--poster-height) * (1080 / 1920));
   --border-radius: 0;
 
-  cursor: none;
+  &, * {
+    cursor: none !important;
+  }
 
   // Hide warnings on production
   body:not([data-env='development']) & ~ [class^='ui-toast-container-'] [data-tone='warning'] { display: none; }
